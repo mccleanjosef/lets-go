@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+body{
+    background: lightcyan;
+    padding: 3rem;
+}
+
+.c-inital-filters{
+    width: 40%;
+    background: lightgreen;
+    padding: 3rem;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.item-container{
+    display: flex;
+}
+
+.cardContent{
+    width: 100%;
+    background: coral;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    padding: 3rem 0;
+}
+
+.card{
+    width: 400px;
+    margin: 0 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.filterfeedback{
+    display: flex;
+}
