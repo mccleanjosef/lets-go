@@ -1,5 +1,8 @@
 console.log("script is linked");
 
+
+// Query Selectors
+
 // ===============================
 // start of transport object-array
 // ===============================
@@ -93,6 +96,7 @@ objectsLoop();
 // end of generating first cards
 // ===============================
 
+
 // // ===============================
 // // start of modal
 // // ===============================
@@ -120,6 +124,107 @@ function modal(){
 // // ===============================
 // // end of modal
 // // ===============================
+
+
+// ==============================================
+// start of checkbox filter before inital filters
+// ==============================================
+let checkboxes = $("input[type=checkbox][name=type]")
+let selectedType = [];
+
+function CheckboxNoTravelDetails(){
+    
+    // Attach a change event handler to the checkboxes.
+    checkboxes.change(function() {
+        console.log("CheckboxNoTravelDetails");
+        $('#cardContent').empty();
+        selectedType = checkboxes
+        // Filter out unchecked boxes.
+        .filter(":checked")
+        // Extract values using jQuery map. 
+        .map(function() { 
+        return this.value;
+        }) 
+        // Get array.
+        .get() 
+        
+        // console.log(selectedType);
+        // console.log(selectedType.length);
+        let i = 0;
+        for(i = 0; i < selectedType.length; i++){
+            if(selectedType[i] === 'motorbike'){
+                let i = 0;
+                for(i = 0; i < transport.length; i++){
+        
+                    if(transport[i].type === 'motorbike'){
+                        generateCard(i);
+                    };
+                }
+            }
+            if(selectedType[i] === 'small car'){
+                let i = 0;
+                for(i = 0; i < transport.length; i++){
+        
+                    if(transport[i].type === 'small car'){
+                        generateCard(i);
+                    };
+                }
+            }
+            if(selectedType[i] === 'large car'){
+                let i = 0;
+                for(i = 0; i < transport.length; i++){
+        
+                    if(transport[i].type === 'large car'){
+                        generateCard(i);
+                    };
+                }
+            }
+            if(selectedType[i] === 'motor home'){
+                let i = 0;
+                for(i = 0; i < transport.length; i++){
+        
+                    if(transport[i].type === 'motor home'){
+                        generateCard(i);
+                    };
+                }
+            }
+        }
+        modal();
+    }); 
+}
+$(document).ready(function(){
+    console.log($('#numberOfPeople').text);
+    // $("#btn1").click(function(){
+    //   alert("Text: " + $("#test").text());
+    // });
+    // $("#btn2").click(function(){
+    //   alert("HTML: " + $("#test").html());
+    // });
+});
+// let passengers = $('#numberOfPeople').text;
+
+function CbCallCondition(){
+    // let passengers = $('#numberOfPeople').text;
+    // console.log(passengers);
+    switch(true){
+        case numberOfPeople == 0:
+            CheckboxNoTravelDetails();
+            console.log(numberOfPeople);
+            break;
+        case numberOfPeople > 0:
+            console.log(numberOfPeople);
+            break;
+    }
+}
+CbCallCondition();
+
+// if( numberOfPeople === 0 ){
+//     CheckboxNoTravelDetails();
+// };
+
+// ==============================================
+// start of checkbox filter before inital filters
+// ==============================================
 
 
 // ====================================
@@ -187,9 +292,10 @@ function initMap(){
 // ====================================
 const submitInfo = document.querySelector('#submitInfo');
 
-// created an array of months in a year
-let months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
 let msDay = 1000 * 3600 * 24;
+
+// setting checkboxes as checked initally
+$('input[name="type"]').prop('checked', true);
 
 function calculateDates(event){
     $('#cardContent').empty();
@@ -199,10 +305,10 @@ function calculateDates(event){
     const pickUpDate = new Date($('#pickUpDate').val());
     const dropOffDate = new Date($('#dropOffDate').val());
     // const checkIn = document.querySelector('#checkIn');
-    console.log(pickUpDate);
-    console.log(dropOffDate);
+    // console.log(pickUpDate);
+    // console.log(dropOffDate);
 
-    // how to get the individual data of day,month and year
+    // getting the individual data of day,month and year
     let pickUpDay = pickUpDate.getDate(),
         pickUpMonth = pickUpDate.getMonth(),
         pickUpYear = pickUpDate.getFullYear(),
@@ -210,13 +316,13 @@ function calculateDates(event){
         dropOffMonth = dropOffDate.getMonth(),
         dropOffYear = dropOffDate.getFullYear();
 
-    // looked at how to join the data - join function turns an array into a string
+    // joining the data - join function turns an array into a string
     let pickUpDetails = [pickUpDay,pickUpMonth,pickUpYear].join('/');
     let dropOffDetails = [dropOffDay,dropOffMonth,dropOffYear].join('/');
     console.log(pickUpDetails);
     console.log(dropOffDetails);
 
-    //    calculate the difference
+    // calculating the difference
     let difference = dropOffDate.getTime() - pickUpDate.getTime();
     let dayDifference = (difference/msDay) + 1;
     // console.log(dayDifference);
@@ -234,32 +340,33 @@ function calculateDates(event){
     }
     // end of number of people feedback
 
-    checkInData(dayDifference, numberOfPeople)
-
+    if( selectedType.length > 0 ){
+        BtnCheckboxFilter(dayDifference, numberOfPeople);
+    } else{
+        travelData(dayDifference, numberOfPeople);
+    };
+    
 };
 
 
-function checkInData(daysOfTravel, peopleBooked){
+function travelData(daysOfTravel, peopleBooked){
     console.log(typeof daysOfTravel, daysOfTravel);
     console.log(typeof peopleBooked, peopleBooked);
 
-    //filtering by people booked and days of travel
+    //filtering by people booked and days of travel if no vehicle checkboxes are clicked
+    console.log("no vehicles clicked");
     let i = 0;
     for(i = 0; i < transport.length; i++){
         if ((peopleBooked === 1) && (daysOfTravel >= 1 && daysOfTravel <= 5) && (transport[i].type === 'motorbike')){
-            // console.log(transport[i]);
             generateCard(i);
         }
         if ((peopleBooked >= 1 && peopleBooked <= 2) && (daysOfTravel >= 1 && daysOfTravel <= 10) && (transport[i].type === 'small car')){
-            // console.log(transport[i]);
             generateCard(i);
         }
         if ((peopleBooked >= 1 && peopleBooked <= 5) && (daysOfTravel >= 3 && daysOfTravel <= 10) && (transport[i].type === 'large car')){
-            // console.log(transport[i]);
             generateCard(i);
         }
         if ((peopleBooked >= 2 && peopleBooked <= 6) && (daysOfTravel >= 2 && daysOfTravel <= 15) && (transport[i].type === 'motor home')){
-            // console.log(transport[i]);
             generateCard(i);
         }
     };
@@ -267,7 +374,145 @@ function checkInData(daysOfTravel, peopleBooked){
 }
 
 submitInfo.addEventListener("click", calculateDates);
-
 // ====================================
 // end of filtering by initial inputs
 // ====================================
+
+// // =================================================
+// // start of checkbox filter After inital filters set
+// // =================================================
+// function checkboxFilter(daysOfTravel, peopleBooked){
+//     // let checkboxes = $("input[type=checkbox][name=type]")
+//     // let selectedType = [];
+
+//     // Attach a change event handler to the checkboxes.
+//     checkboxes.change(function() {
+//         $('#cardContent').empty();
+//         selectedType = checkboxes
+//         // Filter out unchecked boxes.
+//         .filter(":checked")
+//         // Extract values using jQuery map. 
+//         .map(function() { 
+//         return this.value;
+//         }) 
+//         // Get array.
+//         .get() 
+        
+        
+//         console.log(daysOfTravel);
+//         console.log(peopleBooked);
+
+//         console.log("AfterCheckboxFilter");
+//         console.log(selectedType);
+
+//         console.log(selectedType);
+//         let i = 0;
+//         for(i = 0; i < selectedType.length; i++){
+//             if(selectedType[i] === 'motorbike'){
+//                 let i = 0;
+//                 for(i = 0; i < transport.length; i++){
+        
+//                     if ((peopleBooked === 1) && (daysOfTravel >= 1 && daysOfTravel <= 5) && (transport[i].type === 'motorbike')){
+//                         generateCard(i);
+//                     }
+//                 }
+//                 console.log("working");
+//             }
+//             if(selectedType[i] === 'small car'){
+//                 let i = 0;
+//                 for(i = 0; i < transport.length; i++){
+        
+//                     if ((peopleBooked >= 1 && peopleBooked <= 2) && (daysOfTravel >= 1 && daysOfTravel <= 10) && (transport[i].type === 'small car')){
+//                         generateCard(i);
+//                     }
+//                 }
+//             }
+//             if(selectedType[i] === 'large car'){
+//                 let i = 0;
+//                 for(i = 0; i < transport.length; i++){
+        
+//                     if ((peopleBooked >= 1 && peopleBooked <= 5) && (daysOfTravel >= 3 && daysOfTravel <= 10) && (transport[i].type === 'large car')){
+//                         generateCard(i);
+//                     }
+//                 }
+//             }
+//             if(selectedType[i] === 'motor home'){
+//                 let i = 0;
+//                 for(i = 0; i < transport.length; i++){
+        
+//                     if ((peopleBooked >= 2 && peopleBooked <= 6) && (daysOfTravel >= 2 && daysOfTravel <= 15) && (transport[i].type === 'motor home')){
+//                         generateCard(i);
+//                     }
+//                 }
+//             }
+//         }
+//         modal();
+//     }); 
+// }
+// // =================================================
+// // end of checkbox filter After inital filters set
+// // =================================================
+
+// ==========================================================
+// start of checkbox filter if selected before inital filters
+// ==========================================================
+function BtnCheckboxFilter(daysOfTravel, peopleBooked){
+    // function uses the already filled selectedType array
+    // and is called on submitInfo button not checkbox change
+
+    $('#cardContent').empty();
+    console.log(daysOfTravel);
+    console.log(peopleBooked);
+
+    console.log("BtnCheckboxFilter");
+    console.log(selectedType);
+
+    let i = 0;
+    for(i = 0; i < selectedType.length; i++){
+        if(selectedType[i] === 'motorbike'){
+            let i = 0;
+            for(i = 0; i < transport.length; i++){
+    
+                if ((peopleBooked === 1) && (daysOfTravel >= 1 && daysOfTravel <= 5) && (transport[i].type === 'motorbike')){
+                    generateCard(i);
+                }
+            }
+            console.log("working");
+        }
+        if(selectedType[i] === 'small car'){
+            let i = 0;
+            for(i = 0; i < transport.length; i++){
+    
+                if ((peopleBooked >= 1 && peopleBooked <= 2) && (daysOfTravel >= 1 && daysOfTravel <= 10) && (transport[i].type === 'small car')){
+                    generateCard(i);
+                }
+            }
+        }
+        if(selectedType[i] === 'large car'){
+            let i = 0;
+            for(i = 0; i < transport.length; i++){
+    
+                if ((peopleBooked >= 1 && peopleBooked <= 5) && (daysOfTravel >= 3 && daysOfTravel <= 10) && (transport[i].type === 'large car')){
+                    generateCard(i);
+                }
+            }
+        }
+        if(selectedType[i] === 'motor home'){
+            let i = 0;
+            for(i = 0; i < transport.length; i++){
+    
+                if ((peopleBooked >= 2 && peopleBooked <= 6) && (daysOfTravel >= 2 && daysOfTravel <= 15) && (transport[i].type === 'motor home')){
+                    generateCard(i);
+                }
+            }
+        }
+    }
+    modal();
+}
+// ==========================================================
+// start of checkbox filter if selected before inital filters
+// ==========================================================
+
+
+
+// Event Listeners
