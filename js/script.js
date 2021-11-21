@@ -126,9 +126,9 @@ function modal(){
 // // ===============================
 
 
-// ==============================================
-// start of checkbox filter before inital filters
-// ==============================================
+// =======================================================
+// start of checkbox filter before inputing travel details
+// =======================================================
 let checkboxes = $("input[type=checkbox][name=type]")
 let selectedType = [];
 
@@ -148,7 +148,7 @@ function CheckboxNoTravelDetails(){
         // Get array.
         .get() 
         
-        // console.log(selectedType);
+        console.log(selectedType);
         // console.log(selectedType.length);
         let i = 0;
         for(i = 0; i < selectedType.length; i++){
@@ -192,39 +192,22 @@ function CheckboxNoTravelDetails(){
         modal();
     }); 
 }
-$(document).ready(function(){
-    console.log($('#numberOfPeople').text);
-    // $("#btn1").click(function(){
-    //   alert("Text: " + $("#test").text());
-    // });
-    // $("#btn2").click(function(){
-    //   alert("HTML: " + $("#test").html());
-    // });
-});
-// let passengers = $('#numberOfPeople').text;
+
+// trying to stop calling CheckboxNoTravelDetails when travel details are inputed.
+// const activated = document.querySelector('.activated');
 
 function CbCallCondition(){
-    // let passengers = $('#numberOfPeople').text;
-    // console.log(passengers);
-    switch(true){
-        case numberOfPeople == 0:
-            CheckboxNoTravelDetails();
-            console.log(numberOfPeople);
-            break;
-        case numberOfPeople > 0:
-            console.log(numberOfPeople);
-            break;
-    }
+
+    if( $('#travelDetails').hasClass('activated') ){
+        console.log("not calling CBnoTD");
+    } else{
+        CheckboxNoTravelDetails();
+    };
 }
 CbCallCondition();
-
-// if( numberOfPeople === 0 ){
-//     CheckboxNoTravelDetails();
-// };
-
-// ==============================================
-// start of checkbox filter before inital filters
-// ==============================================
+// =======================================================
+// end of checkbox filter before inputing travel details
+// =======================================================
 
 
 // ====================================
@@ -288,7 +271,7 @@ function initMap(){
 
 
 // ====================================
-// start of filtering by initial inputs
+// start of filtering by travel details
 // ====================================
 const submitInfo = document.querySelector('#submitInfo');
 
@@ -300,6 +283,8 @@ $('input[name="type"]').prop('checked', true);
 function calculateDates(event){
     $('#cardContent').empty();
     event.preventDefault();
+
+    $('.c-inital-filters').addClass('activated');
     
     // getting data from date input
     const pickUpDate = new Date($('#pickUpDate').val());
@@ -340,16 +325,18 @@ function calculateDates(event){
     }
     // end of number of people feedback
 
+    CbCallCondition();
+
     if( selectedType.length > 0 ){
         BtnCheckboxFilter(dayDifference, numberOfPeople);
     } else{
-        travelData(dayDifference, numberOfPeople);
+        travelDetailsNoVehicle(dayDifference, numberOfPeople);
     };
     
 };
 
 
-function travelData(daysOfTravel, peopleBooked){
+function travelDetailsNoVehicle(daysOfTravel, peopleBooked){
     console.log(typeof daysOfTravel, daysOfTravel);
     console.log(typeof peopleBooked, peopleBooked);
 
@@ -375,15 +362,15 @@ function travelData(daysOfTravel, peopleBooked){
 
 submitInfo.addEventListener("click", calculateDates);
 // ====================================
-// end of filtering by initial inputs
+// end of filtering by travel details
 // ====================================
 
-// // =================================================
-// // start of checkbox filter After inital filters set
-// // =================================================
+// // =======================================================
+// // start of changing vehicle checkbox after initial search
+// // =======================================================
 // function checkboxFilter(daysOfTravel, peopleBooked){
-//     // let checkboxes = $("input[type=checkbox][name=type]")
-//     // let selectedType = [];
+//     let checkboxes = $("input[type=checkbox][name=type]")
+//     let selectedType = [];
 
 //     // Attach a change event handler to the checkboxes.
 //     checkboxes.change(function() {
@@ -449,13 +436,13 @@ submitInfo.addEventListener("click", calculateDates);
 //         modal();
 //     }); 
 // }
-// // =================================================
-// // end of checkbox filter After inital filters set
-// // =================================================
+// // =======================================================
+// // start of changing vehicle checkbox after initial search
+// =======================================================
 
-// ==========================================================
-// start of checkbox filter if selected before inital filters
-// ==========================================================
+// ===================================================================
+// start of checkbox filter if selected before inputing travel deatils
+// ===================================================================
 function BtnCheckboxFilter(daysOfTravel, peopleBooked){
     // function uses the already filled selectedType array
     // and is called on submitInfo button not checkbox change
@@ -509,9 +496,9 @@ function BtnCheckboxFilter(daysOfTravel, peopleBooked){
     }
     modal();
 }
-// ==========================================================
-// start of checkbox filter if selected before inital filters
-// ==========================================================
+// ===================================================================
+// end of checkbox filter if selected before inputing travel deatils
+// ===================================================================
 
 
 
