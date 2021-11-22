@@ -1,3 +1,6 @@
+@font-face {
+  font-family: 'National', sans-serif;
+  src: url(fonts/TestNational-Regular.otf); }
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +10,7 @@
 body {
   background: lightcyan;
   padding: 3rem;
-  font-family: test-national; }
+  font-family: 'National', sans-serif; }
 
 .c-inital-filters {
   width: 40%;
@@ -34,5 +37,13 @@ body {
 
 .filterfeedback {
   display: flex; }
+
+.l-sortBy {
+  display: flex;
+  justify-content: space-evenly; }
+
+.filterfeedback {
+  display: flex;
+  justify-content: space-evenly; }
 
 /*# sourceMappingURL=style.css.map */

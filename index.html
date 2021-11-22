@@ -17,7 +17,7 @@
 </head>
 <body>
 
-  <!-- Start of inital filters-->
+  <!-- Start of travel details-->
   <div id="travelDetails" class="c-inital-filters">
     
     <form action="">
@@ -122,35 +122,80 @@
       <button id="submitInfo" type="submit">Search</button>
     </form>
   </div>
-  <!-- End of inital filters-->
+  <!-- End of travel details-->
 
-  <!-- Start of filter feedback -->
-  <div class="filterfeedback">
-    <label for="days">Number of days</label>
-    <p id="days"></p>
-    <label for="numberOfPeople">People</label>
-    <p id="numberOfPeople">1</p>
+  <!-- start of inital sorting container -->
+  <div class="l-initalSorting">
+    <form id="sortBy" class="l-sortBy" action="">
+      <label for="type">motorbike</label>
+      <input type="checkbox" name="typeI" value="motorbike">
+  
+      <label for="type">small car</label>
+      <input type="checkbox" name="typeI" value="small car">
+  
+      <label for="type">large car</label>
+      <input type="checkbox" name="typeI" value="large car">
+  
+      <label for="type">motorhome</label>
+      <input type="checkbox" name="typeI" value="motor home">
+  
+      <!-- sort by dropdown -->
+      <div class="select">
+        <select id="sortBtn" name="" class="sort-container__select">
+          <option value="">sort by</option>
+          <option value="low">Low to high</option>
+          <option value="high">High to low</option>
+        </select>
+        <span class="focus"></span>
+      </div>
+    </form>
   </div>
-  <!-- End of filter feedback -->
+  <!-- end of inital sorting container -->
 
-  <!-- Start of Sort By container -->
-  <!-- vehicle type checkboxes -->
-  <form action="">
-    <label for="type">motorbike</label>
-    <input type="checkbox" name="type" value="motorbike">
+  <!-- start of final sorting container -->
+  <div class="l-finalSorting">
+    <!-- Start of filter feedback -->
+    <div class="filterfeedback">
+      <label for="days">Number of days</label>
+      <p id="days"></p>
+      <label for="numberOfPeople">People</label>
+      <p id="numberOfPeople"></p>
+      <div id="completeTD"></div>
+    </div>
+    <!-- End of filter feedback -->
 
-    <label for="type">small car</label>
-    <input type="checkbox" name="type" value="small car">
+    <!-- Start of Sort By container -->
+    <!-- vehicle type checkboxes -->
+    <form id="sortBy" class="l-sortBy" action="">
+      <label for="type">motorbike</label>
+      <input type="checkbox" name="type" value="motorbike">
 
-    <label for="type">large car</label>
-    <input type="checkbox" name="type" value="large car">
+      <label for="type">small car</label>
+      <input type="checkbox" name="type" value="small car">
 
-    <label for="type">motorhome</label>
-    <input type="checkbox" name="type" value="motor home">
+      <label for="type">large car</label>
+      <input type="checkbox" name="type" value="large car">
 
-    <!-- <button id="typeFilter" type="submit">Filter by vehicle</button> -->
-  </form>
-  <!-- End of Sort By container -->
+      <label for="type">motorhome</label>
+      <input type="checkbox" name="type" value="motor home">
+
+      <!-- sort by dropdown -->
+      <div class="sort-container">
+        <div class="select">
+          <select id="sortBtn" name="" class="sort-container__select">
+            <option value="">sort by</option>
+            <option value="title">Product Name A-Z</option>
+            <option value="brand">Brand Name A-Z</option>
+          </select>
+          <span class="focus"></span>
+        </div>
+      </div>
+    </form>
+    <!-- End of Sort By container -->
+  </div>
+  <!-- end of final sorting container -->
+
+  <div class="products"></div>
 
   <!-- Start of card container -->
   <div id="cardContent" class="cardContent">
@@ -163,7 +208,7 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="transportModalTitle">
+            <h5 class="modal-Name" id="transportModalName">
 
             </h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -196,5 +241,6 @@
   
   <!-- local script -->
   <script src="./js/script.js"></script>
+  <script src="./js/initialSorting.js"></script>
 </body>
 </html>

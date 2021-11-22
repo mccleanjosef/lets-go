@@ -1,3 +1,5 @@
+@import "mixins";
+
 *{
     margin: 0;
     padding: 0;
@@ -7,7 +9,7 @@
 body{
     background: lightcyan;
     padding: 3rem;
-    font-family: test-national;
+    font-family: 'National', sans-serif;
 }
 
 .c-inital-filters{
@@ -39,4 +41,16 @@ body{
 
 .filterfeedback{
     display: flex;
+}
+
+.l-sortBy{
+    // width: 100%;
+    // background: olive;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.filterfeedback{
+    display: flex;
+    justify-content: space-evenly;
 }
