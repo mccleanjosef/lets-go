@@ -1,4 +1,5 @@
-@font-face {
-    font-family: 'National', sans-serif;
-    src: url(fonts/TestNational-Regular.otf);
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

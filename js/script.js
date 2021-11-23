@@ -10,22 +10,40 @@ let transport = [
     {   
         type: 'motorbike',
         id: 101,
-        name: "mb name",
+        name: "mb name a",
         brand: "d",
         price: "199",
-        image: './img/suzuki-dl650-v-strom.jpeg',
+        imageOne: './img/suzuki-dl650-v-strom.jpeg',
+        imageTwo: './img/suzuki-dl650-v-strom.jpeg',
+        imageThree: './img/suzuki-dl650-v-strom.jpeg',
         minPeople: 1,
         maxPeople: 1,
         minTravelDays: 1,
         maxTravelDays: 5
-    }, 
+    },
+    {   
+        type: 'motorbike',
+        id: 101,
+        name: "mb name b",
+        brand: "d",
+        price: "120",
+        imageOne: './img/suzuki-dl650-v-strom.jpeg',
+        imageTwo: './img/suzuki-dl650-v-strom.jpeg',
+        imageThree: './img/suzuki-dl650-v-strom.jpeg',
+        minPeople: 1,
+        maxPeople: 1,
+        minTravelDays: 1,
+        maxTravelDays: 5
+    },
     {   
         type: 'small car',
         id: 102,
         name: "sc name",
         brand: "c",
         price: "129",
-        image: './img/toyota-corolla-hatch-gx-ng-2018-1.png',
+        imageOne: './img/toyota-corolla-hatch-gx-ng-2018-1.png',
+        imageTwo: './img/toyota-corolla-hatch-gx-ng-2018-1.png',
+        imageThree: './img/toyota-corolla-hatch-gx-ng-2018-1.png',
         minPeople: 1,
         maxPeople: 2,
         minTravelDays: 1,
@@ -37,7 +55,9 @@ let transport = [
         name: "lc name",
         brand: "b",
         price: "144",
-        image: './img/suv.jpeg',
+        imageOne: './img/suv.jpeg',
+        imageTwo: './img/suv.jpeg',
+        imageThree: './img/suv.jpeg',
         minPeople: 1,
         maxPeople: 5,
         minTravelDays: 3,
@@ -49,7 +69,9 @@ let transport = [
         name: "mh name",
         brand: "a",
         price: "200",
-        image: './img/apollo-euro-camper-4-berth-white-background.jpeg',
+        imageOne: './img/apollo-euro-camper-4-berth-white-background.jpeg',
+        imageTwo: './img/apollo-euro-camper-4-berth-white-background.jpeg',
+        imageThree: './img/apollo-euro-camper-4-berth-white-background.jpeg',
         minPeople: 2,
         maxPeople: 6,
         minTravelDays: 2,
@@ -68,7 +90,32 @@ function generateCard(x){
     $('#cardContent').append(
         `
         <div class="card card--style">
-            <img class="card-img-top" src="${transport[x].image}" alt="Card image cap">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="${transport[x].imageOne}" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="${transport[x].imageTwo}" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="${transport[x].imageThree}" alt="Third slide">
+                </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+                </a>
+            </div>
             <div class="card-body">
                 <h5 class="card-title">${transport[x].name}</h5>
                 <p class="card-text">${transport[x].type}</p>
@@ -107,22 +154,67 @@ objectsLoop();
 function modal(){
 
     $(".vehicleSelect").click(function(){
+
         let i = 0;
         for(i = 0; i < transport.length; i++){
             if(parseInt(this.id) === transport[i].id){
-                $('#transportModalName').empty().append(
-                    `
-                    <h5 class="modalName">${transport[i].name}</h5>
-                    `
-                )
                 $('#transportModalInfo').empty().append(
                     `
-                    <p class="modalSynopsis">${transport[i].type}</p>
+                    <div id="vehicleDetails" class="c-modal__content"></div>
+                    <div id="review" class="c-modal__content modal-hide"></div>
+                    <div id="summary" class="c-modal__content"></div>
                     `
                 );
+                modalContent();
             }
         }
     });
+}
+
+function modalContent(){
+    $('#review').hide();
+    $('#summary').hide();
+    $('#confirmBtn').hide();
+    $('#closeBtn').hide();
+
+    const hireBtn = document.querySelector('#hireBtn');
+    const confirmBtn = document.querySelector('#confirmBtn');
+    const closeBtn = document.querySelector('#closeBtn');
+
+    function hire(){
+        $('#vehicleDetails').hide();
+        $('#review').show();
+        $('#hireBtn').hide();
+        $('#confirmBtn').show();
+
+        $('#vecDetTitle').removeClass("c-modal__title-ctn--active");
+        $('#revTitle').addClass("c-modal__title-ctn--active");
+    }
+
+    function confirm(){
+        $('#review').hide();
+        $('#summary').show();
+        $('#confirmBtn').hide();
+        $('#closeBtn').show();
+
+        $('#revTitle').removeClass("c-modal__title-ctn--active");
+        $('#sumTitle').addClass("c-modal__title-ctn--active");
+    }
+
+    // in case of multiple purchases
+    function close(){
+        $('#summary').hide();
+        $('#vehicleDetails').show();
+        $('#closeBtn').hide();
+        $('#hireBtn').show();
+
+        $('#sumTitle').removeClass("c-modal__title-ctn--active");
+        $('#vecDetTitle').addClass("c-modal__title-ctn--active");
+    }
+
+    hireBtn.addEventListener("click", hire);
+    confirmBtn.addEventListener("click", confirm);
+    closeBtn.addEventListener("click", close);
 
 }
 // // ===============================
@@ -144,8 +236,17 @@ $(document).ready(function(){
     $('body').append(script);
 
     $('.l-finalSorting').hide();
-});
 
+    $('.carousel').carousel({
+        interval: false
+        // pause: 'hover',
+    })
+
+    $('#myModal').modal({
+        keyboard: true
+    })
+
+});
 
 function initMap(){
 
@@ -213,7 +314,7 @@ function calculateDates(event){
     $('#cardContent').empty();
     event.preventDefault();
 
-    $('.c-inital-filters').addClass('activated');
+    // $('.c-inital-filters').addClass('activated');
     
     // getting data from date input
     const pickUpDate = new Date($('#pickUpDate').val());
@@ -256,11 +357,13 @@ function calculateDates(event){
 
     // CbCallCondition();
 
-    if( selectedType.length > 0 ){
-        BtnCheckboxFilter(dayDifference, numberOfPeople);
-    } else{
-        travelDetailsNoVehicle(dayDifference, numberOfPeople);
-    };
+    // see BtnCheckboxFilter(dayDifference, numberOfPeople); no longer working
+    // if( selectedTypeI.length > 0 ){
+    //     BtnCheckboxFilter(dayDifference, numberOfPeople);
+    // } else{
+    //     travelDetailsNoVehicle(dayDifference, numberOfPeople);
+    // };
+    travelDetailsNoVehicle(dayDifference, numberOfPeople);
 
     AfterTravelDetailsCheckbox(dayDifference, numberOfPeople);
 
@@ -323,7 +426,7 @@ function AfterTravelDetailsCheckbox(daysOfTravel, peopleBooked){
         // console.log(peopleBooked);
 
         console.log("AfterCheckboxFilter");
-        console.log(selectedType);
+        // console.log(selectedType);
 
         let i = 0;
         for(i = 0; i < selectedType.length; i++){
@@ -368,138 +471,56 @@ function AfterTravelDetailsCheckbox(daysOfTravel, peopleBooked){
     }); 
 }
 // =======================================================
-// start of changing vehicle checkbox after initial search
+// end of changing vehicle checkbox after initial search
 // =======================================================
 
-// ===================================================================
-// start of checkbox filter if selected before inputing travel deatils
-// ===================================================================
-function BtnCheckboxFilter(daysOfTravel, peopleBooked){
-    // function uses the already filled selectedType array
-    // and is called on submitInfo button not checkbox change
 
+// =========================================
+// start of price filter for inital sorting
+// =========================================
+$('#sortBtnFin').change(function(){
+    let sortValue = ($('#sortBtnFin').val()).toLowerCase();
+    // console.log(sortValue);
+    if (sortValue === 'low'){
+
+        const sortLow = (transport = []) => {
+            const sorter = (a, b) => {
+            return +a.price - +b.price;
+            };
+            transport.sort(sorter);
+        };
+        
+        sortLow(transport);
+        console.log(transport);
+        displayPriceFilter();
+
+    } else if (sortValue === 'high'){
+
+        const sortHigh = (transport = []) => {
+            const sorter = (a, b) => {
+            return +b.price - +a.price;
+            };
+            transport.sort(sorter);
+        };
+
+        sortHigh(transport);
+        console.log(transport);
+        displayPriceFilter();
+    }
+});
+
+
+function displayPriceFilter(){
     $('#cardContent').empty();
-    // console.log(daysOfTravel);
-    // console.log(peopleBooked);
-
-    console.log("BtnCheckboxFilter");
-    console.log(selectedType);
-
+    // console.log(selectedType);
     let i = 0;
-    for(i = 0; i < selectedType.length; i++){
-        if(selectedType[i] === 'motorbike'){
-            let i = 0;
-            for(i = 0; i < transport.length; i++){
-    
-                if ((peopleBooked === 1) && (daysOfTravel >= 1 && daysOfTravel <= 5) && (transport[i].type === 'motorbike')){
-                    generateCard(i);
-                }
-            }
-        }
-        if(selectedType[i] === 'small car'){
-            let i = 0;
-            for(i = 0; i < transport.length; i++){
-    
-                if ((peopleBooked >= 1 && peopleBooked <= 2) && (daysOfTravel >= 1 && daysOfTravel <= 10) && (transport[i].type === 'small car')){
-                    generateCard(i);
-                }
-            }
-        }
-        if(selectedType[i] === 'large car'){
-            let i = 0;
-            for(i = 0; i < transport.length; i++){
-    
-                if ((peopleBooked >= 1 && peopleBooked <= 5) && (daysOfTravel >= 3 && daysOfTravel <= 10) && (transport[i].type === 'large car')){
-                    generateCard(i);
-                }
-            }
-        }
-        if(selectedType[i] === 'motor home'){
-            let i = 0;
-            for(i = 0; i < transport.length; i++){
-    
-                if ((peopleBooked >= 2 && peopleBooked <= 6) && (daysOfTravel >= 2 && daysOfTravel <= 15) && (transport[i].type === 'motor home')){
-                    generateCard(i);
-                }
-            }
-        }
+    for(i = 0; i < transport.length; i++){
+        generateCard(i);
     }
     modal();
 }
-// ===================================================================
-// end of checkbox filter if selected before inputing travel deatils
-// ===================================================================
-
-
-// ==============================
-// start of price sorting
-// ==============================
-// $('#sortBtn').change(function(){
-//     // console.log("testing");
-//     let sortValue = ($('#sortBtn').val()).toLowerCase();
-//     // console.log(sortValue);
-//     if ((sortValue === 'title') || (sortValue === 'brand')){
-//         // console.log('is equal');
-//         sortByAscending(sortValue);
-//     }
-// });
-
-
-
-// function aphaSortBy(daysOfTravel, peopleBooked){
-//     // let checkboxes = $("input[type=checkbox][name=type]")
-//     // let selectedType = [];
-//     $('#cardContent').empty();
-    
-    
-//     let i = 0;
-//     for(i = 0; i < selectedType.length; i++){
-//         console.log(selectedType.length);
-//         // generateCard(i);
-        
-//         if(selectedType[i] === 'motorbike'){
-            
-//             let i = 0;
-//             for(i = 0; i < transport.length; i++){
-//                 console.log("apha");
-    
-//                 if ((peopleBooked === 1) && (daysOfTravel >= 1 && daysOfTravel <= 5) && (transport[i].type === 'motorbike')){
-//                     generateCard(i);
-//                 }
-//             }
-//         }
-//         if(selectedType[i] === 'small car'){
-//             let i = 0;
-//             for(i = 0; i < transport.length; i++){
-    
-//                 if ((peopleBooked >= 1 && peopleBooked <= 2) && (daysOfTravel >= 1 && daysOfTravel <= 10) && (transport[i].type === 'small car')){
-//                     generateCard(i);
-//                 }
-//             }
-//         }
-//         if(selectedType[i] === 'large car'){
-//             let i = 0;
-//             for(i = 0; i < transport.length; i++){
-    
-//                 if ((peopleBooked >= 1 && peopleBooked <= 5) && (daysOfTravel >= 3 && daysOfTravel <= 10) && (transport[i].type === 'large car')){
-//                     generateCard(i);
-//                 }
-//             }
-//         }
-//         if(selectedType[i] === 'motor home'){
-//             let i = 0;
-//             for(i = 0; i < transport.length; i++){
-    
-//                 if ((peopleBooked >= 2 && peopleBooked <= 6) && (daysOfTravel >= 2 && daysOfTravel <= 15) && (transport[i].type === 'motor home')){
-//                     generateCard(i);
-//                 }
-//             }
-//         }
-//     };
-//     modal();
-// }
-// ==============================
-// end of price sorting
-// ==============================
+// =========================================
+// end of price filter for inital sorting
+// =========================================
 
 // Event Listeners

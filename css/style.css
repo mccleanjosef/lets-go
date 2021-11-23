@@ -7,10 +7,71 @@
   text-decoration: none;
   box-sizing: border-box; }
 
+html {
+  font-size: 65.5%; }
+
 body {
   background: lightcyan;
   padding: 3rem;
-  font-family: 'National', sans-serif; }
+  font-family: "National", sans-serif;
+  font-size: 1.7rem; }
+
+.modal-content {
+  height: 900px; }
+
+.modal-body {
+  display: flex;
+  flex-flow: column wrap; }
+
+.c-modal__header {
+  justify-content: space-between;
+  border: none;
+  padding-bottom: 0; }
+.c-modal__backIcon {
+  font-size: 2.5rem;
+  padding: 1rem 1rem;
+  color: #FFFFFF; }
+.c-modal__page-title {
+  display: flex; }
+.c-modal__title-ctn {
+  background: #00ABDD;
+  color: #FFFFFF;
+  border-radius: 30px;
+  padding: 1em 2em; }
+  .c-modal__title-ctn--active {
+    background: #DCCD23; }
+.c-modal__title-text {
+  font-size: 1.6rem; }
+.c-modal__footer {
+  justify-content: center;
+  border: none;
+  padding-top: 0; }
+.c-modal__btn {
+  font-size: 2rem; }
+
+.modal-header .close {
+  padding: 1rem 1rem;
+  padding-top: 0;
+  margin: 0;
+  font-size: 2.8rem; }
+
+#vehicleDetails {
+  width: 100%;
+  height: 100%;
+  background: green; }
+
+#review {
+  width: 100%;
+  height: 100%;
+  background: orange; }
+
+#summary {
+  width: 100%;
+  height: 100%;
+  background: red; }
+
+#hireBtn {
+  width: 30%; }
 
 .c-inital-filters {
   width: 40%;

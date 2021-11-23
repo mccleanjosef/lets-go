@@ -1,0 +1,78 @@
+.modal-content{
+    height: 900px;
+}
+
+.modal-body{
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.c-modal{
+    &__header{
+        justify-content: space-between;
+        border: none;
+        padding-bottom: 0;
+        // background: rebeccapurple;
+    }
+    &__backIcon{
+        font-size: 2.5rem;
+        // cursor: pointer;
+        padding: 1rem 1rem;
+        color: $text-white;
+    }
+    &__page-title{
+        display: flex;
+        // width: 50%;
+        // background: lemonchiffon;
+    }
+    &__title-ctn{
+        background: $primary-colour;
+        color: $text-white;
+        border-radius: 30px;
+        padding: 1em 2em;
+        &--active{
+            background: $secondary-colour;
+        }
+    }
+    &__title-text{
+        font-size: 1.6rem;
+    }
+    &__footer{
+        // display: flex;
+        justify-content: center;
+        border: none;
+        padding-top: 0;
+    }
+    &__btn{
+        font-size: 2rem;
+    }
+}
+
+.modal-header .close {
+    padding: 1rem 1rem;
+    padding-top: 0;
+    margin: 0;
+    font-size: 2.8rem;
+}
+
+#vehicleDetails{
+    width: 100%;
+    height: 100%;
+    background: green;
+}
+
+#review{
+    width: 100%;
+    height: 100%;
+    background: orange;
+}
+
+#summary{
+    width: 100%;
+    height: 100%;
+    background: red;
+}
+
+#hireBtn{
+    width: 30%;
+}

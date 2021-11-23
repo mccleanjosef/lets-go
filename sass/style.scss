@@ -1,16 +1,8 @@
+@import "var";
+@import "resets";
 @import "mixins";
+@import "modal";
 
-*{
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    box-sizing: border-box;
-}
-body{
-    background: lightcyan;
-    padding: 3rem;
-    font-family: 'National', sans-serif;
-}
 
 .c-inital-filters{
     width: 40%;

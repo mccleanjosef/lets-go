@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
     // ============================================
     // start of checkbox filter for inital sorting
@@ -11,19 +10,18 @@ $(document).ready(function(){
         return this.value;
     }).get() 
     
-
     function CheckboxNoTravelDetails(){
         
         // Attach a change event handler to the checkboxes.
         checkboxesI.change(function() {
-            console.log("CheckboxNoTravelDetails");
+            // console.log("CheckboxNoTravelDetails");
             $('#cardContent').empty();
 
             selectedTypeI = checkboxesI.filter(":checked").map(function() { 
                 return this.value;
             }).get()
             
-            console.log(selectedTypeI);
+            // console.log(selectedTypeI);
             // console.log(selectedType.length);
             let i = 0;
             for(i = 0; i < selectedTypeI.length; i++){
@@ -150,7 +148,7 @@ $(document).ready(function(){
         //     }
         // }
         let i = 0;
-        for(i = 0; i < selectedTypeI.length; i++){
+        for(i = 0; i < transport.length; i++){
             // console.log(selectedTypeI[i]);
             // if(selectedTypeI[i] === 'motorbike'){
             //     // let i = 0;

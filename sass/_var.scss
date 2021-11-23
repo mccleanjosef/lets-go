@@ -1,0 +1,30 @@
+// media queries
+$mobile: "(max-width: 600px)";
+$tablet: "(min-width:601px) and (max-width:1023px)";
+$desktop: "(min-width:1024px)";
+
+// Fonts
+@font-face {
+    font-family: 'National', sans-serif;
+    src: url(fonts/TestNational-Regular.otf);
+}
+// font-family: 'National', sans-serif;
+
+$heading-font: 'Josefin Sans', sans-serif;
+$body-font: 'National', sans-serif;
+
+$uppercase: uppercase;
+$bold: 700;
+$semibold: 600;
+$medium: 500;
+$regular: 400;
+
+// Colours
+$text-white: #FFFFFF;
+$primary-colour: #00ABDD;
+$secondary-colour: #DCCD23;
+
+$tertiary-colour: #82191E;
+$mobile-gray: #3C3C3C;
+$black: #000000;
+$red-highlight: #CF2730; 
