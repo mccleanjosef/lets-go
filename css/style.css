@@ -68,32 +68,25 @@ html {
   width: 30%; }
 
 .l-body {
-  position: relative;
   background: lightblue;
-  padding-top: 21rem;
   font-family: "National", sans-serif;
-  font-size: 1.7rem; }
+  font-size: 1.7rem;
+  display: grid;
+  grid-template-rows: 80vh 80vh;
+  grid-template-columns: 32.57vw 67.43vw;
+  grid-template-areas: "imgTopLeft imgTopRight" "imgBotLeft imgBotRight"; }
   .l-body__img-wrap-one {
-    width: 67.43%;
-    height: 1243px;
+    grid-area: imgTopRight;
     background: lightcoral;
-    z-index: 2;
+    position: relative; }
+  .l-body__img-wrap-two {
+    grid-area: imgTopLeft;
+    background: peru;
+    position: relative; }
+  .l-body__blob-one {
     position: absolute;
     top: 0;
     right: 0;
-    overflow: hidden; }
-  .l-body__img-wrap-two {
-    width: 32.57%;
-    height: 1243px;
-    background: peru;
-    z-index: 2;
-    position: absolute;
-    top: 0;
-    left: 0; }
-  .l-body__blob-one {
-    position: absolute;
-    top: -150px;
-    left: 0;
     width: 100%;
     height: 100%;
     background: #000000;
@@ -101,6 +94,28 @@ html {
     background-size: cover;
     clip-path: url(#blob-one);
     z-index: 1; }
+  .l-body__blob-two {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    background-size: cover;
+    clip-path: url(#blob-two);
+    z-index: 3; }
+
+.cls-1 {
+  transform: scale(10%); }
+
+.img-one {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  clip-path: url(#svgClip);
+  width: 100%;
+  height: 100%;
+  object-fit: cover; }
 
 .c-inital-filters {
   width: 40%;
