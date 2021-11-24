@@ -147,6 +147,8 @@ $(document).ready(function(){
         //         }
         //     }
         // }
+
+        // Instead of looping through transport array loop through new array of filtered vehicles
         let i = 0;
         for(i = 0; i < transport.length; i++){
             // console.log(selectedTypeI[i]);

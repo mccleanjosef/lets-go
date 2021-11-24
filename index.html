@@ -19,259 +19,271 @@
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body class="l-body">
-  <div class="l-body__img-wrap-one">
-    <!-- <div class="l-body__blob-one"></div> -->
-    <img class="img-one" src="https://images.unsplash.com/photo-1592006256125-1e7622ead3b0?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ" alt="Photographer in a market." />
-  </div>
-  <div class="l-body__img-wrap-two">
-    <div class="l-body__blob-two"></div>
-  </div>
-  <div class="l-body__img-wrap-three">
-    <div class="l-body__blob-three"></div>
-  </div>
-  <div class="l-body__img-wrap-four">
-    <div class="l-body__blob-four"></div>
-  </div>
-  
-  <!-- https://cssfordesigners.com/articles/clip-path-scaling -->
-  <svg width="0" height="0">
-    <clipPath id="svgClip" clipPathUnits="objectBoundingBox">
-      <path d="M0.75815095,0.0579477769 C0.879893708,0.187288937 0.902165272,0.677587654 0.799370955,0.785996249 C0.627963035,0.966765889 0.26163708,0.91434951 0.111342491,0.755791573 C-0.0332137967,0.603287436 -0.035795248,0.382887577 0.0965066612,0.173955315 C0.200239457,0.0101396315 0.648923894,-0.0580965318 0.75815095,0.0579477769 Z"></path>
-    </clipPath>
-  </svg>
+  <!-- start of grid -->
+  <div class="l-image-grid">
+    <div class="l-image-grid__ctn-one">
+      <div class="l-image-grid__blob-one"></div>
 
-  <svg viewBox="0 0 329.6667 86">
-    <defs>
-        <clipPath id="blob-one" clipPathUnits="objectBoundingBox" transform="scale(0.003033 0.0116279)">
-            <path class="cls-1" d="M1095.32,29.45c88.91,56.8,8.49,207.44,26.35,311.42,14.38,83.78,80.21,158.06,68.72,242.28-11.45,84-70.11,155.2-131,214.15-54.88,53.14-150.05,48.27-199.82,106.22-75.66,88.09-57.66,243.89-155.1,307-88.51,57.34-214,34-312.4-4.13-97.39-37.72-188.88-110.51-230.64-206.23C120.24,905.71,199.13,793.54,169,695,141.4,604.71-1.76,566.56,0,472.2c1.72-91.65,122.57-132.13,177-205.85C226,200,238.57,106.71,305.52,58.57c67.29-48.37,156.53-65,239-56.38,78.27,8.23,130.34,99.56,208.94,103.45C871.52,111.49,995.65-34.21,1095.32,29.45Z"/>
-        </clipPath>
-    </defs>
-  </svg>
-  <svg height="0" width="0">
-    <defs>
-        <clipPath id="blob-two">
-            <path class="cls-1" d="M568.94,440.71c-22.08,62.86,48.4,158.77-6,197.33-53.9,38.24-120.31-66.7-186.18-61-59.23,5.11-92.78,101.22-151.19,90.12-55.5-10.54-68.54-87.7-96-137.07-21.54-38.8-27.69-82.93-48.1-122.34C58.7,363.61,9.94,332.85,2.11,283.8c-8-50,7.29-104.1,36.44-145.48C67.26,97.57,116.43,77.57,161.86,57c40.7-18.42,83.61-32.8,128.3-32.53,41.91.25,77.58,36.24,119.43,34,69.56-3.7,137.89-82.75,199.92-51,53.69,27.49,29.06,114.75,40.33,174,9.5,49.94,36.29,100.58,21.15,149.09S585.73,392.89,568.94,440.71Z"/>
-        </clipPath>
-    </defs>
-  </svg>
->
-  <!-- Start of travel details-->
-  <div id="travelDetails" class="c-inital-filters">
-    
-    <form action="">
-      <div class="form-item">
-        <label for="pickUpLocation">Pick up location</label>
-        <br />
-        <select name="pickUpLocation">
-          <option>Auckland Airport</option>
-          <option>Hamilton Airport</option>
-          <option>Wellington Airport</option>
-          <option>Nelson Airport</option>
-          <option>Christchurch Airport</option>
-          <option>Dunedin Airport</option>
-        </select>
-      </div>
-      
-      <div class="form-item">
-        <label for="dropOffLocation">Drop off location</label>
-        <br />
-        <select name="dropOffLocation">
-          <option>Auckland Airport</option>
-          <option>Hamilton Airport</option>
-          <option>Wellington Airport</option>
-          <option>Nelson Airport</option>
-          <option>Christchurch Airport</option>
-          <option>Dunedin Airport</option>
-        </select>
-      </div>
-
-      <div class="item-container">
-        <div class="form-item">
-          <label for="pickUpDate">Pick up date</label>
-          <br />
-          <input class="form-input" id="pickUpDate" type="text">
-        </div>
-
-        <div class="form-item">
-          <label for="pickUpTime">Pick up time</label>
-          <br />
-          <select name="pickUpTime">
-            <option>9:00</option>
-            <option>10:00</option>
-            <option>11:00</option>
-            <option>12:00</option>
-            <option>13:00</option>
-            <option>14:00</option>
-          </select>
-        </div>
-      </div>
-      
-      <div class="item-container">
-        <div class="form-item">
-          <label for="dropOffDate">Drop off date</label>
-          <br />
-          <input class="form-input" id="dropOffDate" type="text">
-        </div>
-
-        <div class="form-item">
-          <label for="dropOffTime">Drop off time</label>
-          <br />
-          <select name="dropOffTime">
-            <option>9:00</option>
-            <option>10:00</option>
-            <option>11:00</option>
-            <option>12:00</option>
-            <option>13:00</option>
-            <option>14:00</option>
-          </select>
-        </div>
-      </div>
-      
-      <div class="item-container">
-        <div class="form-item">
-          <label for="adults">Adults</label>
-          <br />
-          <select name="adults" id="adults">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-          </select>
-        </div>
-
-        <div class="form-item">
-          <label for="children">Children</label>
-          <br />
-          <select name="children" id="children">
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-          </select>
-        </div>
-      </div>
-
-      <button id="submitInfo" type="submit">Search</button>
-    </form>
-  </div>
-  <!-- End of travel details-->
-
-  <!-- start of inital sorting container -->
-  <div class="l-initalSorting">
-    <form id="sortBy" class="l-sortBy" action="">
-      <label for="type">motorbike</label>
-      <input type="checkbox" name="typeI" value="motorbike">
-  
-      <label for="type">small car</label>
-      <input type="checkbox" name="typeI" value="small car">
-  
-      <label for="type">large car</label>
-      <input type="checkbox" name="typeI" value="large car">
-  
-      <label for="type">motorhome</label>
-      <input type="checkbox" name="typeI" value="motor home">
-  
-      <!-- sort by dropdown -->
-      <div class="select">
-        <select id="sortBtn" name="" class="sort-container__select">
-          <option value="">sort all vehicles by</option>
-          <option value="low">Low to high</option>
-          <option value="high">High to low</option>
-        </select>
-        <span class="focus"></span>
-      </div>
-    </form>
-  </div>
-  <!-- end of inital sorting container -->
-
-  <!-- start of final sorting container -->
-  <div class="l-finalSorting">
-    <!-- Start of filter feedback -->
-    <div class="filterfeedback">
-      <label for="days">Number of days</label>
-      <p id="days"></p>
-      <label for="numberOfPeople">People</label>
-      <p id="numberOfPeople"></p>
-      <div id="completeTD"></div>
+      <svg viewBox="0 0 1 0.99">
+        <defs>
+            <clipPath id="blob-one">
+              <path class="cls-1" d="M568.94,440.71c-22.08,62.86,48.4,158.77-6,197.33-53.9,38.24-120.31-66.7-186.18-61-59.23,5.11-92.78,101.22-151.19,90.12-55.5-10.54-68.54-87.7-96-137.07-21.54-38.8-27.69-82.93-48.1-122.34C58.7,363.61,9.94,332.85,2.11,283.8c-8-50,7.29-104.1,36.44-145.48C67.26,97.57,116.43,77.57,161.86,57c40.7-18.42,83.61-32.8,128.3-32.53,41.91.25,77.58,36.24,119.43,34,69.56-3.7,137.89-82.75,199.92-51,53.69,27.49,29.06,114.75,40.33,174,9.5,49.94,36.29,100.58,21.15,149.09S585.73,392.89,568.94,440.71Z"/>
+            </clipPath>
+        </defs>
+      </svg>
     </div>
-    <!-- End of filter feedback -->
+    <div class="l-image-grid__ctn-two">
+      <div class="l-image-grid__blob-two"></div>
 
-    <!-- Start of Sort By container -->
-    <!-- vehicle type checkboxes -->
-    <form id="sortBy" class="l-sortBy" action="">
-      <label for="type">motorbike</label>
-      <input type="checkbox" name="type" value="motorbike">
+      <svg height="0" width="0">
+        <defs>
+            <clipPath id="blob-two">
+              <path class="cls-1" d="M1095.32,29.45c88.91,56.8,8.49,207.44,26.35,311.42,14.38,83.78,80.21,158.06,68.72,242.28-11.45,84-70.11,155.2-131,214.15-54.88,53.14-150.05,48.27-199.82,106.22-75.66,88.09-57.66,243.89-155.1,307-88.51,57.34-214,34-312.4-4.13-97.39-37.72-188.88-110.51-230.64-206.23C120.24,905.71,199.13,793.54,169,695,141.4,604.71-1.76,566.56,0,472.2c1.72-91.65,122.57-132.13,177-205.85C226,200,238.57,106.71,305.52,58.57c67.29-48.37,156.53-65,239-56.38,78.27,8.23,130.34,99.56,208.94,103.45C871.52,111.49,995.65-34.21,1095.32,29.45Z"/>
+            </clipPath>
+        </defs>
+      </svg>
+    </div>
+    <div class="l-image-grid__ctn-three">
+      <div class="l-image-grid__blob-three"></div>
 
-      <label for="type">small car</label>
-      <input type="checkbox" name="type" value="small car">
+      <svg height="0" width="0">
+        <defs>
+            <clipPath id="blob-three">
+              <path class="cls-1" d="M520.9,911.86c-65.67-17.53-127-37.81-193.26-53.21-96.32-22.4-221,16.59-285.75-58.19C-19.48,729.54-7,606.24,38,523.91,82.5,442.25,229.32,462.8,271.37,379.84c46.22-91.19-63.81-216-7.64-301.38C313.8,2.3,429.77-1.46,520.9.3c90.34,1.74,172.36,44.39,251.51,88,80.43,44.3,166.23,88.42,212.65,167.64,46.52,79.4,73.6,181.36,42.58,268-30.62,85.47-159,96-201.63,176.15C780.82,785,863.58,925.77,784.58,980.61,708.67,1033.31,610.18,935.69,520.9,911.86Z"/>
+            </clipPath>
+        </defs>
+      </svg>
+    </div>
+    <div class="l-image-grid__ctn-four">
+      <div class="l-image-grid__blob-four"></div>
 
-      <label for="type">large car</label>
-      <input type="checkbox" name="type" value="large car">
+      <svg height="0" width="0">
+        <defs>
+            <clipPath id="blob-four">
+              <path class="cls-1" d="M787.48,296.56c140.94-78.34,245.4-365,383.29-281.44,139.5,84.59-122.08,326.41-60.17,477.36C1159.66,612.1,1384.86,563.6,1443.07,679c52.89,104.88,30.72,274.73-67,339.83-114.94,76.55-277.22-73-406.49-24.46-97,36.45-90.79,196.41-182.07,245.53-104,56-238.83,88-346.16,38.71C334.38,1229.51,315,1087.15,246.56,991.37,169.71,883.76-56.43,791.52,13.11,679c96.08-155.41,360.78-55,518.05-148,59-34.9,8.66-147.07,59.26-193.35C640.79,291.62,727.81,329.73,787.48,296.56Z"/>
+            </clipPath>
+        </defs>
+      </svg>
+    </div>
 
-      <label for="type">motorhome</label>
-      <input type="checkbox" name="type" value="motor home">
+    <!-- start of travel details-->
+    <div id="travelDetails" class="c-travel-details">
+    
+      <form action="">
+        <div class="form-item">
+          <label for="pickUpLocation">Pick up location</label>
+          <br />
+          <select name="pickUpLocation">
+            <option>Auckland Airport</option>
+            <option>Hamilton Airport</option>
+            <option>Wellington Airport</option>
+            <option>Nelson Airport</option>
+            <option>Christchurch Airport</option>
+            <option>Dunedin Airport</option>
+          </select>
+        </div>
+        
+        <div class="form-item">
+          <label for="dropOffLocation">Drop off location</label>
+          <br />
+          <select name="dropOffLocation">
+            <option>Auckland Airport</option>
+            <option>Hamilton Airport</option>
+            <option>Wellington Airport</option>
+            <option>Nelson Airport</option>
+            <option>Christchurch Airport</option>
+            <option>Dunedin Airport</option>
+          </select>
+        </div>
 
-      <!-- sort by dropdown -->
-      <div class="sort-container">
+        <div class="item-container">
+          <div class="form-item">
+            <label for="pickUpDate">Pick up date</label>
+            <br />
+            <input class="form-input" id="pickUpDate" type="text">
+          </div>
+
+          <div class="form-item">
+            <label for="pickUpTime">Pick up time</label>
+            <br />
+            <select name="pickUpTime">
+              <option>9:00</option>
+              <option>10:00</option>
+              <option>11:00</option>
+              <option>12:00</option>
+              <option>13:00</option>
+              <option>14:00</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="item-container">
+          <div class="form-item">
+            <label for="dropOffDate">Drop off date</label>
+            <br />
+            <input class="form-input" id="dropOffDate" type="text">
+          </div>
+
+          <div class="form-item">
+            <label for="dropOffTime">Drop off time</label>
+            <br />
+            <select name="dropOffTime">
+              <option>9:00</option>
+              <option>10:00</option>
+              <option>11:00</option>
+              <option>12:00</option>
+              <option>13:00</option>
+              <option>14:00</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="item-container">
+          <div class="form-item">
+            <label for="adults">Adults</label>
+            <br />
+            <select name="adults" id="adults">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </select>
+          </div>
+
+          <div class="form-item">
+            <label for="children">Children</label>
+            <br />
+            <select name="children" id="children">
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </select>
+          </div>
+        </div>
+
+        <button id="submitInfo" type="submit">Search</button>
+      </form>
+    </div>
+    <!-- end of travel details-->
+
+
+    <!-- start of inital sorting container -->
+    <div class="l-initalSorting">
+      <form id="sortBy" class="l-sortBy" action="">
+        <label for="type">motorbike</label>
+        <input type="checkbox" name="typeI" value="motorbike">
+    
+        <label for="type">small car</label>
+        <input type="checkbox" name="typeI" value="small car">
+    
+        <label for="type">large car</label>
+        <input type="checkbox" name="typeI" value="large car">
+    
+        <label for="type">motorhome</label>
+        <input type="checkbox" name="typeI" value="motor home">
+    
+        <!-- sort by dropdown -->
         <div class="select">
-          <select id="sortBtnFin" name="" class="sort-container__select">
+          <select id="sortBtn" name="" class="sort-container__select">
             <option value="">sort all vehicles by</option>
             <option value="low">Low to high</option>
             <option value="high">High to low</option>
           </select>
           <span class="focus"></span>
         </div>
+      </form>
+    </div>
+    <!-- end of inital sorting container -->
+
+    <!-- start of final sorting container -->
+    <div class="l-finalSorting">
+      <!-- Start of filter feedback -->
+      <div class="filterfeedback">
+        <label for="days">Number of days</label>
+        <p id="days"></p>
+        <label for="numberOfPeople">People</label>
+        <p id="numberOfPeople"></p>
+        <div id="completeTD"></div>
       </div>
-    </form>
-    <!-- End of Sort By container -->
-  </div>
-  <!-- end of final sorting container -->
+      <!-- end of filter feedback -->
 
-  <div class="products"></div>
+      <!-- start of Sort By container -->
+      <!-- vehicle type checkboxes -->
+      <form id="sortBy" class="l-sortBy" action="">
+        <label for="type">motorbike</label>
+        <input type="checkbox" name="type" value="motorbike">
 
-  <!-- Start of card container -->
-  <div id="cardContent" class="cardContent">
+        <label for="type">small car</label>
+        <input type="checkbox" name="type" value="small car">
 
-  </div>
-  <!-- End of card container -->
+        <label for="type">large car</label>
+        <input type="checkbox" name="type" value="large car">
 
-  <!-- Start of modal -->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="vehicleHireModal" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
-      <div class="modal-content">
-        <div class="modal-header c-modal__header">
-          <i class="fa fa-angle-left c-modal__backIcon" aria-hidden="true"></i>
-          <div class="c-modal__page-title">
-            <div class="c-modal__title-ctn c-modal__title-ctn--active" id="vecDetTitle"><h5 class="c-modal__title-text">Vehicle Details</h5></div>
-            <div class="c-modal__title-ctn" id="revTitle"><h5 class="c-modal__title-text">Review & Payment</h5></div>
-            <div class="c-modal__title-ctn" id="sumTitle"><h5 class="c-modal__title-text">Summary</h5></div>
+        <label for="type">motorhome</label>
+        <input type="checkbox" name="type" value="motor home">
+
+        <!-- sort by dropdown -->
+        <div class="sort-container">
+          <div class="select">
+            <select id="sortBtnFin" name="" class="sort-container__select">
+              <option value="">sort all vehicles by</option>
+              <option value="low">Low to high</option>
+              <option value="high">High to low</option>
+            </select>
+            <span class="focus"></span>
           </div>
-          <button type="button" class="close c-modal__exitBtn" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
         </div>
-        <div id="transportModalInfo" class="modal-body">
-          <h5 class="modal-Name" id="transportModalName">
+      </form>
+      <!-- end of Sort By container -->
+    </div>
+    <!-- end of final sorting container -->
 
-          </h5>
-        </div>
-        <div class="modal-footer c-modal__footer">
-          <button type="button" class="btn btn-secondary c-modal__btn" id="hireBtn">Hire</button>
-          <button type="button" class="btn btn-secondary c-modal__btn" id="confirmBtn">Confirm</button>
-          <button type="button" class="btn btn-secondary c-modal__btn" id="closeBtn" data-dismiss="modal">Close</button>
+    <!-- start of card container -->
+    <div id="cardContent" class="cardContent">
+
+    </div>
+    <!-- end of card container -->
+
+    <!-- start of modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="vehicleHireModal" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-header c-modal__header">
+            <i class="fa fa-angle-left c-modal__backIcon" aria-hidden="true"></i>
+            <div class="c-modal__page-title">
+              <div class="c-modal__title-ctn c-modal__title-ctn--active" id="vecDetTitle"><h5 class="c-modal__title-text">Vehicle Details</h5></div>
+              <div class="c-modal__title-ctn" id="revTitle"><h5 class="c-modal__title-text">Review & Payment</h5></div>
+              <div class="c-modal__title-ctn" id="sumTitle"><h5 class="c-modal__title-text">Summary</h5></div>
+            </div>
+            <button type="button" class="close c-modal__exitBtn" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div id="transportModalInfo" class="modal-body">
+            <h5 class="modal-Name" id="transportModalName">
+
+            </h5>
+          </div>
+          <div class="modal-footer c-modal__footer">
+            <button type="button" class="btn btn-secondary c-modal__btn" id="hireBtn">Hire</button>
+            <button type="button" class="btn btn-secondary c-modal__btn" id="confirmBtn">Confirm</button>
+            <button type="button" class="btn btn-secondary c-modal__btn" id="closeBtn" data-dismiss="modal">Close</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+    <!-- end of modal -->
 
+  </div>
+  <!-- end of grid -->
   
-  <!-- end of modal -->
   
   <!-- jquery v3.5.1 -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
