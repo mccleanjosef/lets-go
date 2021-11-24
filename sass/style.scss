@@ -1,135 +1,154 @@
 @import "var";
 @import "resets";
+@import "layout-bg";
 @import "mixins";
 @import "modal";
 
-.l-body{
-    background: lightblue;
-    // padding: 3rem;
-    // padding-top: 21rem;
-    font-family: $body-font;
-    font-size: 1.7rem;
+.l-content-grid{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    // background: yellow;
     width: 100vw;
-    min-height: 200vh;
-    overflow-x: hidden;
-}
-.l-image-grid{
-    display: grid;
-    grid-template-columns: repeat(16, 1fr);
-    grid-template-rows: repeat(16, 1fr);
-    width: 100vw;
-    min-height: 180vh;
-    background: mediumaquamarine;
-    &__ctn-one{
-        // background: indianred;
-        grid-column: 1/6;
-        grid-row: 1/4;
-        position: relative;
-    }
-    &__blob-one{
-        position: absolute;
-        top: -200px;
-        right: 0;
-        width: 675px;
-        height: 666px;
-        background: $black;
-        clip-path: url(#blob-one);
-        background: url(../img/pexels-jeremy-bishop-8241135.jpg) no-repeat;
-        background-size: cover;
-    }
-    &__ctn-two{
-        // background: powderblue;
-        grid-column: 6/17;
-        grid-row: 1/16;
-        position: relative;
-        overflow: hidden;
-    }
-    &__blob-two{
-        position: absolute;
-        top: -150px;
-        left: 0;
-        width: 1191.7283px;
-        height: 1244.99px;
-        background: $black;
-        clip-path: url(#blob-two);
-        background: url(../img/pexels-taryn-elliott-5581736.jpg) no-repeat;
-        background-size: cover;
-        // background-size: auto 1499px;
-        // background-position: 0% 0%;
-    }
-    &__ctn-three{
-        // background: wheat;
-        grid-column: 1/9;
-        grid-row: 5/11;
-        position: relative;
-    }
-    &__blob-three{
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 1040.9159px;
-        height: 996.0017px;
-        background: $black;
-        clip-path: url(#blob-three);
-        background: url(../img/pexels-kelly-l-2396045.jpg) no-repeat;
-        background-size: cover;
-    }
-    &__ctn-four{
-        // background: orange;
-        grid-column: 2/17;
-        grid-row: 9/17;
-        position: relative;
-        overflow: hidden;
-    }
-    &__blob-four{
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 1470.9984px;
-        height: 1302.9973px;
-        background: $black;
-        clip-path: url(#blob-four);
-        background: url(../img/pexels-ave-calvar-martinez-3030459.jpg) no-repeat;
-        background-size: cover;
-        transform: scale(90%);
-    }
+    height: 100%;
+    padding: 0 5%;
+    padding-top: 35rem;
+    padding-bottom: 20rem;
 }
 
 .c-travel-details{
     background: mediumpurple;
-    grid-column: 2/8;
-    grid-row: 3/6;
-    z-index: 1;
+    width: 603px;
+    height: 726px;
     padding: 3rem;
     border-radius: 40px;
+    margin-bottom: 5rem;
 }
 
-.l-initalSorting{
+.l-sorting-ctn{
+    // background: seagreen;
+    width: 100%;
+    height: 70px;
+    margin-bottom: 15rem;
+}
+
+.c-inital-sorting{
     background: mediumvioletred;
-    grid-column: 2/16;
-    grid-row: 7/8;
-    z-index: 1;
+    width: 100%;
+    &__sorting{
+        display: flex;
+        justify-content: space-between;
+    }
+    &__checkboxes{
+        display: flex;
+    }
+    &__ctn{
+        background: $primary-colour;
+        padding: 0.5em 1em;
+        color: $text-white;
+        border-radius: 50px;
+        font-size: 2.5rem;
+        letter-spacing: 0.1rem;
+        line-height: 1;
+        margin-right: 1.5rem;
+    }
+    &__label{
+        margin: 0;
+    }
+    &__select{
+        // background: $primary-colour;
+        // color: $text-white;
+        // font-size: 2.5rem;
+        // padding: 0.5em 1em;
+        // border-radius: 50px;
+        // border: none;
+        
+    }
 }
 
-.l-finalSorting{
-    background: darkgreen;
-    grid-column: 2/16;
-    grid-row: 7/8;
-    z-index: 1;
+// start of select styling
+:root {
+    --select-border: #777;
+    --select-focus: #ffffff;
+    --select-arrow: #ffffff;
+    --form-control-color: #ff4305;
+    --form-control-disabled: #959495;
+}
+
+select {
+    width: 150px;
+    appearance: none;
+    background: $primary-colour;
+    border: none;
+    padding: 0.5em 1em;
+    margin: 0;
+    width: 100%;
+    outline: none;
+    letter-spacing: 0.1rem;
+    color: $text-white;
+    font-size: 2.5rem;
+    border-radius: 50px;
+}
+
+.select {
+  display: grid;
+  grid-template-areas: "select";
+  align-items: center;
+  position: relative;
+
+
+  select,
+  &::after {
+    grid-area: select;
+  }
+
+  cursor: pointer;
+  line-height: 1;
+
+  // Custom arrow
+  &:not(.select--multiple)::after {
+    content: "";
+    justify-self: end;
+    width: 1.7em;
+    height: 1.2em;
+    background-color: var(--select-arrow);
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+    margin-right: 2.2rem;
+  }
+}
+
+option{
+    width: 150px;
+    text-transform: lowercase;
+    font-size: 1rem;
+    background: $black;
+    // padding-left: 1rem;
+    letter-spacing: 1rem;
+    font-size: 1.4rem;
+}
+// end of select styling
+
+.c-final-sorting{
+    // background: darkgreen;
+    width: 100%;
+}
+
+.feedback-ctn{
+    // background: palegoldenrod;
+    width: 100%;
+    height: 50px;
 }
 
 .cardContent{
     // background: coral;
-    grid-column: 2/16;
-    grid-row: 8/17;
-    z-index: 1;
+    width: 100%;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
     align-content: flex-start;
+    // min-height: 140vh;
+    min-height: 1218px;
 }
-
-
 
 .item-container{
     display: flex;
@@ -147,14 +166,35 @@
     display: flex;
 }
 
-.l-sortBy{
-    // width: 100%;
-    // background: olive;
-    display: flex;
-    justify-content: space-evenly;
-}
 
 .filterfeedback{
     display: flex;
     justify-content: space-evenly;
+}
+
+
+/* Large Devices (Laptop/Desktop) */
+@media #{$desktop}{
+    .select{
+        min-width: 19ch;
+        height: 25px;
+        padding: 0.5em 0.5em;
+        font-size: 1.1rem;
+    }
+}
+
+/* Medium Devices (Tablets) */
+@media #{$tablet} {
+    .c-travel-details{
+        width: 400px;
+        height: 600px;
+    }
+}
+
+/* Small Devices (Mobile) */
+@media #{$mobile}{
+    .c-travel-details{
+        width: 300px;
+        height: 600px;
+    }
 }

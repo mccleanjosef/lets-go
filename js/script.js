@@ -235,7 +235,7 @@ let selectedType = [];
 $(document).ready(function(){
     $('body').append(script);
 
-    $('.l-finalSorting').hide();
+    $('.c-final-sorting').hide();
 
     $('.carousel').carousel({
         interval: false
@@ -367,8 +367,8 @@ function calculateDates(event){
 
     AfterTravelDetailsCheckbox(dayDifference, numberOfPeople);
 
-    $('.l-initalSorting').hide();
-    $('.l-finalSorting').show();
+    $('.c-inital-sorting').hide();
+    $('.c-final-sorting').show();
     
 };
 
