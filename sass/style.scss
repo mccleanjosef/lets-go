@@ -3,18 +3,9 @@
 @import "layout-bg";
 @import "mixins";
 @import "modal";
+@import "sorting";
 
-.l-content-grid{
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: flex-start;
-    // background: yellow;
-    width: 100vw;
-    height: 100%;
-    padding: 0 5%;
-    padding-top: 35rem;
-    padding-bottom: 20rem;
-}
+
 
 .c-travel-details{
     background: mediumpurple;
@@ -23,120 +14,6 @@
     padding: 3rem;
     border-radius: 40px;
     margin-bottom: 5rem;
-}
-
-.l-sorting-ctn{
-    // background: seagreen;
-    width: 100%;
-    height: 70px;
-    margin-bottom: 15rem;
-}
-
-.c-inital-sorting{
-    background: mediumvioletred;
-    width: 100%;
-    &__sorting{
-        display: flex;
-        justify-content: space-between;
-    }
-    &__checkboxes{
-        display: flex;
-    }
-    &__ctn{
-        background: $primary-colour;
-        padding: 0.5em 1em;
-        color: $text-white;
-        border-radius: 50px;
-        font-size: 2.5rem;
-        letter-spacing: 0.1rem;
-        line-height: 1;
-        margin-right: 1.5rem;
-    }
-    &__label{
-        margin: 0;
-    }
-    &__select{
-        // background: $primary-colour;
-        // color: $text-white;
-        // font-size: 2.5rem;
-        // padding: 0.5em 1em;
-        // border-radius: 50px;
-        // border: none;
-        
-    }
-}
-
-// start of select styling
-:root {
-    --select-border: #777;
-    --select-focus: #ffffff;
-    --select-arrow: #ffffff;
-    --form-control-color: #ff4305;
-    --form-control-disabled: #959495;
-}
-
-select {
-    width: 150px;
-    appearance: none;
-    background: $primary-colour;
-    border: none;
-    padding: 0.5em 1em;
-    margin: 0;
-    width: 100%;
-    outline: none;
-    letter-spacing: 0.1rem;
-    color: $text-white;
-    font-size: 2.5rem;
-    border-radius: 50px;
-}
-
-.select {
-  display: grid;
-  grid-template-areas: "select";
-  align-items: center;
-  position: relative;
-
-
-  select,
-  &::after {
-    grid-area: select;
-  }
-
-  cursor: pointer;
-  line-height: 1;
-
-  // Custom arrow
-  &:not(.select--multiple)::after {
-    content: "";
-    justify-self: end;
-    width: 1.7em;
-    height: 1.2em;
-    background-color: var(--select-arrow);
-    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
-    margin-right: 2.2rem;
-  }
-}
-
-option{
-    width: 150px;
-    text-transform: lowercase;
-    font-size: 1rem;
-    background: $black;
-    // padding-left: 1rem;
-    letter-spacing: 1rem;
-    font-size: 1.4rem;
-}
-// end of select styling
-
-.c-final-sorting{
-    // background: darkgreen;
-    width: 100%;
-}
-
-.feedback-ctn{
-    // background: palegoldenrod;
-    width: 100%;
-    height: 50px;
 }
 
 .cardContent{
@@ -162,25 +39,25 @@ option{
     margin-bottom: 3rem;
 }
 
-.filterfeedback{
-    display: flex;
+.fuel-calculator{
+    display: none;
+    background: midnightblue;
+    width: 100%;
+    height: 120%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
 }
 
-
-.filterfeedback{
-    display: flex;
-    justify-content: space-evenly;
+.active{
+    display: block;
 }
-
 
 /* Large Devices (Laptop/Desktop) */
 @media #{$desktop}{
-    .select{
-        min-width: 19ch;
-        height: 25px;
-        padding: 0.5em 0.5em;
-        font-size: 1.1rem;
-    }
+
 }
 
 /* Medium Devices (Tablets) */

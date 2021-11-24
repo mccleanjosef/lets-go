@@ -38,6 +38,10 @@ html {
   left: 0;
   top: 0;
   z-index: -1; }
+  .l-image-grid__logo {
+    grid-column: 13/16;
+    grid-row: 2/3;
+    z-index: 1; }
   .l-image-grid__ctn-one {
     grid-column: 1/6;
     grid-row: 1/4;
@@ -97,6 +101,16 @@ html {
     background: url(../img/pexels-ave-calvar-martinez-3030459.jpg) no-repeat;
     background-size: cover; }
 
+.l-content-grid {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-start;
+  width: 100vw;
+  height: 100%;
+  padding: 0 5%;
+  padding-top: 35rem;
+  padding-bottom: 20rem; }
+
 /* Large Devices (Laptop/Desktop) */
 /* Medium Devices (Tablets) */
 @media (min-width: 601px) and (max-width: 1023px) {
@@ -107,7 +121,8 @@ html {
   .l-base-grid__footer {
     background: greenyellow; } }
 .modal-content {
-  height: 900px; }
+  height: 900px;
+  position: relative; }
 
 .modal-body {
   display: flex;
@@ -163,24 +178,6 @@ html {
 #hireBtn {
   width: 30%; }
 
-.l-content-grid {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: flex-start;
-  width: 100vw;
-  height: 100%;
-  padding: 0 5%;
-  padding-top: 35rem;
-  padding-bottom: 20rem; }
-
-.c-travel-details {
-  background: mediumpurple;
-  width: 603px;
-  height: 726px;
-  padding: 3rem;
-  border-radius: 40px;
-  margin-bottom: 5rem; }
-
 .l-sorting-ctn {
   width: 100%;
   height: 70px;
@@ -206,12 +203,25 @@ html {
   .c-inital-sorting__label {
     margin: 0; }
 
-:root {
-  --select-border: #777;
-  --select-focus: #ffffff;
-  --select-arrow: #ffffff;
-  --form-control-color: #ff4305;
-  --form-control-disabled: #959495; }
+.c-final-sorting {
+  background: mediumspringgreen;
+  width: 100%; }
+  .c-final-sorting__sorting {
+    display: flex;
+    justify-content: space-between; }
+  .c-final-sorting__checkboxes {
+    display: flex; }
+  .c-final-sorting__ctn {
+    background: #00ABDD;
+    padding: 0.5em 1em;
+    color: #FFFFFF;
+    border-radius: 50px;
+    font-size: 2.5rem;
+    letter-spacing: 0.1rem;
+    line-height: 1;
+    margin-right: 1.5rem; }
+  .c-final-sorting__label {
+    margin: 0; }
 
 select {
   width: 150px;
@@ -241,7 +251,7 @@ select {
     justify-self: end;
     width: 1.7em;
     height: 1.2em;
-    background-color: var(--select-arrow);
+    background-color: #ffffff;
     clip-path: polygon(100% 0%, 0 0%, 50% 100%);
     margin-right: 2.2rem; }
 
@@ -260,6 +270,21 @@ option {
   width: 100%;
   height: 50px; }
 
+.filterfeedback {
+  display: flex;
+  justify-content: space-evenly; }
+
+/* Large Devices (Laptop/Desktop) */
+/* Medium Devices (Tablets) */
+/* Small Devices (Mobile) */
+.c-travel-details {
+  background: mediumpurple;
+  width: 603px;
+  height: 726px;
+  padding: 3rem;
+  border-radius: 40px;
+  margin-bottom: 5rem; }
+
 .cardContent {
   width: 100%;
   display: flex;
@@ -277,20 +302,21 @@ option {
   margin: 0 1.5rem;
   margin-bottom: 3rem; }
 
-.filterfeedback {
-  display: flex; }
+.fuel-calculator {
+  display: none;
+  background: midnightblue;
+  width: 100%;
+  height: 120%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2; }
 
-.filterfeedback {
-  display: flex;
-  justify-content: space-evenly; }
+.active {
+  display: block; }
 
 /* Large Devices (Laptop/Desktop) */
-@media (min-width: 1024px) {
-  .select {
-    min-width: 19ch;
-    height: 25px;
-    padding: 0.5em 0.5em;
-    font-size: 1.1rem; } }
 /* Medium Devices (Tablets) */
 @media (min-width: 601px) and (max-width: 1023px) {
   .c-travel-details {

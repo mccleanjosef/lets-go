@@ -25,6 +25,7 @@
 
       <!-- start of background grid -->
       <div class="l-image-grid">
+        <img class="l-image-grid__logo" src="./img/Lets-go-logo.svg" alt="Let's GO! logo">
         <div class="l-image-grid__ctn-one">
           <div class="l-image-grid__blob-one"></div>
 
@@ -234,29 +235,34 @@
 
             <!-- start of Sort By container -->
             <!-- vehicle type checkboxes -->
-            <form id="sortBy" class="l-sortBy" action="">
-              <label for="type">motorbike</label>
-              <input type="checkbox" name="type" value="motorbike">
-
-              <label for="type">small car</label>
-              <input type="checkbox" name="type" value="small car">
-
-              <label for="type">large car</label>
-              <input type="checkbox" name="type" value="large car">
-
-              <label for="type">motorhome</label>
-              <input type="checkbox" name="type" value="motor home">
+            <form id="sortBy" class="c-final-sorting__sorting" action="">
+              <div class="c-final-sorting__checkboxes">
+                <div class="c-final-sorting__ctn">
+                  <input class="c-final-sorting__checkbox" type="checkbox" name="typeI" value="motorbike">
+                  <label class="c-final-sorting__label" for="type">Motorbike</label>
+                </div>
+                <div class="c-final-sorting__ctn">
+                  <input class="c-final-sorting__checkbox" type="checkbox" name="typeI" value="small car">
+                  <label class="c-final-sorting__label" for="type">Small Car</label>
+                </div>
+                <div class="c-final-sorting__ctn">
+                  <input class="c-final-sorting__checkbox" type="checkbox" name="typeI" value="large car">
+                  <label class="c-final-sorting__label" for="type">Large Car</label>
+                </div>
+                <div class="c-final-sorting__ctn">
+                  <input class="c-final-sorting__checkbox" type="checkbox" name="typeI" value="motor home">
+                  <label class="c-final-sorting__label" for="type">Motorhome</label>
+                </div>
+              </div>
 
               <!-- sort by dropdown -->
-              <div class="sort-container">
-                <div class="select">
-                  <select id="sortBtnFin" name="" class="sort-container__select">
-                    <option value="">sort all vehicles by</option>
-                    <option value="low">Low to high</option>
-                    <option value="high">High to low</option>
-                  </select>
-                  <span class="focus"></span>
-                </div>
+              <div class="c-final-sorting__select-ctn select">
+                <select id="sortBtn" name="" class="c-final-sorting__select">
+                  <option value="">Sort By</option>
+                  <option value="low">Low to high</option>
+                  <option value="high">High to low</option>
+                </select>
+                <span class="focus"></span>
               </div>
             </form>
             <!-- end of Sort By container -->
@@ -286,9 +292,7 @@
                 </button>
               </div>
               <div id="transportModalInfo" class="modal-body">
-                <h5 class="modal-Name" id="transportModalName">
 
-                </h5>
               </div>
               <div class="modal-footer c-modal__footer">
                 <button type="button" class="btn btn-secondary c-modal__btn" id="hireBtn">Hire</button>

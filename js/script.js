@@ -160,7 +160,15 @@ function modal(){
             if(parseInt(this.id) === transport[i].id){
                 $('#transportModalInfo').empty().append(
                     `
-                    <div id="vehicleDetails" class="c-modal__content"></div>
+                    <div id="vehicleDetails" class="c-modal__content">
+                        <button type="button" class="btn btn-secondary c-modal__btn" id="FuelCalBtn">Fuel Calculator</button>
+                        <!-- start of fuel calculator -->
+                        <div id="fuelCalContent" class="fuel-calculator">
+                            <i id="fuelCalClose" class="fas fa-times"></i>
+                        </div>
+                        <!-- end of fuel calculator -->
+                        
+                    </div>
                     <div id="review" class="c-modal__content modal-hide"></div>
                     <div id="summary" class="c-modal__content"></div>
                     `
@@ -212,6 +220,17 @@ function modalContent(){
         $('#vecDetTitle').addClass("c-modal__title-ctn--active");
     }
 
+    // start of fuel calculator display
+    $("#FuelCalBtn").click(function(){
+        $('#fuelCalContent').toggleClass('active');
+    });
+
+    $("#fuelCalClose").click(function(){
+        $('#fuelCalContent').toggleClass('active');
+    });
+    // end of fuel calculator display
+
+
     hireBtn.addEventListener("click", hire);
     confirmBtn.addEventListener("click", confirm);
     closeBtn.addEventListener("click", close);
@@ -245,6 +264,8 @@ $(document).ready(function(){
     $('#myModal').modal({
         keyboard: true
     })
+
+    
 
 });
 

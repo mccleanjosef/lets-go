@@ -1,0 +1,156 @@
+.l-sorting-ctn{
+    // background: seagreen;
+    width: 100%;
+    height: 70px;
+    margin-bottom: 15rem;
+}
+
+.c-inital-sorting{
+    background: mediumvioletred;
+    width: 100%;
+    &__sorting{
+        display: flex;
+        justify-content: space-between;
+    }
+    &__checkboxes{
+        display: flex;
+    }
+    &__ctn{
+        background: $primary-colour;
+        padding: 0.5em 1em;
+        color: $text-white;
+        border-radius: 50px;
+        font-size: 2.5rem;
+        letter-spacing: 0.1rem;
+        line-height: 1;
+        margin-right: 1.5rem;
+    }
+    &__label{
+        margin: 0;
+    }
+    &__select{
+        // background: $primary-colour;
+        // color: $text-white;
+        // font-size: 2.5rem;
+        // padding: 0.5em 1em;
+        // border-radius: 50px;
+        // border: none;
+        
+    }
+}
+
+.c-final-sorting{
+    background: mediumspringgreen;
+    width: 100%;
+    &__sorting{
+        display: flex;
+        justify-content: space-between;
+    }
+    &__checkboxes{
+        display: flex;
+    }
+    &__ctn{
+        background: $primary-colour;
+        padding: 0.5em 1em;
+        color: $text-white;
+        border-radius: 50px;
+        font-size: 2.5rem;
+        letter-spacing: 0.1rem;
+        line-height: 1;
+        margin-right: 1.5rem;
+    }
+    &__label{
+        margin: 0;
+    }
+}
+
+// start of select styling
+select {
+    width: 150px;
+    appearance: none;
+    background: $primary-colour;
+    border: none;
+    padding: 0.5em 1em;
+    margin: 0;
+    width: 100%;
+    outline: none;
+    letter-spacing: 0.1rem;
+    color: $text-white;
+    font-size: 2.5rem;
+    border-radius: 50px;
+}
+
+.select {
+  display: grid;
+  grid-template-areas: "select";
+  align-items: center;
+  position: relative;
+
+
+  select,
+  &::after {
+    grid-area: select;
+  }
+
+  cursor: pointer;
+  line-height: 1;
+
+  // Custom arrow
+  &:not(.select--multiple)::after {
+    content: "";
+    justify-self: end;
+    width: 1.7em;
+    height: 1.2em;
+    background-color: $select-arrow;
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+    margin-right: 2.2rem;
+  }
+}
+
+option{
+    width: 150px;
+    text-transform: lowercase;
+    font-size: 1rem;
+    background: $black;
+    // padding-left: 1rem;
+    letter-spacing: 1rem;
+    font-size: 1.4rem;
+}
+// end of select styling
+
+.c-final-sorting{
+    // background: darkgreen;
+    width: 100%;
+}
+
+.feedback-ctn{
+    // background: palegoldenrod;
+    width: 100%;
+    height: 50px;
+}
+
+.filterfeedback{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+/* Large Devices (Laptop/Desktop) */
+@media #{$desktop}{
+    // .select{
+    //     min-width: 19ch;
+    //     height: 25px;
+    //     padding: 0.5em 0.5em;
+    //     font-size: 1.1rem;
+    // }
+}
+
+/* Medium Devices (Tablets) */
+@media #{$tablet} {
+
+}
+
+/* Small Devices (Mobile) */
+@media #{$mobile}{
+
+}

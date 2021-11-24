@@ -36,6 +36,11 @@
     left: 0;
     top: 0;
     z-index: -1;
+    &__logo{
+        grid-column: 13/16;
+        grid-row: 2/3;
+        z-index: 1;
+    }
     &__ctn-one{
         // background: indianred;
         grid-column: 1/6;
@@ -109,6 +114,18 @@
         background-size: cover;
         // transform: scale(90%);
     }
+}
+
+.l-content-grid{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    // background: yellow;
+    width: 100vw;
+    height: 100%;
+    padding: 0 5%;
+    padding-top: 35rem;
+    padding-bottom: 20rem;
 }
 
 /* Large Devices (Laptop/Desktop) */
