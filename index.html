@@ -77,65 +77,65 @@
       <div class="l-content-grid">
         <div id="fuelCalContent" class="fuel-calculator">
           <div class="fuel-calculator__ctn">
-            <div id="map" class="fuel-calculator__map"></div>
-            <i id="fuelCalClose" class="fas fa-times fuel-calculator__close"></i>
-            <div id="right-panel" class="fuel-calculator__right-panel">
+            <div id="map"></div>
+
+            <div id="right-panel">
                 <!-- date calculation using jqeryui calendar -->
-                <h2 class="fuel-calculator__title">Fuel Calculator</h2>
-    
-                <label class="fuel-calculator__label" for="startDateTwo">Enter your start date</label>
-                <input type="text" id="startDateTwo" class="form-control">
-    
-                <label class="fuel-calculator__label" for="endDateTwo">Enter your end date</label>
-                <input type="text" id="endDateTwo" class="form-control">
-    
-                <input id="calculateDaysTwo" type="button" value="Calculate Days" class="btn-dark text-light">
-    
+                <h2>Dates for Journey</h2>
+
+                <label for="startDate">Enter your start date</label>
+                <input type="text" id="startDate" class="form-control">
+
+                <label for="endDate">Enter your end date</label>
+                <input type="text" id="endDate" class="form-control">
+
+                <input id="calculateDays" type="button" value="Calculate Days" class="btn-dark text-light">
+
                 <!-- results of our calculated days -->
-                <label class="fuel-calculator__label" for="days">Number of days</label>
-                <input id="daysTwo" type="text">
-    
+                <label for="days">Number of days</label>
+                <input id="days" type="text">
+
                 <div>
-    
-                    <b class="fuel-calculator__text">Start</b>
+
+                    <b>Start</b>
                     <div id="locationField1">
-                        <input id="startTwo" class="form-control" placeholder="Enter a city" type="text">
+                        <input id="start" class="form-control" placeholder="Enter a city" type="text">
                     </div>
                     <br />
-    
-                    <b class="fuel-calculator__text">waypoints</b>
+
+                    <b>waypoints</b>
                     <br />
-                    <i class="fuel-calculator__text">hold down Ctrl+Click or Cmd+Click for multiple selection</i>
+                    <i>hold down Ctrl+Click or Cmd+Click for multiple selection</i>
                     <br />
-                    <div class="fuel-calculator__select-ctn select">
-                    <select name="" id="waypointsTwo" class="fuel-calculator__select select" multiple>
-                        <option class="fuel-calculator__option" value="Hamilton, NZ">Hamilton, NZ</option>
-                        <option class="fuel-calculator__option" value="Taupo, NZ">Taupo, NZ</option>
-                        <option class="fuel-calculator__option" value="Nelson, NZ">Nelson, NZ</option>
-                        <option class="fuel-calculator__option" value="Dunedin, NZ">Dunedin, NZ</option>
-                        <option class="fuel-calculator__option" value="Bulls NZ">Bulls, NZ</option>
+                    <select multiple id="waypoints">
+                        <option value="Hamilton, NZ">Hamilton, NZ</option>
+                        <option value="Taupo, NZ">Taupo, NZ</option>
+                        <option value="Nelson, NZ">Nelson, NZ</option>
+                        <option value="Dunedin, NZ">Dunedin, NZ</option>
+                        <option value="Bulls NZ">Bulls, NZ</option>
                     </select>
-                    </div>
-                    
                     <br />
-    
-    
-                    <b class="fuel-calculator__text">End</b>
-                    <div id="locationFieldTwo">
-                        <input id="endTwo" class="form-control" placeholder="Enter a city" type="text">
+
+
+                    <b>End</b>
+                    <div id="locationField1">
+                        <input id="end" class="form-control" placeholder="Enter a city" type="text">
                     </div>
                     <br />
-    
-    
-                    <input type="submit" id="submitTwo">
+
+
+                    <input type="submit" id="submit">
                     <br />
                     <br />
-                    <div id="directions-panelTwo"></div>
+                    <div id="directions-panel"></div>
+
+
+
+
                 </div>
-    
-              </div>
+
+            </div>
           </div>
-          
         </div>
 
         <!-- start of travel details-->
@@ -169,11 +169,11 @@
             </div>
 
             <div class="item-container">
-              <div class="form-item">
+              <!-- <div class="form-item">
                 <label for="pickUpDate">Pick up date</label>
                 <br />
-                <input class="form-input" id="pickUpDate" type="text">
-              </div>
+                <input class="form-input" id="pickUpDate" type="text" >
+              </div> -->
 
               <div class="form-item">
                 <label for="pickUpTime">Pick up time</label>
@@ -190,11 +190,11 @@
             </div>
             
             <div class="item-container">
-              <div class="form-item">
+              <!-- <div class="form-item">
                 <label for="dropOffDate">Drop off date</label>
                 <br />
                 <input class="form-input" id="dropOffDate" type="text">
-              </div>
+              </div> -->
 
               <div class="form-item">
                 <label for="dropOffTime">Drop off time</label>

@@ -1,63 +1,59 @@
-<!-- start of fuel calculator -->
-<div id="fuelCalContent" class="fuel-calculator">
-    <div class="fuel-calculator__ctn">
-        <div id="map" class="fuel-calculator__map"></div>
-        <i id="fuelCalClose" class="fas fa-times fuel-calculator__close"></i>
-        <div id="right-panel" class="fuel-calculator__right-panel">
-            <!-- date calculation using jqeryui calendar -->
-            <h2 class="fuel-calculator__title">Fuel Calculator</h2>
+<div class="fuel-calculator__ctn">
+    <div id="map" class="fuel-calculator__map"></div>
+    <i id="fuelCalClose" class="fas fa-times fuel-calculator__close"></i>
+    <div id="right-panel" class="fuel-calculator__right-panel">
+        <!-- date calculation using jqeryui calendar -->
+        <h2 class="fuel-calculator__title">Fuel Calculator</h2>
 
-            <label class="fuel-calculator__label" for="startDateTwo">Enter your start date</label>
-            <input type="text" id="startDateTwo" class="form-control">
+        <label class="fuel-calculator__label" for="startDateTwo">Enter your start date</label>
+        <input type="text" id="startDateTwo" class="form-control" autocomplete="off"/>
 
-            <label class="fuel-calculator__label" for="endDateTwo">Enter your end date</label>
-            <input type="text" id="endDateTwo" class="form-control">
+        <label class="fuel-calculator__label" for="endDateTwo">Enter your end date</label>
+        <input type="text" id="endDateTwo" class="form-control" autocomplete="off"/>
 
-            <input id="calculateDaysTwo" type="button" value="Calculate Days" class="btn-dark text-light">
+        <input id="calculateDaysTwo" type="button" value="Calculate Days" class="btn-dark text-light">
 
-            <!-- results of our calculated days -->
-            <label class="fuel-calculator__label" for="days">Number of days</label>
-            <input id="daysTwo" type="text">
+        <!-- results of our calculated days -->
+        <label class="fuel-calculator__label" for="daysTwo">Number of days</label>
+        <input id="daysTwo" type="text">
 
-            <div>
+        <div>
 
-                <b class="fuel-calculator__text">Start</b>
-                <div id="locationField1">
-                    <input id="startTwo" class="form-control" placeholder="Enter a city" type="text">
-                </div>
-                <br />
-
-                <b class="fuel-calculator__text">waypoints</b>
-                <br />
-                <i class="fuel-calculator__text">hold down Ctrl+Click or Cmd+Click for multiple selection</i>
-                <br />
-                <div class="fuel-calculator__select-ctn select">
-                <select name="" id="waypointsTwo" class="fuel-calculator__select select" multiple>
-                    <option class="fuel-calculator__option" value="Hamilton, NZ">Hamilton, NZ</option>
-                    <option class="fuel-calculator__option" value="Taupo, NZ">Taupo, NZ</option>
-                    <option class="fuel-calculator__option" value="Nelson, NZ">Nelson, NZ</option>
-                    <option class="fuel-calculator__option" value="Dunedin, NZ">Dunedin, NZ</option>
-                    <option class="fuel-calculator__option" value="Bulls NZ">Bulls, NZ</option>
-                </select>
-                </div>
-                
-                <br />
-
-
-                <b class="fuel-calculator__text">End</b>
-                <div id="locationFieldTwo">
-                    <input id="endTwo" class="form-control" placeholder="Enter a city" type="text">
-                </div>
-                <br />
-
-
-                <input type="submit" id="submitTwo">
-                <br />
-                <br />
-                <div id="directions-panelTwo"></div>
+            <b class="fuel-calculator__text">Start</b>
+            <div id="locationFieldOne">
+              <input id="startTwo" class="fuel-calculator__input" placeholder="Enter a city" type="text"/>
             </div>
+            <br />
 
-          </div>
+            <b class="fuel-calculator__text">waypoints</b>
+            <br />
+            <i class="fuel-calculator__text">hold down Ctrl+Click or Cmd+Click for multiple selection</i>
+            <br />
+            <div class="fuel-calculator__select-ctn select">
+            <select name="" id="waypointsTwo" class="fuel-calculator__select select" multiple>
+                <option class="fuel-calculator__option" value="Hamilton, NZ">Hamilton, NZ</option>
+                <option class="fuel-calculator__option" value="Taupo, NZ">Taupo, NZ</option>
+                <option class="fuel-calculator__option" value="Nelson, NZ">Nelson, NZ</option>
+                <option class="fuel-calculator__option" value="Dunedin, NZ">Dunedin, NZ</option>
+                <option class="fuel-calculator__option" value="Bulls NZ">Bulls, NZ</option>
+            </select>
+            </div>
+            
+            <br />
+
+
+            <b class="fuel-calculator__text">End</b>
+            <div id="locationFieldTwo">
+              <input id="endTwo" class="fuel-calculator__input" placeholder="Enter a city" type="input"/>
+            </div>
+            <br />
+
+
+            <input type="submit" id="submitTwo">
+            <br />
+            <br />
+            <div id="directions-panelTwo"></div>
+        </div>
+
       </div>
   </div>
-  <!-- end of fuel calculator -->
