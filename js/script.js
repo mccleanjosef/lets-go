@@ -162,24 +162,23 @@ function modal(){
                     `
                     <div id="vehicleDetails" class="c-modal__content">
                         <button type="button" class="btn btn-secondary c-modal__btn" id="FuelCalBtn">Fuel Calculator</button>
-                        <!-- start of fuel calculator -->
-                        <div id="fuelCalContent" class="fuel-calculator">
-                            <i id="fuelCalClose" class="fas fa-times"></i>
-                        </div>
-                        <!-- end of fuel calculator -->
-                        
                     </div>
                     <div id="review" class="c-modal__content modal-hide"></div>
                     <div id="summary" class="c-modal__content"></div>
                     `
                 );
-                modalContent();
+                
             }
         }
     });
+    modalContent();
 }
 
+
 function modalContent(){
+    console.log("modaltest");
+
+
     $('#review').hide();
     $('#summary').hide();
     $('#confirmBtn').hide();
@@ -230,12 +229,185 @@ function modalContent(){
     });
     // end of fuel calculator display
 
+    // let script = '<script src="https://maps.googleapis.com/maps/api/js?key=' + key +'&callback=initMap&libraries=places&v=weekly" async defer >'
+
+    // console.log(script);
+
+    // $(document).ready(function(){
+    //     $('body').append(script);
+    // });
+
+    // function initMap(){
+    //     // datepicker from jqueryui
+    //     $('#startDateTwo').datepicker({
+    //         // date format formats the date
+    //         dateFormat: 'yy-mm-dd',
+    //         // lets us change the month
+    //         changeMonth: true,
+    //         minDate: new Date(),
+    //         maxDate: '+1y',
+    //         // on select function will run once the start date has been selected
+    //         onSelect: function(date){
+    //             let selectDate = new Date(date);
+    //             console.log(selectDate);
+    //             // ms in a day
+    //             let msecInADay = 86400000;
+    //             let stDate = new Date(selectDate.getTime() + msecInADay);
+
+    //             $('#endDate').datepicker('option','minDate', stDate);
+    //             let enDate = new Date(selectDate.getTime() + 8 * msecInADay)
+    //             // +8 (or what ever number you enter) will restrict the selection to the specified number eg.. in this case it will be 8 days
+    //             $('#endDate').datepicker('option','maxDate', enDate)
+    //         }
+    //     });
+
+    //     $('#endDateTwo').datepicker({
+    //         dateFormat: 'yy-mm-dd',
+    //         changeMonth:true
+    //     });
+
+    //     $('#calculateDaysTwo').click(function(){
+    //         dateDiff();
+    //     });
+
+    //     function dateDiff(){
+    //         let start = $(startDateTwo).datepicker('getDate');
+    //         let end = $(endDateTwo).datepicker('getDate');
+
+    //         // calculation to get readable days
+    //         let days = (end - start)/1000/60/60/24
+    //         $('#daysTwo').val(days);
+    //     }
+
+    //     // auto complete form
+    //     let start = new google.maps.places.Autocomplete(
+    //         document.getElementById('startTwo'),
+    //         {
+    //             types: ['(cities)']
+    //         }
+    //     ); // autocomplete start
+
+    //     let end = new google.maps.places.Autocomplete(
+    //         document.getElementById('endTwo'),
+    //         {
+    //             types: ['(cities)'],
+    //         },
+    //     );
+
+    //     // directions distance and duration
+    //     // initiate a direction request to the Direction service
+    //     // https://developers.google.com/maps/documentation/javascript/directions
+    //     const directionService = new google.maps.DirectionsService();
+
+    //     // direction service render handels the display of lines and any associated markers
+    //     const directionsRenderer = new google.maps.DirectionsRenderer();
+
+
+
+    //     // calling the map function
+    //     const map = new google.maps.Map(document.getElementById('map'),{
+    //         zoom: 7,
+    //         // Christchurch coordinates
+    //         center: {lat:-43.5320385913218, lng:172.6306215014878},
+    //     })
+
+
+    //     directionsRenderer.setMap(map);
+
+    //     document.getElementById('submitTwo').addEventListener('click', () => {
+    //         calculateAndDisplayRoute(directionService, directionsRenderer);
+    //     });
+
+    // }
+    // initMap();
+
+    // $('body').append(script);
+
+    // function calculateAndDisplayRoute(directionService, directionsRenderer){
+    //     console.log(directionService);
+    //     console.log(directionsRenderer);
+    //     const waypts = [];
+    //     const checkboxArray = document.getElementById('waypointsTwo');
+    
+    //     for (let i = 0; i < checkboxArray.length; i++){
+    //         if(checkboxArray.options[i].selected){
+    //             waypts.push({
+    //                 // gets the lat and lng in degrees, contains one lat and long subfield
+    //                 // https://developers.google.com/maps/documentation/geolocation/overview
+    //                 location: checkboxArray[i].value,
+    //                 // stop over is boolean and it indicates a stop over on the route
+    //                 stopover: true,
+    //             });
+    //         }
+    //     }
+    //     console.log(waypts);
+    
+    //     // need to make a request to get the distance
+    //     // directionService
+    //     // allows us to - routes out the direction of selected locations
+    //     directionService.route({
+    //         // specifies the start location from which to calculate directions
+    //         origin: document.getElementById('startTwo').value,
+    //         // destination specifies the end location
+    //         destination: document.getElementById('endTwo').value,
+    //         // way points specifies an array of directions waypoints - waypoints alter the route
+    //         waypoints: waypts,
+    //         // to specify more efficient order of travel - rearange/optimise our way points
+    //         optimizeWaypoints: true,
+    //         // specify what mode of travel
+    //         // https://developers.google.com/maps/documentation/javascript/examples/directions-travel-modes
+    //         travelMode: google.maps.TravelMode.DRIVING,
+    //         // travelMode: google.maps.TravelMode.TRANSIT,
+    //         // transitOptions: {
+    //         //     modes: ['TRAIN'],
+    //         //   },
+    //     },
+    //     (response, status) =>{
+    //         // the OK indicates that no errors have occurred
+    //         if (status === "OK"){
+    //             console.log(response);
+    //             // geocoding
+    //             // https://developers.google.com/maps/documentation/javascript/geocoding
+    //             // creates the render of the given directions
+    //             // https://developers.google.com/maps/documentation/javascript/reference/directions
+    //             directionsRenderer.setDirections(response)
+    //             const route = response.routes[0];
+    //             const summaryPanel = document.getElementById('directions-panelTwo');
+    
+    //             summaryPanel.innerHTML = "";
+    
+    //             // for each route, display summary information.
+    //             for(let i = 0; i < route.legs.length; i++){
+    //                 const routeSegment = i + 1;
+    
+    //                 summaryPanel.innerHTML +=
+    //                 "<b>Route Segment:" + routeSegment + "</><br>";
+    //                 summaryPanel.innerHTML += route.legs[i].start_address + " to ";
+    //                 summaryPanel.innerHTML += route.legs[i].end_address + "<br>";
+    //                 summaryPanel.innerHTML +=
+    //                 route.legs[i].distance.text + " and it take " + route.legs[i].duration.text + " to reach."
+    //                 + "<br><br>";
+    //             }
+    //         } else {
+    //             window.alert('Directions request failed due to ' + status);
+    //         }
+    //     }
+    //     );
+    // }
+    // $('#startTwo,#endTwo').click(function(){
+    //     $(this).val('');
+    // });
+
+    // initMap();
+    
+
 
     hireBtn.addEventListener("click", hire);
     confirmBtn.addEventListener("click", confirm);
     closeBtn.addEventListener("click", close);
-
 }
+
+
 // // ===============================
 // // end of modal
 // // ===============================
@@ -245,14 +417,14 @@ function modalContent(){
 // ====================================
 // start of jqueryUi Datepicker
 // ====================================
-let script = '<script src="https://maps.googleapis.com/maps/api/js?key=' + key +'&callback=initMap&libraries=places&v=weekly" async defer >'
+// let script = '<script src="https://maps.googleapis.com/maps/api/js?key=' + key +'&callback=initMap&libraries=places&v=weekly" async defer >'
 // console.log(script);
 
-let checkboxes = $("input[type=checkbox][name=type]")
-let selectedType = [];
+// let checkboxes = $("input[type=checkbox][name=type]")
+// let selectedType = [];
 
 $(document).ready(function(){
-    $('body').append(script);
+    // $('body').append(script);
 
     $('.c-final-sorting').hide();
 
@@ -269,50 +441,50 @@ $(document).ready(function(){
 
 });
 
-function initMap(){
+// function initMap(){
 
-    // datepicker from jqueryui
-    $('#pickUpDate').datepicker({
-        // date format formats the date
-        dateFormat: 'yy-mm-dd',
-        // lets us change the month
-        changeMonth: true,
-        minDate: new Date(),
-        maxDate: '+1y',
-        // on select function will run once the start date has been selected
-        onSelect: function(date){
-            let selectDate = new Date(date);
-            // ms in a day
-            let msecInADay = 86400000;
-            let stDate = new Date(selectDate.getTime() + 0 * msecInADay);
+//     // datepicker from jqueryui
+//     $('#pickUpDate').datepicker({
+//         // date format formats the date
+//         dateFormat: 'yy-mm-dd',
+//         // lets us change the month
+//         changeMonth: true,
+//         minDate: new Date(),
+//         maxDate: '+1y',
+//         // on select function will run once the start date has been selected
+//         onSelect: function(date){
+//             let selectDate = new Date(date);
+//             // ms in a day
+//             let msecInADay = 86400000;
+//             let stDate = new Date(selectDate.getTime() + 0 * msecInADay);
 
-            $('#dropOffDate').datepicker('option','minDate', stDate);
-            let enDate = new Date(selectDate.getTime() + 60 * msecInADay)
-            // +60 restricts the selection to 60 days
-            $('#dropOffDate').datepicker('option','maxDate', enDate)
-        }
-    });
+//             $('#dropOffDate').datepicker('option','minDate', stDate);
+//             let enDate = new Date(selectDate.getTime() + 60 * msecInADay)
+//             // +60 restricts the selection to 60 days
+//             $('#dropOffDate').datepicker('option','maxDate', enDate)
+//         }
+//     });
 
-    $('#dropOffDate').datepicker({
-        dateFormat: 'yy-mm-dd',
-        changeMonth:true
-    });
+//     $('#dropOffDate').datepicker({
+//         dateFormat: 'yy-mm-dd',
+//         changeMonth:true
+//     });
 
-    // start of number of days feedback
-    $('#submitInfo').click(function(){
-        dateDiff();
-    });
+//     // start of number of days feedback
+//     $('#submitInfo').click(function(){
+//         dateDiff();
+//     });
 
-    function dateDiff(){
-        let start = $(pickUpDate).datepicker('getDate');
-        let end = $(dropOffDate).datepicker('getDate');
+//     function dateDiff(){
+//         let start = $(pickUpDate).datepicker('getDate');
+//         let end = $(dropOffDate).datepicker('getDate');
 
-        // calculation to get readable days
-        let days = ((end - start)/1000/60/60/24) + 1
-        $('#days').html(days);
-    }
-    // end of number of days feedback
-}
+//         // calculation to get readable days
+//         let days = ((end - start)/1000/60/60/24) + 1
+//         $('#days').html(days);
+//     }
+//     // end of number of days feedback
+// }
 // ====================================
 // end of jqueryUi Datepicker
 // ====================================
@@ -332,48 +504,48 @@ $('input[name="type"]').prop('checked', true);
 $('input[name="typeI"]').prop('checked', true);
 
 function calculateDates(event){
-    $('#cardContent').empty();
-    event.preventDefault();
+    // $('#cardContent').empty();
+    // event.preventDefault();
 
-    // $('.c-inital-filters').addClass('activated');
+    // // $('.c-inital-filters').addClass('activated');
     
-    // getting data from date input
-    const pickUpDate = new Date($('#pickUpDate').val());
-    const dropOffDate = new Date($('#dropOffDate').val());
-    // const checkIn = document.querySelector('#checkIn');
-    // console.log(pickUpDate);
-    // console.log(dropOffDate);
+    // // getting data from date input
+    // const pickUpDate = new Date($('#pickUpDate').val());
+    // const dropOffDate = new Date($('#dropOffDate').val());
+    // // const checkIn = document.querySelector('#checkIn');
+    // // console.log(pickUpDate);
+    // // console.log(dropOffDate);
 
-    // getting the individual data of day,month and year
-    let pickUpDay = pickUpDate.getDate(),
-        pickUpMonth = pickUpDate.getMonth(),
-        pickUpYear = pickUpDate.getFullYear(),
-        dropOffDay = dropOffDate.getDate(),
-        dropOffMonth = dropOffDate.getMonth(),
-        dropOffYear = dropOffDate.getFullYear();
+    // // getting the individual data of day,month and year
+    // let pickUpDay = pickUpDate.getDate(),
+    //     pickUpMonth = pickUpDate.getMonth(),
+    //     pickUpYear = pickUpDate.getFullYear(),
+    //     dropOffDay = dropOffDate.getDate(),
+    //     dropOffMonth = dropOffDate.getMonth(),
+    //     dropOffYear = dropOffDate.getFullYear();
 
-    // joining the data - join function turns an array into a string
-    let pickUpDetails = [pickUpDay,pickUpMonth,pickUpYear].join('/');
-    let dropOffDetails = [dropOffDay,dropOffMonth,dropOffYear].join('/');
-    console.log(pickUpDetails);
-    console.log(dropOffDetails);
+    // // joining the data - join function turns an array into a string
+    // let pickUpDetails = [pickUpDay,pickUpMonth,pickUpYear].join('/');
+    // let dropOffDetails = [dropOffDay,dropOffMonth,dropOffYear].join('/');
+    // console.log(pickUpDetails);
+    // console.log(dropOffDetails);
 
-    // calculating the difference
-    let difference = dropOffDate.getTime() - pickUpDate.getTime();
-    let dayDifference = (difference/msDay) + 1;
-    // console.log(dayDifference);
+    // // calculating the difference
+    // let difference = dropOffDate.getTime() - pickUpDate.getTime();
+    // let dayDifference = (difference/msDay) + 1;
+    // // console.log(dayDifference);
 
-    let numberOfPeople = parseInt($('#adults').val()) + parseInt($('#children').val());
-    // console.log(typeof numberOfPeople, numberOfPeople);
+    // let numberOfPeople = parseInt($('#adults').val()) + parseInt($('#children').val());
+    // // console.log(typeof numberOfPeople, numberOfPeople);
 
-    // start of number of people feedback
-    $('#submitInfo').click(function(){
-        people();
-    });
+    // // start of number of people feedback
+    // $('#submitInfo').click(function(){
+    //     people();
+    // });
 
-    function people(){
-        $('#numberOfPeople').html(numberOfPeople);
-    }
+    // function people(){
+    //     $('#numberOfPeople').html(numberOfPeople);
+    // }
     // end of number of people feedback
 
     // CbCallCondition();
@@ -384,6 +556,7 @@ function calculateDates(event){
     // } else{
     //     travelDetailsNoVehicle(dayDifference, numberOfPeople);
     // };
+
     travelDetailsNoVehicle(dayDifference, numberOfPeople);
 
     AfterTravelDetailsCheckbox(dayDifference, numberOfPeople);
@@ -400,6 +573,7 @@ function travelDetailsNoVehicle(daysOfTravel, peopleBooked){
 
     //filtering by people booked and days of travel if no vehicle checkboxes are clicked
     console.log("no vehicles clicked");
+    $('#cardContent').empty();
     let i = 0;
     for(i = 0; i < transport.length; i++){
         if ((peopleBooked === 1) && (daysOfTravel >= 1 && daysOfTravel <= 5) && (transport[i].type === 'motorbike')){
@@ -427,8 +601,11 @@ submitInfo.addEventListener("click", calculateDates);
 // start of changing vehicle checkbox after initial search
 // =======================================================
 function AfterTravelDetailsCheckbox(daysOfTravel, peopleBooked){
+    console.log("AfterCheckboxFilter");
     // let checkboxes = $("input[type=checkbox][name=type]")
     // let selectedType = [];
+
+    // console.log(selectedType);
 
     // Attach a change event handler to the checkboxes.
     checkboxes.change(function() {
@@ -443,11 +620,11 @@ function AfterTravelDetailsCheckbox(daysOfTravel, peopleBooked){
         // Get array.
         .get() 
         
-        // console.log(daysOfTravel);
-        // console.log(peopleBooked);
+        console.log(daysOfTravel);
+        console.log(peopleBooked);
 
         console.log("AfterCheckboxFilter");
-        // console.log(selectedType);
+        console.log(selectedType);
 
         let i = 0;
         for(i = 0; i < selectedType.length; i++){
@@ -501,7 +678,7 @@ function AfterTravelDetailsCheckbox(daysOfTravel, peopleBooked){
 // =========================================
 $('#sortBtnFin').change(function(){
     let sortValue = ($('#sortBtnFin').val()).toLowerCase();
-    // console.log(sortValue);
+    console.log(sortValue);
     if (sortValue === 'low'){
 
         const sortLow = (transport = []) => {

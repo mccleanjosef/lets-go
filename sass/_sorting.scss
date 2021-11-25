@@ -29,13 +29,10 @@
         margin: 0;
     }
     &__select{
-        // background: $primary-colour;
-        // color: $text-white;
-        // font-size: 2.5rem;
-        // padding: 0.5em 1em;
-        // border-radius: 50px;
-        // border: none;
-        
+        @include dropdown;
+    }
+    &__option{
+        @include dropdown-options;
     }
 }
 
@@ -62,61 +59,40 @@
     &__label{
         margin: 0;
     }
-}
-
-// start of select styling
-select {
-    width: 150px;
-    appearance: none;
-    background: $primary-colour;
-    border: none;
-    padding: 0.5em 1em;
-    margin: 0;
-    width: 100%;
-    outline: none;
-    letter-spacing: 0.1rem;
-    color: $text-white;
-    font-size: 2.5rem;
-    border-radius: 50px;
+    &__select{
+        @include dropdown;
+    }
+    &__option{
+        @include dropdown-options;
+    }
 }
 
 .select {
-  display: grid;
-  grid-template-areas: "select";
-  align-items: center;
-  position: relative;
+    display: grid;
+    grid-template-areas: "select";
+    align-items: center;
+    position: relative;
 
 
-  select,
-  &::after {
-    grid-area: select;
-  }
+    select,
+    &::after {
+        grid-area: select;
+    }
 
-  cursor: pointer;
-  line-height: 1;
+    cursor: pointer;
+    line-height: 1;
 
-  // Custom arrow
-  &:not(.select--multiple)::after {
-    content: "";
-    justify-self: end;
-    width: 1.7em;
-    height: 1.2em;
-    background-color: $select-arrow;
-    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
-    margin-right: 2.2rem;
-  }
+    // Custom arrow
+    &:not(.select--multiple)::after {
+        content: "";
+        justify-self: end;
+        width: 1.7em;
+        height: 1.2em;
+        background-color: $select-arrow;
+        clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+        margin-right: 2.2rem;
+    }
 }
-
-option{
-    width: 150px;
-    text-transform: lowercase;
-    font-size: 1rem;
-    background: $black;
-    // padding-left: 1rem;
-    letter-spacing: 1rem;
-    font-size: 1.4rem;
-}
-// end of select styling
 
 .c-final-sorting{
     // background: darkgreen;

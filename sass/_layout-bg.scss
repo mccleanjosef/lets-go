@@ -19,9 +19,31 @@
         position: relative;
     }
     &__footer{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
         background: $primary-colour;
         grid-area: footer;
         border-radius: 90px 90px 0 0;
+        padding: 0% 6% 3% 6%;
+    }
+    &__tourism-nz-logo{
+        width: 27%;
+    }
+    &__right-ctn{
+        // background: lightpink;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: flex-end;
+    }
+    &__logo{
+        width: 78%;
+    }
+    &__tc{
+        font-size: 3.3rem;
+        color: $white;
+        padding-top: 5rem;
+        line-height: 1;
     }
 }
 
@@ -37,9 +59,11 @@
     top: 0;
     z-index: -1;
     &__logo{
-        grid-column: 13/16;
-        grid-row: 2/3;
+        // background: lightcoral;
+        grid-column: 12/16;
+        grid-row: 1/2;
         z-index: 1;
+        margin-top: 60px;
     }
     &__ctn-one{
         // background: indianred;
@@ -74,9 +98,9 @@
         background: $black;
         clip-path: url(#blob-two);
         background: url(../img/pexels-taryn-elliott-5581736.jpg) no-repeat;
-        background-size: cover;
-        // background-size: auto 1499px;
-        // background-position: 0% 0%;
+        // background-size: cover;
+        background-size: auto 120%;
+        background-position: 0% 57%;
     }
     &__ctn-three{
         // background: wheat;

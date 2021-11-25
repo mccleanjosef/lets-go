@@ -75,6 +75,69 @@
       <!-- end of background grid -->
 
       <div class="l-content-grid">
+        <div id="fuelCalContent" class="fuel-calculator">
+          <div class="fuel-calculator__ctn">
+            <div id="map" class="fuel-calculator__map"></div>
+            <i id="fuelCalClose" class="fas fa-times fuel-calculator__close"></i>
+            <div id="right-panel" class="fuel-calculator__right-panel">
+                <!-- date calculation using jqeryui calendar -->
+                <h2 class="fuel-calculator__title">Fuel Calculator</h2>
+    
+                <label class="fuel-calculator__label" for="startDateTwo">Enter your start date</label>
+                <input type="text" id="startDateTwo" class="form-control">
+    
+                <label class="fuel-calculator__label" for="endDateTwo">Enter your end date</label>
+                <input type="text" id="endDateTwo" class="form-control">
+    
+                <input id="calculateDaysTwo" type="button" value="Calculate Days" class="btn-dark text-light">
+    
+                <!-- results of our calculated days -->
+                <label class="fuel-calculator__label" for="days">Number of days</label>
+                <input id="daysTwo" type="text">
+    
+                <div>
+    
+                    <b class="fuel-calculator__text">Start</b>
+                    <div id="locationField1">
+                        <input id="startTwo" class="form-control" placeholder="Enter a city" type="text">
+                    </div>
+                    <br />
+    
+                    <b class="fuel-calculator__text">waypoints</b>
+                    <br />
+                    <i class="fuel-calculator__text">hold down Ctrl+Click or Cmd+Click for multiple selection</i>
+                    <br />
+                    <div class="fuel-calculator__select-ctn select">
+                    <select name="" id="waypointsTwo" class="fuel-calculator__select select" multiple>
+                        <option class="fuel-calculator__option" value="Hamilton, NZ">Hamilton, NZ</option>
+                        <option class="fuel-calculator__option" value="Taupo, NZ">Taupo, NZ</option>
+                        <option class="fuel-calculator__option" value="Nelson, NZ">Nelson, NZ</option>
+                        <option class="fuel-calculator__option" value="Dunedin, NZ">Dunedin, NZ</option>
+                        <option class="fuel-calculator__option" value="Bulls NZ">Bulls, NZ</option>
+                    </select>
+                    </div>
+                    
+                    <br />
+    
+    
+                    <b class="fuel-calculator__text">End</b>
+                    <div id="locationFieldTwo">
+                        <input id="endTwo" class="form-control" placeholder="Enter a city" type="text">
+                    </div>
+                    <br />
+    
+    
+                    <input type="submit" id="submitTwo">
+                    <br />
+                    <br />
+                    <div id="directions-panelTwo"></div>
+                </div>
+    
+              </div>
+          </div>
+          
+        </div>
+
         <!-- start of travel details-->
         <div id="travelDetails" class="c-travel-details">
         
@@ -190,28 +253,28 @@
               <div class="c-inital-sorting__checkboxes">
                 <div class="c-inital-sorting__ctn">
                   <input class="c-inital-sorting__checkbox" type="checkbox" name="typeI" value="motorbike">
-                  <label class="c-inital-sorting__label" for="type">Motorbike</label>
+                  <label class="c-inital-sorting__label" for="typeI">Motorbike</label>
                 </div>
                 <div class="c-inital-sorting__ctn">
                   <input class="c-inital-sorting__checkbox" type="checkbox" name="typeI" value="small car">
-                  <label class="c-inital-sorting__label" for="type">Small Car</label>
+                  <label class="c-inital-sorting__label" for="typeI">Small Car</label>
                 </div>
                 <div class="c-inital-sorting__ctn">
                   <input class="c-inital-sorting__checkbox" type="checkbox" name="typeI" value="large car">
-                  <label class="c-inital-sorting__label" for="type">Large Car</label>
+                  <label class="c-inital-sorting__label" for="typeI">Large Car</label>
                 </div>
                 <div class="c-inital-sorting__ctn">
                   <input class="c-inital-sorting__checkbox" type="checkbox" name="typeI" value="motor home">
-                  <label class="c-inital-sorting__label" for="type">Motorhome</label>
+                  <label class="c-inital-sorting__label" for="typeI">Motorhome</label>
                 </div>
               </div>
 
               <!-- sort by dropdown -->
               <div class="c-inital-sorting__select-ctn select">
                 <select id="sortBtn" name="" class="c-inital-sorting__select">
-                  <option value="">Sort By</option>
-                  <option value="low">Low to high</option>
-                  <option value="high">High to low</option>
+                  <option class="c-inital-sorting__option" value="">Sort By</option>
+                  <option class="c-inital-sorting__option" value="low">Low to high</option>
+                  <option class="c-inital-sorting__option" value="high">High to low</option>
                 </select>
                 <span class="focus"></span>
               </div>
@@ -238,29 +301,29 @@
             <form id="sortBy" class="c-final-sorting__sorting" action="">
               <div class="c-final-sorting__checkboxes">
                 <div class="c-final-sorting__ctn">
-                  <input class="c-final-sorting__checkbox" type="checkbox" name="typeI" value="motorbike">
+                  <input class="c-final-sorting__checkbox" type="checkbox" name="type" value="motorbike">
                   <label class="c-final-sorting__label" for="type">Motorbike</label>
                 </div>
                 <div class="c-final-sorting__ctn">
-                  <input class="c-final-sorting__checkbox" type="checkbox" name="typeI" value="small car">
+                  <input class="c-final-sorting__checkbox" type="checkbox" name="type" value="small car">
                   <label class="c-final-sorting__label" for="type">Small Car</label>
                 </div>
                 <div class="c-final-sorting__ctn">
-                  <input class="c-final-sorting__checkbox" type="checkbox" name="typeI" value="large car">
+                  <input class="c-final-sorting__checkbox" type="checkbox" name="type" value="large car">
                   <label class="c-final-sorting__label" for="type">Large Car</label>
                 </div>
                 <div class="c-final-sorting__ctn">
-                  <input class="c-final-sorting__checkbox" type="checkbox" name="typeI" value="motor home">
+                  <input class="c-final-sorting__checkbox" type="checkbox" name="type" value="motor home">
                   <label class="c-final-sorting__label" for="type">Motorhome</label>
                 </div>
               </div>
 
               <!-- sort by dropdown -->
               <div class="c-final-sorting__select-ctn select">
-                <select id="sortBtn" name="" class="c-final-sorting__select">
-                  <option value="">Sort By</option>
-                  <option value="low">Low to high</option>
-                  <option value="high">High to low</option>
+                <select id="sortBtnFin" name="" class="c-final-sorting__select">
+                  <option class="c-final-sorting__option" value="">Sort By</option>
+                  <option class="c-final-sorting__option" value="low">Low to high</option>
+                  <option class="c-final-sorting__option" value="high">High to low</option>
                 </select>
                 <span class="focus"></span>
               </div>
@@ -306,7 +369,13 @@
       </div>
       
     </main>
-    <footer class="l-base-grid__footer"></footer>
+    <footer class="l-base-grid__footer">
+      <img class="l-base-grid__tourism-nz-logo" src="./img/tourism-nz-100percent-nz-white.svg" alt="Tourism NZ logo">
+      <div class="l-base-grid__right-ctn">
+        <img class="l-base-grid__logo" src="./img/Lets-go-logo.svg" alt="Let's GO! logo">
+        <p class="l-base-grid__tc">Terms & Conditions</p>
+      </div>
+    </footer>
   </div>
 
   
