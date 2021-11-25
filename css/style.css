@@ -21,8 +21,7 @@ html {
   grid-template-columns: 100vw;
   grid-template-areas: "main" "footer"; }
   .l-base-grid__main {
-    grid-area: main;
-    position: relative; }
+    grid-area: main; }
   .l-base-grid__footer {
     display: flex;
     justify-content: space-between;
@@ -128,7 +127,8 @@ html {
   height: 100%;
   padding: 0 5%;
   padding-top: 35rem;
-  padding-bottom: 20rem; }
+  padding-bottom: 20rem;
+  position: relative; }
 
 /* Large Devices (Laptop/Desktop) */
 /* Medium Devices (Tablets) */
@@ -321,7 +321,8 @@ html {
   padding: 3rem;
   border-radius: 40px;
   margin-bottom: 5rem;
-  display: flex; }
+  display: flex;
+  flex-flow: column wrap; }
 
 .item-container {
   display: flex; }
@@ -341,21 +342,21 @@ html {
   margin-bottom: 3rem; }
 
 .fuel-calculator {
+  display: none;
   background: midnightblue;
-  width: 80%;
-  height: 900px;
+  width: 90%;
+  height: 100vh;
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2000;
+  z-index: 20;
   border-radius: 50px;
   padding: 5rem; }
   .fuel-calculator__ctn {
     width: 100%;
     height: 100%;
-    display: flex;
-    z-index: 2001; }
+    display: flex; }
   .fuel-calculator__close {
     position: absolute;
     right: 0;
@@ -370,34 +371,17 @@ html {
     background: #000000;
     border-radius: 30px; }
   .fuel-calculator__right-panel {
+    background: lightseagreen;
     width: 40%;
     height: 100%;
-    padding: 5rem; }
+    display: flex;
+    flex-direction: column;
+    padding: 5%; }
   .fuel-calculator__input {
-    background: palevioletred;
-    z-index: 5000; }
-  .fuel-calculator__title {
-    color: #ffffff; }
-  .fuel-calculator__label {
-    color: #ffffff; }
-  .fuel-calculator__text {
-    color: #ffffff; }
+    background: palevioletred; }
 
 .active {
   display: block; }
-
-#map {
-  min-height: 100%;
-  width: 70%;
-  background: seagreen; }
-
-#right-panel {
-  min-height: 100%;
-  width: 30%;
-  background: salmon;
-  display: flex;
-  flex-direction: column;
-  padding: 2%; }
 
 /* Large Devices (Laptop/Desktop) */
 /* Medium Devices (Tablets) */

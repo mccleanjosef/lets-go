@@ -16,7 +16,7 @@
     &__main{
         // background: darkgreen;
         grid-area: main;
-        position: relative;
+        // position: relative;
     }
     &__footer{
         display: flex;
@@ -150,6 +150,7 @@
     padding: 0 5%;
     padding-top: 35rem;
     padding-bottom: 20rem;
+    position: relative;
 }
 
 /* Large Devices (Laptop/Desktop) */

@@ -161,7 +161,7 @@ function modal(){
                 $('#transportModalInfo').empty().append(
                     `
                     <div id="vehicleDetails" class="c-modal__content">
-                        <button type="button" class="btn btn-secondary c-modal__btn" id="FuelCalBtn">Fuel Calculator</button>
+
                     </div>
                     <div id="review" class="c-modal__content"></div>
                     <div id="summary" class="c-modal__content"></div>
@@ -216,17 +216,6 @@ function modalContent(){
         $('#vecDetTitle').addClass("c-modal__title-ctn--active");
     }
 
-    // start of fuel calculator display
-    $("#FuelCalBtn").click(function(){
-        $('#fuelCalContent').toggleClass('active');
-    });
-
-    $("#fuelCalClose").click(function(){
-        $('#fuelCalContent').toggleClass('active');
-    });
-    // end of fuel calculator display
-
-    
 
     hireBtn.addEventListener("click", hire);
     confirmBtn.addEventListener("click", confirm);
@@ -261,7 +250,15 @@ $(document).ready(function(){
         keyboard: true
     })
 
-    
+    // start of fuel calculator display
+    $("#FuelCalBtn").click(function(){
+        $('#fuelCalContent').toggleClass('active');
+    });
+
+    $("#fuelCalClose").click(function(){
+        $('#fuelCalContent').toggleClass('active');
+    });
+    // end of fuel calculator display
 
 });
 

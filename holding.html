@@ -57,3 +57,67 @@
 
       </div>
   </div>
+
+
+  <div id="fuelCalContent" class="fuel-calculator">
+    <div class="fuel-calculator__ctn">
+      <div id="map"></div>
+
+      <div id="right-panel">
+          <!-- date calculation using jqeryui calendar -->
+          <h2>Dates for Journey</h2>
+
+          <label for="startDate">Enter your start date</label>
+          <input type="text" id="startDate" class="form-control">
+
+          <label for="endDate">Enter your end date</label>
+          <input type="text" id="endDate" class="form-control">
+
+          <input id="calculateDays" type="button" value="Calculate Days" class="btn-dark text-light">
+
+          <!-- results of our calculated days -->
+          <label for="days">Number of days</label>
+          <input id="days" type="text">
+
+          <div>
+
+              <b>Start</b>
+              <div id="locationField1">
+                  <input id="start" class="form-control" placeholder="Enter a city" type="text">
+              </div>
+              <br />
+
+              <b>waypoints</b>
+              <br />
+              <i>hold down Ctrl+Click or Cmd+Click for multiple selection</i>
+              <br />
+              <select multiple id="waypoints">
+                  <option value="Hamilton, NZ">Hamilton, NZ</option>
+                  <option value="Taupo, NZ">Taupo, NZ</option>
+                  <option value="Nelson, NZ">Nelson, NZ</option>
+                  <option value="Dunedin, NZ">Dunedin, NZ</option>
+                  <option value="Bulls NZ">Bulls, NZ</option>
+              </select>
+              <br />
+
+
+              <b>End</b>
+              <div id="locationField1">
+                  <input id="end" class="form-control" placeholder="Enter a city" type="text">
+              </div>
+              <br />
+
+
+              <input type="submit" id="submit">
+              <br />
+              <br />
+              <div id="directions-panel"></div>
+
+
+
+
+          </div>
+
+      </div>
+    </div>
+  </div>
