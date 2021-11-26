@@ -16,7 +16,7 @@
     &__main{
         // background: darkgreen;
         grid-area: main;
-        // position: relative;
+        position: relative;
     }
     &__footer{
         display: flex;
@@ -140,7 +140,7 @@
     }
 }
 
-.l-content-grid{
+.l-content{
     display: flex;
     flex-flow: column wrap;
     justify-content: flex-start;
@@ -150,7 +150,14 @@
     padding: 0 5%;
     padding-top: 35rem;
     padding-bottom: 20rem;
-    position: relative;
+    // position: relative;
+    &__top{
+        display: flex;
+        // background: lightgoldenrodyellow;
+        padding-bottom: 5rem;
+        justify-content: space-between;
+        position: relative;
+    }
 }
 
 /* Large Devices (Laptop/Desktop) */

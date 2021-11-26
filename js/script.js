@@ -260,12 +260,38 @@ $(document).ready(function(){
     });
     // end of fuel calculator display
 
+    // start of number of people input
+    $( "#moreAdult" ).click(function() {
+        var qtt = parseInt($('#quantityAdults').val(), 10);
+        $('#quantityAdults').val(qtt+1);
+    });
+      
+    $( "#lessAdult" ).click(function() {
+        var qtt = parseInt($('#quantityAdults').val(), 10);
+        if (qtt > 0) {
+            $('#quantityAdults').val(qtt-1);
+        }
+    });
+
+    $( "#moreChild" ).click(function() {
+        var qtt = parseInt($('#quantityChildren').val(), 10);
+        $('#quantityChildren').val(qtt+1);
+    });
+      
+    $( "#lessChild" ).click(function() {
+        var qtt = parseInt($('#quantityChildren').val(), 10);
+        if (qtt > 0) {
+            $('#quantityChildren').val(qtt-1);
+        }
+    });
+    // end of number of people input
+    
 });
 
 function initMap(){
 
     // datepicker from jqueryui
-    $('#startDate').datepicker({
+    $('#pickUpDate').datepicker({
         // date format formats the date
         dateFormat: 'yy-mm-dd',
         // lets us change the month
@@ -279,30 +305,30 @@ function initMap(){
             let msecInADay = 86400000;
             let stDate = new Date(selectDate.getTime() + msecInADay);
 
-            $('#endDate').datepicker('option','minDate', stDate);
+            $('#dropOffDate').datepicker('option','minDate', stDate);
             let enDate = new Date(selectDate.getTime() + 8 * msecInADay)
             // +8 (or what ever number you enter) will restrict the selection to the specified number eg.. in this case it will be 8 days
-            $('#endDate').datepicker('option','maxDate', enDate)
+            $('#dropOffDate').datepicker('option','maxDate', enDate)
         }
     });
 
-    $('#endDate').datepicker({
+    $('#dropOffDate').datepicker({
         dateFormat: 'yy-mm-dd',
         changeMonth:true
     });
 
-    $('#calculateDays').click(function(){
-        dateDiff();
-    });
+    // $('#calculateDays').click(function(){
+    //     dateDiff();
+    // });
 
-    function dateDiff(){
-        let start = $(startDate).datepicker('getDate');
-        let end = $(endDate).datepicker('getDate');
+    // function dateDiff(){
+    //     let start = $(pickUpDate).datepicker('getDate');
+    //     let end = $(dropOffDate).datepicker('getDate');
 
-        // calculation to get readable days
-        let days = (end - start)/1000/60/60/24
-        $('#days').val(days);
-    }
+    //     // calculation to get readable days
+    //     let days = (end - start)/1000/60/60/24
+    //     $('#days').val(days);
+    // }
 
     // auto complete form
     let start = new google.maps.places.Autocomplete(
@@ -333,7 +359,6 @@ function initMap(){
     const map = new google.maps.Map(document.getElementById('map'),{
         zoom: 7,
         center: {lat:-36.605778019891645, lng:175.7904390304845},
-        mapTypeId: 'satellite'
     })
 
 
@@ -378,11 +403,11 @@ function calculateAndDisplayRoute(directionService, directionsRenderer){
         optimizeWaypoints: true,
         // specify what mode of travel
         // https://developers.google.com/maps/documentation/javascript/examples/directions-travel-modes
-        // travelMode: google.maps.TravelMode.DRIVING,
-        travelMode: google.maps.TravelMode.TRANSIT,
-        transitOptions: {
-            modes: ['TRAIN'],
-          },
+        travelMode: google.maps.TravelMode.DRIVING,
+        // travelMode: google.maps.TravelMode.TRANSIT,
+        // transitOptions: {
+        //     modes: ['TRAIN'],
+        // },
     },
     (response, status) =>{
         // the OK indicates that no errors have occurred
@@ -397,7 +422,7 @@ function calculateAndDisplayRoute(directionService, directionsRenderer){
             const summaryPanel = document.getElementById('directions-panel');
 
             summaryPanel.innerHTML = "";
-
+            let totalDistance = 0;
             // for each route, display summary information.
             for(let i = 0; i < route.legs.length; i++){
                 const routeSegment = i + 1;
@@ -409,19 +434,59 @@ function calculateAndDisplayRoute(directionService, directionsRenderer){
                 summaryPanel.innerHTML +=
                 route.legs[i].distance.text + " and it take " + route.legs[i].duration.text + " to reach."
                 + "<br><br>";
+                totalDistance += parseFloat(route.legs[i].distance.text)
             }
+            fuelCalculation(totalDistance);
+            estFuelCost(totalDistance, vehicleFuelEff, fuelPrice);
         } else {
             window.alert('Directions request failed due to ' + status);
         }
     }
     );
+
+    // start of fuel efficiency selection
+    let vehicleFuelEff = parseFloat($('#vehicleSel').val());
+    // console.log(vehicleFuelEff);
+
+    $('#fuelEfficiency').val(vehicleFuelEff + ' l/100km');
+    // end of fuel efficiency selection
+
+    // start of average fuel price selection
+    let fuelPrice = parseFloat($('#fuelSel').val());
+    console.log(fuelPrice);
+
+    $('#fuelPrice').val( '$' + fuelPrice + " /l" );
+    // end of average fuel price selection
+
+    
+
 }
+
+function fuelCalculation(distance){
+    // console.log(distance);
+
+    $('#totalDist').val(distance + ' km');
+}
+
+function estFuelCost(distance, fuelEfficiency, price){
+    let liters = (fuelEfficiency/100)*distance;
+    const fuelCost = price*liters;
+    console.log(fuelEfficiency);
+    console.log(price);
+    console.log(fuelCost);
+
+    $('#fuelCost').val( '$' + fuelCost.toFixed(2) );
+}
+
 $('#start,#end').click(function(){
     $(this).val('');
 });
 // ====================================
 // end of jqueryUi Datepicker
 // ====================================
+
+
+
 
 
 // ====================================
@@ -469,12 +534,18 @@ function calculateDates(event){
     let dayDifference = (difference/msDay) + 1;
     // console.log(dayDifference);
 
-    let numberOfPeople = parseInt($('#adults').val()) + parseInt($('#children').val());
-    // console.log(typeof numberOfPeople, numberOfPeople);
+
+
+
+
+
+    let numberOfPeople = parseInt($('#quantityAdults').val()) + parseInt($('#quantityChildren').val());
+    console.log(typeof numberOfPeople, numberOfPeople);
 
     // start of number of people feedback
     $('#submitInfo').click(function(){
         people();
+
     });
 
     function people(){
@@ -499,6 +570,8 @@ function calculateDates(event){
     $('.c-final-sorting').show();
     
 };
+
+submitInfo.addEventListener("click", calculateDates);
 
 
 function travelDetailsNoVehicle(daysOfTravel, peopleBooked){

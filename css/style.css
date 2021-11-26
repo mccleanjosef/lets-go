@@ -1,6 +1,18 @@
 @font-face {
-  font-family: 'National', sans-serif;
-  src: url(fonts/TestNational-Regular.otf); }
+  font-family: 'National';
+  src: url(fonts/TestNational-Regular.otf) format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'National';
+  src: url(fonts/TestNational-Bold.otf) format("truetype");
+  font-weight: bold;
+  font-style: normal; }
+@font-face {
+  font-family: 'National';
+  src: url(fonts/TestNational-Black.otf) format("truetype");
+  font-weight: bolder;
+  font-style: normal; }
 * {
   margin: 0;
   padding: 0;
@@ -21,7 +33,8 @@ html {
   grid-template-columns: 100vw;
   grid-template-areas: "main" "footer"; }
   .l-base-grid__main {
-    grid-area: main; }
+    grid-area: main;
+    position: relative; }
   .l-base-grid__footer {
     display: flex;
     justify-content: space-between;
@@ -119,7 +132,7 @@ html {
     background: url(../img/pexels-ave-calvar-martinez-3030459.jpg) no-repeat;
     background-size: cover; }
 
-.l-content-grid {
+.l-content {
   display: flex;
   flex-flow: column wrap;
   justify-content: flex-start;
@@ -127,8 +140,12 @@ html {
   height: 100%;
   padding: 0 5%;
   padding-top: 35rem;
-  padding-bottom: 20rem;
-  position: relative; }
+  padding-bottom: 20rem; }
+  .l-content__top {
+    display: flex;
+    padding-bottom: 5rem;
+    justify-content: space-between;
+    position: relative; }
 
 /* Large Devices (Laptop/Desktop) */
 /* Medium Devices (Tablets) */
@@ -315,17 +332,83 @@ html {
 /* Medium Devices (Tablets) */
 /* Small Devices (Mobile) */
 .c-travel-details {
-  background: mediumpurple;
+  background: #ffffff;
   width: 603px;
   height: 726px;
   padding: 3rem;
   border-radius: 40px;
-  margin-bottom: 5rem;
-  display: flex;
-  flex-flow: column wrap; }
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px; }
+  .c-travel-details__ctn {
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+    height: 100%; }
+  .c-travel-details__item-container {
+    width: 100%;
+    display: flex; }
+  .c-travel-details__form-item {
+    width: 100%; }
+  .c-travel-details__label {
+    color: #00ABDD;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 0.05rem; }
+    .c-travel-details__label--time {
+      margin-left: 2rem; }
+  .c-travel-details__select {
+    background: #00ABDD;
+    color: #FFFFFF;
+    border: none;
+    font-size: 2rem;
+    width: 100%;
+    padding: 0.9em 1em;
+    border-radius: 40px; }
+    .c-travel-details__select--time {
+      font-size: 2rem;
+      width: 60%;
+      margin-left: 2rem; }
+  .c-travel-details__input {
+    width: 100%;
+    background: #00ABDD;
+    color: #FFFFFF;
+    font-size: 2rem;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 30px; }
+  .c-travel-details__people-ctn {
+    display: flex; }
+  .c-travel-details__input-people {
+    background: #00ABDD;
+    color: #FFFFFF;
+    border: none;
+    width: 8ch;
+    text-align: center;
+    font-size: 2.2rem;
+    padding: 0.3em 0;
+    border-radius: 30px; }
+  .c-travel-details__people-btn {
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: solid 1px #00ABDD;
+    color: #00ABDD;
+    border-radius: 50%;
+    line-height: 0; }
+  .c-travel-details__submit-btn {
+    width: 50%;
+    background: #DCCD23;
+    color: #FFFFFF;
+    align-self: flex-end;
+    font-weight: bolder;
+    font-size: 2.3rem;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 30px;
+    margin-top: 3rem; }
 
-.item-container {
-  display: flex; }
+::placeholder {
+  color: #FFFFFF;
+  opacity: 1; }
 
 .cardContent {
   width: 100%;
@@ -344,7 +427,7 @@ html {
 .fuel-calculator {
   display: none;
   background: midnightblue;
-  width: 90%;
+  width: 100%;
   height: 100vh;
   position: absolute;
   top: 30%;
@@ -382,6 +465,13 @@ html {
 
 .active {
   display: block; }
+
+.l-fuelCalBtn-sec {
+  width: 30%;
+  height: 20vh;
+  background: darkorange;
+  padding: 2rem;
+  align-self: flex-end; }
 
 /* Large Devices (Laptop/Desktop) */
 /* Medium Devices (Tablets) */

@@ -5,8 +5,22 @@ $desktop: "(min-width:1024px)";
 
 // Fonts
 @font-face {
-    font-family: 'National', sans-serif;
-    src: url(fonts/TestNational-Regular.otf);
+    font-family: 'National';
+    src: url(fonts/TestNational-Regular.otf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'National';
+    src: url(fonts/TestNational-Bold.otf) format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'National';
+    src: url(fonts/TestNational-Black.otf) format("truetype");
+    font-weight: bolder;
+    font-style: normal;
 }
 // font-family: 'National', sans-serif;
 
@@ -14,10 +28,6 @@ $heading-font: 'Josefin Sans', sans-serif;
 $body-font: 'National', sans-serif;
 
 $uppercase: uppercase;
-$bold: 700;
-$semibold: 600;
-$medium: 500;
-$regular: 400;
 
 // Colours
 $text-white: #FFFFFF;

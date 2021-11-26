@@ -74,179 +74,192 @@
       </div>
       <!-- end of background grid -->
 
-      <div class="l-content-grid">
-        <div id="fuelCalContent" class="fuel-calculator">
-          <div class="fuel-calculator__ctn">
-            <div id="map" class="fuel-calculator__map"></div>
-            <i id="fuelCalClose" class="fas fa-times fuel-calculator__close"></i>
-            <div id="right-panel" class="fuel-calculator__right-panel">
-              <!-- date calculation using jqeryui calendar -->
-              <h2>Dates for Journey</h2>
-
-              <!-- <label for="startDate">Enter your start date</label>
-              <input type="text" id="startDate" class="form-control">
-
-              <label for="endDate">Enter your end date</label>
-              <input type="text" id="endDate" class="form-control"> -->
-
-              <input id="calculateDays" type="button" value="Calculate Days" class="btn-dark text-light">
-
-              <!-- results of our calculated days -->
-              <label for="days">Number of days</label>
-              <input id="days" type="text">
-
-              <div>
-
-                <b>Start</b>
-                <div id="locationField1">
-                    <input id="start" class="fuel-calculator__input" placeholder="Enter a city" type="text">
-                </div>
-                <br />
-
-                <b>waypoints</b>
-                <br />
-                <i>hold down Ctrl+Click or Cmd+Click for multiple selection</i>
-                <br />
-                <select multiple id="waypoints">
+      <div class="l-content">
+        <div class="l-content__top">
+          <div id="fuelCalContent" class="fuel-calculator">
+            <div class="fuel-calculator__ctn">
+              <div id="map" class="fuel-calculator__map"></div>
+              <i id="fuelCalClose" class="fas fa-times fuel-calculator__close"></i>
+              <div id="right-panel" class="fuel-calculator__right-panel">
+                <!-- date calculation using jqeryui calendar -->
+                <h2>Fuel Costs Calculator</h2>
+  
+                <div>
+  
+                  <b>Start</b>
+                  <div id="locationField1">
+                      <input id="start" class="fuel-calculator__input" placeholder="Enter a city" type="text">
+                  </div>
+                  <br />
+  
+                  <b>waypoints</b>
+                  <br />
+                  <i>hold down Ctrl+Click or Cmd+Click for multiple selection</i>
+                  <br />
+                  <select multiple id="waypoints">
                     <option value="Hamilton, NZ">Hamilton, NZ</option>
                     <option value="Taupo, NZ">Taupo, NZ</option>
                     <option value="Nelson, NZ">Nelson, NZ</option>
                     <option value="Dunedin, NZ">Dunedin, NZ</option>
                     <option value="Bulls NZ">Bulls, NZ</option>
-                </select>
-                <br />
-
-                <b>End</b>
-                <div id="locationField1">
+                  </select>
+                  <br />
+  
+                  <b>End</b>
+                  <div id="locationField1">
                     <input id="end" class="fuel-calculator__input" placeholder="Enter a city" type="text">
+                  </div>
+                  <br />
+  
+                  <label class="fuel-calculator__label" for="vehicleSel">Vehicle Type</label>
+                  <br />
+                  <select class="fuel-calculator__select" name="vehicleSel" id="vehicleSel">
+                    <option class="fuel-calculator__option" value="">select vehicle</option>
+                    <option class="fuel-calculator__option" value="3.7">Motorbike</option>
+                    <option class="fuel-calculator__option" value="8.5">Small Car</option>
+                    <option class="fuel-calculator__option" value="9.7">large car</option>
+                    <option class="fuel-calculator__option" value="17">Motorhome</option>
+                  </select>
+                  <br />
+  
+                  <label class="fuel-calculator__label" for="fuelSel">Fuel Type</label>
+                  <br />
+                  <select class="fuel-calculator__select" name="fuelSel" id="fuelSel">
+                    <option class="fuel-calculator__option" value="">select fuel</option>
+                    <option class="fuel-calculator__option" value="2.49">Unleaded 91 (Green)</option>
+                    <option class="fuel-calculator__option" value="2.66">Unleaded 95 (Yellow)</option>
+                    <option class="fuel-calculator__option" value="2.78">Unleaded 98 (Blue)</option>
+                    <option class="fuel-calculator__option" value="1.73">Diesel (Black)</option>
+                  </select>
+                  <br />
+  
+                  <input type="submit" id="submit">
+                  <br />
+                  <br />
+                  <div id="directions-panel"></div>
+  
+                  <label class="fuel-calculator__label" for="totalDist">Total Distance</label>
+                  <input class="fuel-calculator__input" type="text" id="totalDist">
+                  <br />
+                  <br />
+                  <label class="fuel-calculator__label" for="fuelEfficiency">Vehicle Fuel Efficiency</label>
+                  <input class="fuel-calculator__input" type="text" id="fuelEfficiency">
+                  <br />
+                  <br />
+                  <label class="fuel-calculator__label" for="fuelPrice">Average fuel price</label>
+                  <input class="fuel-calculator__input" type="text" id="fuelPrice">
+                  <br />
+                  <br />
+                  <label class="fuel-calculator__label" for="fuelCost">Estimated Fuel Cost</label>
+                  <input class="fuel-calculator__input" type="text" id="fuelCost">
+  
                 </div>
-                <br />
-
-                <input type="submit" id="submit">
-                <br />
-                <br />
-                <div id="directions-panel"></div>
-
+  
               </div>
-
             </div>
           </div>
-        </div>
-
-        <!-- start of travel details-->
-        <div id="travelDetails" class="c-travel-details">
-        
-          <form action="">
-            <div class="form-item">
-              <label for="pickUpLocation">Pick up location</label>
-              <br />
-              <select name="pickUpLocation">
-                <option>Auckland Airport</option>
-                <option>Hamilton Airport</option>
-                <option>Wellington Airport</option>
-                <option>Nelson Airport</option>
-                <option>Christchurch Airport</option>
-                <option>Dunedin Airport</option>
-              </select>
-            </div>
-            
-            <div class="form-item">
-              <label for="dropOffLocation">Drop off location</label>
-              <br />
-              <select name="dropOffLocation">
-                <option>Auckland Airport</option>
-                <option>Hamilton Airport</option>
-                <option>Wellington Airport</option>
-                <option>Nelson Airport</option>
-                <option>Christchurch Airport</option>
-                <option>Dunedin Airport</option>
-              </select>
-            </div>
-
-            <div class="item-container">
-              <label for="startDate">Enter your start date</label>
-              <input type="text" id="startDate" class="form-control">
-
+  
+          <!-- start of travel details-->
+          <div id="travelDetails" class="c-travel-details">
+          
+            <form class="c-travel-details__ctn" action="">
+              <div class="c-travel-details__form-item">
+                <label class="c-travel-details__label" for="pickUpLocation">Pick up location</label>
+                <br />
+                <select class="c-travel-details__select" name="pickUpLocation">
+                  <option>Auckland Airport</option>
+                  <option>Hamilton Airport</option>
+                  <option>Wellington Airport</option>
+                  <option>Nelson Airport</option>
+                  <option>Christchurch Airport</option>
+                  <option>Dunedin Airport</option>
+                </select>
+              </div>
               
-              <!-- <div class="form-item">
-                <label for="pickUpDate">Pick up date</label>
+              <div class="c-travel-details__form-item">
+                <label class="c-travel-details__label" for="dropOffLocation">Drop off location</label>
                 <br />
-                <input class="form-input" id="pickUpDate" type="text" >
-              </div> -->
-
-              <div class="form-item">
-                <label for="pickUpTime">Pick up time</label>
-                <br />
-                <select name="pickUpTime">
-                  <option>9:00</option>
-                  <option>10:00</option>
-                  <option>11:00</option>
-                  <option>12:00</option>
-                  <option>13:00</option>
-                  <option>14:00</option>
+                <select class="c-travel-details__select" name="dropOffLocation">
+                  <option>Auckland Airport</option>
+                  <option>Hamilton Airport</option>
+                  <option>Wellington Airport</option>
+                  <option>Nelson Airport</option>
+                  <option>Christchurch Airport</option>
+                  <option>Dunedin Airport</option>
                 </select>
               </div>
-            </div>
-            
-            <div class="item-container">
-              <label for="endDate">Enter your end date</label>
-              <input type="text" id="endDate" class="form-control">
-              <!-- <div class="form-item">
-                <label for="dropOffDate">Drop off date</label>
-                <br />
-                <input class="form-input" id="dropOffDate" type="text">
-              </div> -->
-
-              <div class="form-item">
-                <label for="dropOffTime">Drop off time</label>
-                <br />
-                <select name="dropOffTime">
-                  <option>9:00</option>
-                  <option>10:00</option>
-                  <option>11:00</option>
-                  <option>12:00</option>
-                  <option>13:00</option>
-                  <option>14:00</option>
-                </select>
+  
+              <div class="c-travel-details__item-container">
+                <div class="c-travel-details__form-item">
+                  <label class="c-travel-details__label" for="pickUpDate">Pick up date</label>
+                  <br />
+                  <input class="c-travel-details__input" id="pickUpDate" type="text" autocomplete="off" placeholder="day--month--year">
+                </div>
+  
+                <div class="c-travel-details__form-item">
+                  <label class="c-travel-details__label c-travel-details__label--time" for="pickUpTime">Pick up time</label>
+                  <br />
+                  <select class="c-travel-details__select c-travel-details__select--time" name="pickUpTime">
+                    <option>9:00 am</option>
+                    <option>10:00 am</option>
+                    <option>11:00 am</option>
+                    <option>12:00 pm</option>
+                    <option>13:00 pm</option>
+                    <option>14:00 pm</option>
+                  </select>
+                </div>
               </div>
-            </div>
-            
-            <div class="item-container">
-              <div class="form-item">
-                <label for="adults">Adults</label>
-                <br />
-                <select name="adults" id="adults">
-                  <option value="0">0</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                </select>
+              
+              <div class="c-travel-details__item-container">
+                <div class="c-travel-details__form-item">
+                  <label class="c-travel-details__label" for="dropOffDate">Drop off date</label>
+                  <br />
+                  <input class="c-travel-details__input" id="dropOffDate" type="text" autocomplete="off" placeholder="day--month--year">
+                </div>
+  
+                <div class="c-travel-details__form-item">
+                  <label class="c-travel-details__label c-travel-details__label--time" for="dropOffTime">Drop off time</label>
+                  <br />
+                  <select class="c-travel-details__select c-travel-details__select--time" name="dropOffTime">
+                    <option>9:00 am</option>
+                    <option>10:00 am</option>
+                    <option>11:00 am</option>
+                    <option>12:00 pm</option>
+                    <option>13:00 pm</option>
+                    <option>14:00 pm</option>
+                  </select>
+                </div>
               </div>
-
-              <div class="form-item">
-                <label for="children">Children</label>
-                <br />
-                <select name="children" id="children">
-                  <option value="0">0</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                </select>
+              
+              <div class="c-travel-details__people-ctn">
+                <div class="c-travel-details__form-item">
+                  <label class="c-travel-details__label" for="quantityAdults">Adults</label>
+                  <br />
+                  <button class="c-travel-details__people-btn" id="lessAdult" type="button"><i class="fa fa-minus" aria-hidden="true"></i></button>
+                  <input class="c-travel-details__input-people" type="text" id="quantityAdults" value="0">
+                  <button class="c-travel-details__people-btn" id="moreAdult" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </div>
+    
+                <div class="c-travel-details__form-item">
+                  <label class="c-travel-details__label" for="quantityChildren">Children</label>
+                  <br />
+                  <button class="c-travel-details__people-btn" id="lessChild" type="button"><i class="fa fa-minus" aria-hidden="true"></i></button>
+                  <input class="c-travel-details__input-people" type="text" id="quantityChildren" value="0">
+                  <button class="c-travel-details__people-btn" id="moreChild" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                </div>
               </div>
-            </div>
-
-            <button type="button" id="FuelCalBtn">Fuel Calculator</button>
-
-            <button id="submitInfo" type="submit">Search</button>
-          </form>
+  
+              <button class="c-travel-details__submit-btn" id="submitInfo" type="submit">Search</button>
+            </form>
+          </div>
+          <!-- end of travel details-->
+  
+          <!-- start of fuel cost btn container -->
+          <div class="l-fuelCalBtn-sec">
+            <button class="l-fuelCalBtn-sec__fuel-btn" type="button" id="FuelCalBtn">Fuel Costs Calculator</button>
+          </div>
+          <!-- end of fuel cost btn container -->
         </div>
-        <!-- end of travel details-->
 
         <div class="l-sorting-ctn">
           <!-- start of inital sorting container -->
