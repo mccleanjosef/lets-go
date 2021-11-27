@@ -163,42 +163,43 @@
           <div id="travelDetails" class="c-travel-details">
           
             <form class="c-travel-details__ctn" action="">
-              <div class="c-travel-details__form-item">
+              <div class="c-travel-details__label-ctn">
                 <label class="c-travel-details__label" for="pickUpLocation">Pick up location</label>
-                <br />
-                <select class="c-travel-details__select" name="pickUpLocation">
-                  <option>Auckland Airport</option>
-                  <option>Hamilton Airport</option>
-                  <option>Wellington Airport</option>
-                  <option>Nelson Airport</option>
-                  <option>Christchurch Airport</option>
-                  <option>Dunedin Airport</option>
-                </select>
+                <div class="c-travel-details__return-ctn">
+                  <input class="c-travel-details__checkbox" type="checkbox" name="same location" value="return trip">
+                  <p class="c-travel-details__return-text">Same return location</p>
+                </div>
               </div>
+
+              <select class="c-travel-details__select" name="pickUpLocation">
+                <option>Auckland Airport</option>
+                <option>Hamilton Airport</option>
+                <option>Wellington Airport</option>
+                <option>Nelson Airport</option>
+                <option>Christchurch Airport</option>
+                <option>Dunedin Airport</option>
+              </select>
               
-              <div class="c-travel-details__form-item">
-                <label class="c-travel-details__label" for="dropOffLocation">Drop off location</label>
-                <br />
-                <select class="c-travel-details__select" name="dropOffLocation">
-                  <option>Auckland Airport</option>
-                  <option>Hamilton Airport</option>
-                  <option>Wellington Airport</option>
-                  <option>Nelson Airport</option>
-                  <option>Christchurch Airport</option>
-                  <option>Dunedin Airport</option>
-                </select>
-              </div>
-  
-              <div class="c-travel-details__item-container">
-                <div class="c-travel-details__form-item">
+              <label class="c-travel-details__label" for="dropOffLocation">Drop off location</label>
+              <select class="c-travel-details__select" name="dropOffLocation">
+                <option>Auckland Airport</option>
+                <option>Hamilton Airport</option>
+                <option>Wellington Airport</option>
+                <option>Nelson Airport</option>
+                <option>Christchurch Airport</option>
+                <option>Dunedin Airport</option>
+              </select>
+              
+              <div class="c-travel-details__when">
+                <div class="c-travel-details__date">
                   <label class="c-travel-details__label" for="pickUpDate">Pick up date</label>
-                  <br />
                   <input class="c-travel-details__input" id="pickUpDate" type="text" autocomplete="off" placeholder="day--month--year">
+                  <label class="c-travel-details__label" for="dropOffDate">Drop off date</label>
+                  <input class="c-travel-details__input" id="dropOffDate" type="text" autocomplete="off" placeholder="day--month--year">
                 </div>
   
-                <div class="c-travel-details__form-item">
-                  <label class="c-travel-details__label c-travel-details__label--time" for="pickUpTime">Pick up time</label>
-                  <br />
+                <div class="c-travel-details__time">
+                  <label class="c-travel-details__label" for="pickUpTime">Pick up time</label>
                   <select class="c-travel-details__select c-travel-details__select--time" name="pickUpTime">
                     <option>9:00 am</option>
                     <option>10:00 am</option>
@@ -207,19 +208,7 @@
                     <option>13:00 pm</option>
                     <option>14:00 pm</option>
                   </select>
-                </div>
-              </div>
-              
-              <div class="c-travel-details__item-container">
-                <div class="c-travel-details__form-item">
-                  <label class="c-travel-details__label" for="dropOffDate">Drop off date</label>
-                  <br />
-                  <input class="c-travel-details__input" id="dropOffDate" type="text" autocomplete="off" placeholder="day--month--year">
-                </div>
-  
-                <div class="c-travel-details__form-item">
-                  <label class="c-travel-details__label c-travel-details__label--time" for="dropOffTime">Drop off time</label>
-                  <br />
+                  <label class="c-travel-details__label" for="dropOffTime">Drop off time</label>
                   <select class="c-travel-details__select c-travel-details__select--time" name="dropOffTime">
                     <option>9:00 am</option>
                     <option>10:00 am</option>
@@ -232,7 +221,7 @@
               </div>
               
               <div class="c-travel-details__people-ctn">
-                <div class="c-travel-details__form-item">
+                <div class="c-travel-details__adults">
                   <label class="c-travel-details__label" for="quantityAdults">Adults</label>
                   <br />
                   <button class="c-travel-details__people-btn" id="lessAdult" type="button"><i class="fa fa-minus" aria-hidden="true"></i></button>
@@ -240,7 +229,7 @@
                   <button class="c-travel-details__people-btn" id="moreAdult" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
                 </div>
     
-                <div class="c-travel-details__form-item">
+                <div class="c-travel-details__children">
                   <label class="c-travel-details__label" for="quantityChildren">Children</label>
                   <br />
                   <button class="c-travel-details__people-btn" id="lessChild" type="button"><i class="fa fa-minus" aria-hidden="true"></i></button>

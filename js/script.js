@@ -38,7 +38,7 @@ let transport = [
     {   
         type: 'small car',
         id: 102,
-        name: "sc name",
+        name: "Toyota Corolla Hatch",
         brand: "c",
         price: "129",
         imageOne: './img/toyota-corolla-hatch-gx-ng-2018-1.png',
@@ -89,7 +89,7 @@ function generateCard(x){
 
     $('#cardContent').append(
         `
-        <div class="card card--style">
+        <div class="card c-card">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -116,11 +116,13 @@ function generateCard(x){
                 <span class="sr-only">Next</span>
                 </a>
             </div>
-            <div class="card-body">
-                <h5 class="card-title">${transport[x].name}</h5>
-                <p class="card-text">${transport[x].type}</p>
+            <div class="c-card__card-body">
+                <h5 class="c-card__title">${transport[x].name}</h5>
+                <p class="card-text">${transport[x].brand}</p>
                 <p class="card-text">$${transport[x].price}</p>
-                <button id="${transport[x].id}" type="button" class="btn btn-primary vehicleSelect" data-toggle="modal" data-target="#exampleModalCenter">
+            </div>
+            <div class="c-card__card-footer">
+                <button id="${transport[x].id}" type="button" class="btn btn-primary vehicleSelect c-card__select-btn" data-toggle="modal" data-target="#exampleModalCenter">
                     Select
                 </button>
             </div>

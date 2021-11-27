@@ -343,18 +343,28 @@ html {
     flex-flow: column wrap;
     width: 100%;
     height: 100%; }
-  .c-travel-details__item-container {
-    width: 100%;
+  .c-travel-details__label-ctn {
+    display: flex;
+    justify-content: space-between; }
+  .c-travel-details__when {
     display: flex; }
-  .c-travel-details__form-item {
-    width: 100%; }
+  .c-travel-details__date {
+    width: 50%;
+    display: flex;
+    flex-flow: column wrap; }
+  .c-travel-details__time {
+    width: 50%;
+    display: flex;
+    flex-flow: column wrap;
+    padding-left: 5%;
+    align-items: flex-start; }
+  .c-travel-details__return-ctn {
+    display: flex; }
   .c-travel-details__label {
     color: #00ABDD;
     font-size: 2rem;
     font-weight: bold;
     letter-spacing: 0.05rem; }
-    .c-travel-details__label--time {
-      margin-left: 2rem; }
   .c-travel-details__select {
     background: #00ABDD;
     color: #FFFFFF;
@@ -365,8 +375,7 @@ html {
     border-radius: 40px; }
     .c-travel-details__select--time {
       font-size: 2rem;
-      width: 60%;
-      margin-left: 2rem; }
+      width: 60%; }
   .c-travel-details__input {
     width: 100%;
     background: #00ABDD;
@@ -386,6 +395,8 @@ html {
     font-size: 2.2rem;
     padding: 0.3em 0;
     border-radius: 30px; }
+  .c-travel-details__children {
+    padding-left: 5%; }
   .c-travel-details__people-btn {
     width: 50px;
     height: 50px;
@@ -410,19 +421,12 @@ html {
   color: #FFFFFF;
   opacity: 1; }
 
-.cardContent {
-  width: 100%;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  align-content: flex-start;
-  min-height: 1218px; }
-
-.card {
-  width: 350px;
-  height: 400px;
-  margin: 0 1.5rem;
-  margin-bottom: 3rem; }
+.l-fuelCalBtn-sec {
+  width: 30%;
+  height: 20vh;
+  background: darkorange;
+  padding: 2rem;
+  align-self: flex-end; }
 
 .fuel-calculator {
   display: none;
@@ -466,12 +470,47 @@ html {
 .active {
   display: block; }
 
-.l-fuelCalBtn-sec {
-  width: 30%;
-  height: 20vh;
-  background: darkorange;
-  padding: 2rem;
-  align-self: flex-end; }
+.cardContent {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-content: flex-start;
+  min-height: 1218px; }
+
+.c-card {
+  width: 339px;
+  height: 414px;
+  margin: 0 1.5rem;
+  margin-bottom: 3rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  border-radius: 40px;
+  padding: 2.5% 2%; }
+  .c-card__card-body {
+    padding: 0 3%; }
+  .c-card__title {
+    color: #00ABDD;
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 0.05rem; }
+  .c-card__select-btn {
+    background: #DCCD23;
+    width: 100%;
+    font-size: 2.2rem;
+    border: none;
+    border-radius: 40px; }
+
+.carousel-indicators li {
+  background-color: #00ABDD; }
+
+.carousel-control-next, .carousel-control-prev {
+  color: #00ABDD; }
+
+.carousel-control-prev-icon {
+  background-image: url(../img/arrow-left.svg); }
+
+.carousel-control-next-icon {
+  background-color: #00ABDD; }
 
 /* Large Devices (Laptop/Desktop) */
 /* Medium Devices (Tablets) */
