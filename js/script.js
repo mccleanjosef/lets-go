@@ -6,7 +6,7 @@ console.log("script is linked");
 // ===============================
 // start of transport object-array
 // ===============================
-let transport = [
+const transport = [
     {   
         type: 'motorbike',
         id: 101,
@@ -301,8 +301,10 @@ $(document).ready(function(){
 
         // let locationReturnTrip = $('#returnLocation').val();
         // console.log(locationReturnTrip);
+        // reseting selection for correct feedback
         $('#returnLocation').val('');
-        
+        $('#pickUpLocation').val('');
+        $('#dropOffLocation').val('');
     });
     // end of drop off location different to pick up checkbox
     
@@ -597,6 +599,13 @@ function calculateDates(event){
         $('#locationFeedback').val("Please select your pick up location");
     };
     // end of location feedback
+
+    // start of no results feedback
+    if( numberOfPeople === 0 || adults === 0 || pickUpDate == "Invalid Date" ||dropOffDate == "Invalid Date" || (locationReturnTrip == "" && (locationPickUp == "" || locationDropOff == ""))){
+        console.log("not valid details")
+        $('#feedbackMessage').html('<p class="l-feedback__text">Invalid search. Please check your travel details</p>');
+    }
+    // end of no results feedback
 
 
     // CbCallCondition();

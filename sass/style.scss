@@ -10,7 +10,7 @@
 .l-fuelCalBtn-sec{
     width: 30%;
     height: 20vh;
-    background: darkorange;
+    // background: darkorange;
     padding: 2rem;
     align-self: flex-end;
 }
@@ -104,6 +104,7 @@
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
     border-radius: 40px;
     padding: 2.5% 2%;
+    border: none;
     &__card-body{
         padding: 0 3%;
     }
@@ -122,8 +123,22 @@
     }
 }
 
+.carousel-indicators{
+    align-items: center;
+}
+
 .carousel-indicators li{
+    border-radius: 50%;
+    background: none;
+    border: solid 2px $primary-colour;
+    width: 12px;
+    height: 12px;
+}
+
+.carousel-indicators .active{
     background-color: $primary-colour;
+    width: 12px;
+    height: 12px;
 }
 
 .carousel-control-prev-icon{
@@ -131,6 +146,17 @@
 }
 .carousel-control-next-icon{
     background-image: url(../img/arrow-right.svg);
+}
+
+.l-feedback{
+    display: flex;
+    justify-content: center;
+    &__text{
+        color: $primary-colour;
+        font-size: 2rem;
+        margin: 0;
+
+    }
 }
 
 
