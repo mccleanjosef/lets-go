@@ -11,6 +11,7 @@
         // background: lightpink;
         width: 100%;
         height: 100%;
+        position: relative;
     }
     &__label-ctn{
         display: flex;
@@ -34,11 +35,24 @@
     &__return-ctn{
         display: flex;
     }
+    &__checkbox{
+        border: solid 1px $primary-colour;
+        // does nothing
+    }
+    &__return-text{
+        color: $primary-colour;
+    }
+    &__twoLocations-ctn{
+        display: none;
+    }
     &__label{
         color: $primary-colour;
         font-size: 2rem;
-        font-weight: bold;
-        letter-spacing: 0.05rem;
+        font-weight: $bold;
+        // letter-spacing: 0.05rem;
+        &--pickup{
+            display: none;
+        }
     }
     &__select{
         background: $primary-colour;
@@ -46,11 +60,13 @@
         border: none;
         font-size: 2rem;
         width: 100%;
-        padding: 0.9em 1em;
+        padding: 0.5em 1em;
         border-radius: 40px;
+        outline: $secondary-colour;
         &--time{
             font-size: 2rem;
             width: 60%;
+            padding: 0.53em 1em;
         }
     }
     &__input{
@@ -59,10 +75,23 @@
         color: $text-white;
         font-size: 2rem;
         border: none;
-        padding: 0.5em 1em;
+        padding: 0.4em 1em;
         border-radius: 30px;
+        outline-color: $secondary-colour;
     }
-    &__people-ctn{
+    &__people{
+        display: flex;
+    }
+    &__adults{
+        display: flex;
+        flex-flow: column wrap;
+    }
+    &__children{
+        display: flex;
+        flex-flow: column wrap;
+        padding-left: 5%;
+    }
+    &__quantity{
         display: flex;
     }
     &__input-people{
@@ -71,12 +100,11 @@
         border: none;
         width: 8ch;
         text-align: center;
-        font-size: 2.2rem;
-        padding: 0.3em 0;
+        font-size: 2.5rem;
+        padding: 0.2em 0;
         border-radius: 30px;
-    }
-    &__children{
-        padding-left: 5%;
+        margin: 0 0.5rem;
+        outline-color: $secondary-colour;
     }
     &__people-btn{
         width: 50px;
@@ -86,18 +114,33 @@
         color: $primary-colour;
         border-radius: 50%;
         line-height: 0;
+        &:focus{
+            outline-color: $secondary-colour;
+        }
+    }
+    &__feedback{
+        // background: lightgreen;
+        color: $tertiary-colour;
+        border: none;
+        font-size: 2rem;
+        font-weight: $regular;
+        font-style: italic;
+        padding: 1rem 0;
+        outline: none;
     }
     &__submit-btn{
         width: 50%;
         background: $secondary-colour;
         color: $text-white;
-        align-self: flex-end;
-        font-weight: bolder;
+        font-weight: $extra-bold;
         font-size: 2.3rem;
         border: none;
         padding: 0.5em 1em;
         border-radius: 30px;
-        margin-top: 3rem;
+        letter-spacing: 0.05rem;
+        position: absolute;
+        bottom: 0;
+        right: 0;
     }
 }
 
@@ -106,3 +149,18 @@
     opacity: 1;
 }
 
+.show-locations{
+    display: block;
+}
+
+.show-label{
+    display: block;
+}
+
+.hide-label{
+    display: none;
+}
+
+.hide-location{
+    display: none;
+}

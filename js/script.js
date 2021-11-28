@@ -287,6 +287,25 @@ $(document).ready(function(){
         }
     });
     // end of number of people input
+
+    // start of drop off location different to pick up checkbox
+    let locationcheckBox = $("input[type=checkbox][name=return-trip]")
+    
+    locationcheckBox.prop('checked', true);
+
+    locationcheckBox.change(function() { 
+        $('#displayTwoLocations').toggleClass('show-locations');
+        $('#pickUpLocLabel').toggleClass('show-label');
+        $('#returnLocLabel').toggleClass('hide-label');
+        $('#returnLocation').toggleClass('hide-location');
+
+        // let locationReturnTrip = $('#returnLocation').val();
+        // console.log(locationReturnTrip);
+        $('#returnLocation').val('');
+        
+    });
+    // end of drop off location different to pick up checkbox
+    
     
 });
 
@@ -537,23 +556,48 @@ function calculateDates(event){
     // console.log(dayDifference);
 
 
+    // start of pick up and drop off feedback
+    if( pickUpDate == "Invalid Date" ){
+        $('#dayTimeFeedback').val("Please select your pick up day and time");
+    };
 
+    if( dropOffDate == "Invalid Date" ){
+        $('#dayTimeFeedback').val("Please select your drop off day and time");
+    };
+    // end of pick up and drop off feedback
 
 
 
     let numberOfPeople = parseInt($('#quantityAdults').val()) + parseInt($('#quantityChildren').val());
-    console.log(typeof numberOfPeople, numberOfPeople);
+    let adults = parseInt($('#quantityAdults').val());
+    // console.log(typeof numberOfPeople, numberOfPeople);
 
     // start of number of people feedback
-    $('#submitInfo').click(function(){
-        people();
+    $('#numberOfPeople').html(numberOfPeople);
 
-    });
+    if( adults === 0 ){
+        $('#peopleFeedback').val("Sorry, adults are required to drive the vehicle");
+    };
 
-    function people(){
-        $('#numberOfPeople').html(numberOfPeople);
-    }
+    if( numberOfPeople === 0 ){
+        $('#peopleFeedback').val("Please select number of people in the vehicle");
+    };
     // end of number of people feedback
+
+    // start of location feedback
+    let locationReturnTrip = $('#returnLocation').val();
+    let locationPickUp = $('#pickUpLocation').val();
+    let locationDropOff = $('#dropOffLocation').val();
+
+    if( locationReturnTrip == "" && locationPickUp == "" && locationDropOff == ""){
+        $('#locationFeedback').val("Please select your pick up and drop off location");
+    } else if( locationReturnTrip == "" && locationDropOff == ""){
+        $('#locationFeedback').val("Please select your drop off location");
+    } else if( locationReturnTrip == "" && locationPickUp == ""){
+        $('#locationFeedback').val("Please select your pick up location");
+    };
+    // end of location feedback
+
 
     // CbCallCondition();
 
@@ -577,8 +621,8 @@ submitInfo.addEventListener("click", calculateDates);
 
 
 function travelDetailsNoVehicle(daysOfTravel, peopleBooked){
-    // console.log(typeof daysOfTravel, daysOfTravel);
-    // console.log(typeof peopleBooked, peopleBooked);
+    console.log(typeof daysOfTravel, daysOfTravel);
+    console.log(typeof peopleBooked, peopleBooked);
 
     //filtering by people booked and days of travel if no vehicle checkboxes are clicked
     console.log("no vehicles clicked");

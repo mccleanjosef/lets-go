@@ -3,31 +3,59 @@ $mobile: "(max-width: 600px)";
 $tablet: "(min-width:601px) and (max-width:1023px)";
 $desktop: "(min-width:1024px)";
 
-// Fonts
 @font-face {
-    font-family: 'National';
-    src: url(fonts/TestNational-Regular.otf) format("truetype");
-    font-weight: normal;
+    font-family: "National";
+    src: url("../fonts/test-national-regular.woff2") format("woff2");
+    font-weight: 400;
     font-style: normal;
 }
+
 @font-face {
-    font-family: 'National';
-    src: url(fonts/TestNational-Bold.otf) format("truetype");
-    font-weight: bold;
+    font-family: "National";
+    src: url("../fonts/test-national-regular-italic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "National";
+    src: url("../fonts/test-national-semibold.woff2") format("woff2");
+    font-weight: 600;
     font-style: normal;
 }
+
 @font-face {
-    font-family: 'National';
-    src: url(fonts/TestNational-Black.otf) format("truetype");
-    font-weight: bolder;
+    font-family: "National";
+    src: url("../fonts/test-national-bold.woff2") format("woff2");
+    font-weight: 700;
     font-style: normal;
 }
-// font-family: 'National', sans-serif;
+
+@font-face {
+    font-family: "National";
+    src: url("../fonts/test-national-extrabold.woff2") format("woff2");
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "National";
+    src: url("../fonts/test-national-black.woff2") format("woff2");
+    font-weight: 900;
+    font-style: normal;
+}
+
 
 $heading-font: 'Josefin Sans', sans-serif;
-$body-font: 'National', sans-serif;
+$body-font: 'National', Fallback, sans-serif;
 
 $uppercase: uppercase;
+$regular: 400;
+$medium: 400;
+$semi-bold: 600;
+$bold: 700;
+$extra-bold: 800;
+$black-text: 900;
 
 // Colours
 $text-white: #FFFFFF;
@@ -36,7 +64,7 @@ $secondary-colour: #DCCD23;
 $black: #000000;
 $select-arrow: #ffffff;
 $white: #ffffff;
+$tertiary-colour: #DD1B51;
 
-$tertiary-colour: #82191E;
 $mobile-gray: #3C3C3C;
 $red-highlight: #CF2730; 

@@ -126,16 +126,11 @@
     background-color: $primary-colour;
 }
 
-.carousel-control-next, .carousel-control-prev{
-    color: $primary-colour;
-}
-
 .carousel-control-prev-icon{
-    // background-color: $primary-colour;
     background-image: url(../img/arrow-left.svg);
 }
 .carousel-control-next-icon{
-    background-color: $primary-colour;
+    background-image: url(../img/arrow-right.svg);
 }
 
 
