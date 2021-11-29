@@ -11,8 +11,11 @@ const transport = [
         type: 'motorbike',
         id: 101,
         name: "mb name a",
-        brand: "d",
+        partner: "Eurocar",
         price: "199",
+        transmission: "Automatic",
+        efficiency: "excellent",
+        tankCapacity: "2.4L",
         imageOne: './img/suzuki-dl650-v-strom.jpeg',
         imageTwo: './img/suzuki-dl650-v-strom.jpeg',
         imageThree: './img/suzuki-dl650-v-strom.jpeg',
@@ -25,8 +28,11 @@ const transport = [
         type: 'motorbike',
         id: 101,
         name: "mb name b",
-        brand: "d",
+        partner: "d",
         price: "120",
+        transmission: "Automatic",
+        efficiency: "excellent",
+        tankCapacity: "2.4L",
         imageOne: './img/suzuki-dl650-v-strom.jpeg',
         imageTwo: './img/suzuki-dl650-v-strom.jpeg',
         imageThree: './img/suzuki-dl650-v-strom.jpeg',
@@ -39,8 +45,11 @@ const transport = [
         type: 'small car',
         id: 102,
         name: "Toyota Corolla Hatch",
-        brand: "c",
+        partner: "Eurocar",
         price: "129",
+        transmission: "Automatic",
+        efficiency: "excellent",
+        tankCapacity: "2.4L",
         imageOne: './img/toyota-corolla-hatch-gx-ng-2018-1.png',
         imageTwo: './img/toyota-corolla-hatch-gx-ng-2018-1.png',
         imageThree: './img/toyota-corolla-hatch-gx-ng-2018-1.png',
@@ -53,8 +62,11 @@ const transport = [
         type: 'large car',
         id: 103,
         name: "lc name",
-        brand: "b",
+        partner: "b",
         price: "144",
+        transmission: "Automatic",
+        efficiency: "excellent",
+        tankCapacity: "2.4L",
         imageOne: './img/suv.jpeg',
         imageTwo: './img/suv.jpeg',
         imageThree: './img/suv.jpeg',
@@ -67,8 +79,11 @@ const transport = [
         type: 'motor home',
         id: 104,
         name: "mh name",
-        brand: "a",
+        partner: "a",
         price: "200",
+        transmission: "Automatic",
+        efficiency: "excellent",
+        tankCapacity: "2.4L",
         imageOne: './img/apollo-euro-camper-4-berth-white-background.jpeg',
         imageTwo: './img/apollo-euro-camper-4-berth-white-background.jpeg',
         imageThree: './img/apollo-euro-camper-4-berth-white-background.jpeg',
@@ -91,11 +106,21 @@ function generateCard(x){
         `
         <div class="card c-card">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
+                <div class="carousel-icons">
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                    </a>
+                    <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                    </a>
+                </div>
                 <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img class="d-block w-100" src="${transport[x].imageOne}" alt="First slide">
@@ -107,19 +132,25 @@ function generateCard(x){
                     <img class="d-block w-100" src="${transport[x].imageThree}" alt="Third slide">
                 </div>
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-                </a>
             </div>
             <div class="c-card__card-body">
                 <h5 class="c-card__title">${transport[x].name}</h5>
-                <p class="card-text">${transport[x].brand}</p>
-                <p class="card-text">$${transport[x].price}</p>
+                <p class="card-text">${transport[x].partner}</p>
+                <div class="c-card__details">
+                    <div class="c-card__left">
+                        <div class="c-card__icons-left">
+                            <p class="card-text">${transport[x].transmission}</p>
+                            <p class="card-text">${transport[x].efficiency}</p>
+                        </div>
+                        <div class="c-card__icons-left">
+                            <p class="card-text">${transport[x].maxPeople}</p>
+                            <p class="card-text">${transport[x].tankCapacity}</p>
+                        </div>
+                    </div>
+                    <div class="c-card__right">
+                        <p class="card-text">$${transport[x].price}</p>
+                    </div>
+                </div>
             </div>
             <div class="c-card__card-footer">
                 <button id="${transport[x].id}" type="button" class="btn btn-primary vehicleSelect c-card__select-btn" data-toggle="modal" data-target="#exampleModalCenter">

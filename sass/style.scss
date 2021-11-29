@@ -107,6 +107,14 @@
     border: none;
     &__card-body{
         padding: 0 3%;
+        padding-top: 3rem;
+    }
+    &__details{
+        display: flex;
+        justify-content: space-between;
+    }
+    &__left{
+        display: flex;
     }
     &__title{
         color: $primary-colour;
@@ -123,29 +131,50 @@
     }
 }
 
+.carousel-icons{
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+}
+
 .carousel-indicators{
     align-items: center;
+    position: static;
+    margin: 0;
 }
 
 .carousel-indicators li{
     border-radius: 50%;
     background: none;
     border: solid 2px $primary-colour;
-    width: 12px;
-    height: 12px;
+    width: 8px;
+    height: 8px;
+    margin: 0 6px;
 }
 
 .carousel-indicators .active{
     background-color: $primary-colour;
-    width: 12px;
-    height: 12px;
+    width: 8px;
+    height: 8px;
+}
+
+.carousel-control-next, .carousel-control-prev{
+    position: static;
+    width: 25%;
 }
 
 .carousel-control-prev-icon{
     background-image: url(../img/arrow-left.svg);
+    height: 18px;
 }
 .carousel-control-next-icon{
     background-image: url(../img/arrow-right.svg);
+    height: 18px;
 }
 
 .l-feedback{
