@@ -22,17 +22,21 @@
         color: $text-white;
     }
     &__page-title{
-        display: flex;
-        // width: 50%;
-        // background: lemonchiffon;
+        width: 75%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
     }
     &__title-ctn{
+        width: 125%;
         background: $primary-colour;
         color: $text-white;
         border-radius: 30px;
-        padding: 1em 2em;
+        padding: 1em 0;
+        text-align: center;
         &--active{
             background: $secondary-colour;
+            z-index: 3;
         }
     }
     &__title-text{
@@ -77,4 +81,9 @@
 #hireBtn{
     width: 30%;
 }
+
+
+// .pac-container {
+//     z-index: 2000 !important;
+// }
 

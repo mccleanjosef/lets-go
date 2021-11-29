@@ -188,14 +188,20 @@ html {
   padding: 1rem 1rem;
   color: #FFFFFF; }
 .c-modal__page-title {
-  display: flex; }
+  width: 75%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center; }
 .c-modal__title-ctn {
+  width: 125%;
   background: #00ABDD;
   color: #FFFFFF;
   border-radius: 30px;
-  padding: 1em 2em; }
+  padding: 1em 0;
+  text-align: center; }
   .c-modal__title-ctn--active {
-    background: #DDCE22; }
+    background: #DDCE22;
+    z-index: 3; }
 .c-modal__title-text {
   font-size: 1.6rem; }
 .c-modal__footer {
