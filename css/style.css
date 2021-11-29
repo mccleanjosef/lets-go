@@ -195,7 +195,7 @@ html {
   border-radius: 30px;
   padding: 1em 2em; }
   .c-modal__title-ctn--active {
-    background: #DCCD23; }
+    background: #DDCE22; }
 .c-modal__title-text {
   font-size: 1.6rem; }
 .c-modal__footer {
@@ -235,6 +235,7 @@ html {
   margin-bottom: 15rem; }
 
 .c-inital-sorting {
+  background: mediumvioletred;
   width: 100%; }
   .c-inital-sorting__sorting {
     display: flex;
@@ -274,6 +275,7 @@ html {
     font-size: 1.4rem; }
 
 .c-final-sorting {
+  background: mediumspringgreen;
   width: 100%; }
   .c-final-sorting__sorting {
     display: flex;
@@ -394,7 +396,7 @@ html {
     width: 100%;
     padding: 0.5em 1em;
     border-radius: 40px;
-    outline: #DCCD23; }
+    outline: #DDCE22; }
     .c-travel-details__select--time {
       font-size: 2rem;
       width: 60%;
@@ -407,7 +409,7 @@ html {
     border: none;
     padding: 0.4em 1em;
     border-radius: 30px;
-    outline-color: #DCCD23; }
+    outline-color: #DDCE22; }
   .c-travel-details__people {
     display: flex; }
   .c-travel-details__adults {
@@ -429,7 +431,7 @@ html {
     padding: 0.2em 0;
     border-radius: 30px;
     margin: 0 0.5rem;
-    outline-color: #DCCD23; }
+    outline-color: #DDCE22; }
   .c-travel-details__people-btn {
     width: 50px;
     height: 50px;
@@ -439,7 +441,7 @@ html {
     border-radius: 50%;
     line-height: 0; }
     .c-travel-details__people-btn:focus {
-      outline-color: #DCCD23; }
+      outline-color: #DDCE22; }
   .c-travel-details__feedback {
     color: #DD1B51;
     border: none;
@@ -450,7 +452,7 @@ html {
     outline: none; }
   .c-travel-details__submit-btn {
     width: 50%;
-    background: #DCCD23;
+    background: #DDCE22;
     color: #FFFFFF;
     font-weight: 800;
     font-size: 2.3rem;
@@ -549,21 +551,85 @@ html {
     padding: 0 3%;
     padding-top: 3rem; }
   .c-card__details {
+    width: 100%;
+    height: 5.5rem;
     display: flex;
     justify-content: space-between; }
   .c-card__left {
+    width: 189px;
+    height: 100%;
     display: flex; }
+  .c-card__right {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 1.5rem; }
+  .c-card__icons-left {
+    height: 100%;
+    width: 113px;
+    display: flex;
+    flex-flow: row wrap; }
+  .c-card__icons-right {
+    height: 100%;
+    width: 75.6px;
+    display: flex;
+    flex-flow: row wrap; }
   .c-card__title {
+    margin: 0;
     color: #00ABDD;
-    font-size: 2.5rem;
+    font-size: 2.4rem;
     font-weight: bold;
-    letter-spacing: 0.05rem; }
+    letter-spacing: 0.05rem;
+    line-height: 1;
+    padding-bottom: 0.5rem; }
+  .c-card__partner {
+    margin: 0;
+    line-height: 1;
+    color: #5CB8E2;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    padding-bottom: 0.7rem; }
+  .c-card__icon {
+    height: 2rem;
+    margin-right: 0.8rem; }
+  .c-card__text {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 1.5rem;
+    padding: 0;
+    color: #00ABDD;
+    margin-right: 1rem; }
+    .c-card__text--larger {
+      font-size: 1.9rem;
+      line-height: 1;
+      margin-right: 2rem; }
+    .c-card__text--fuel {
+      font-size: 1.6rem;
+      line-height: 1; }
+  .c-card__price {
+    margin: 0;
+    font-size: 2.8rem;
+    color: #00ABDD;
+    font-weight: 700;
+    line-height: 1; }
+    .c-card__price--sign {
+      font-size: 2.2rem; }
+    .c-card__price--day {
+      font-size: 1.7rem;
+      color: #5CB8E2; }
   .c-card__select-btn {
-    background: #DCCD23;
+    color: #FFFFFF;
+    background: #DDCE22;
     width: 100%;
-    font-size: 2.2rem;
+    font-size: 2rem;
     border: none;
-    border-radius: 40px; }
+    border-radius: 40px;
+    font-weight: 800;
+    letter-spacing: 0.08rem;
+    padding: 0.2em 0; }
+    .c-card__select-btn:focus {
+      outline: none; }
 
 .carousel-icons {
   width: 100%;

@@ -5,79 +5,8 @@
 @import "modal";
 @import "sorting";
 @import "travel-details";
+@import "fuel-calculator";
 
-
-.l-fuelCalBtn-sec{
-    width: 30%;
-    height: 20vh;
-    // background: darkorange;
-    padding: 2rem;
-    align-self: flex-end;
-}
-
-.fuel-calculator{
-    display: none;
-    background: midnightblue;
-    width: 100%;
-    height: 100vh;
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 20;
-    border-radius: 50px;
-    padding: 5rem;
-    &__ctn{
-        width: 100%;
-        height: 100%;
-        display: flex;
-    }
-    &__close{
-        position: absolute;
-        right: 0;
-        top: 0;
-        color: $white;
-        font-size: 4rem;
-        padding: 4rem;
-        cursor: pointer;
-    }
-    &__map{
-        width: 60%;
-        height: 100%;
-        background: $black;
-        border-radius: 30px;
-    }
-    &__right-panel{
-        background: lightseagreen;
-        width: 40%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        padding: 5%;
-    }
-    &__input{
-        background: palevioletred;
-    }
-    // &__title{
-    //     color: $white;
-    // }
-    // &__label{
-    //     color: $white;
-    // }
-    // &__text{
-    //     color: $white;
-    // }
-    // &__select{
-    //     @include dropdown;
-    // }
-    // &__option{
-    //     @include dropdown-options;
-    // }
-}
-
-.active{
-    display: block;
-}
 
 // .pac-container {
 //     z-index: 2000 !important;
@@ -110,24 +39,105 @@
         padding-top: 3rem;
     }
     &__details{
+        width: 100%;
+        height: 5.5rem;
         display: flex;
         justify-content: space-between;
+        // background: green;
     }
     &__left{
+        width: 189px;
+        height: 100%;
         display: flex;
+        // background: yellow;
+    }
+    &__right{
+        display: flex;
+        align-items: flex-end;
+        padding-bottom: 1.5rem;
+    }
+    &__icons-left{
+        height: 100%;
+        width: 113px;
+        display: flex;
+        flex-flow: row wrap;
+        // background: red;
+        
+    }
+    &__icons-right{
+        height: 100%;
+        width: 75.6px;
+        display: flex;
+        flex-flow: row wrap;
+        // background: orange;
     }
     &__title{
+        margin: 0;
         color: $primary-colour;
-        font-size: 2.5rem;
+        font-size: 2.4rem;
         font-weight: bold;
         letter-spacing: 0.05rem;
+        line-height: 1;
+        padding-bottom: 0.5rem;
+    }
+    &__partner{
+        margin: 0;
+        line-height: 1;
+        color: $light-blue;
+        font-size: 1.4rem;
+        text-transform: $uppercase;
+        font-weight: $bold;
+        letter-spacing: 0.1rem;
+        padding-bottom: 0.7rem;
+    }
+    &__icon{
+        height: 2rem;
+        margin-right: 0.8rem;
+    }
+    &__text{
+        margin: 0;
+        line-height: 1.5;
+        font-size: 1.5rem;
+        padding: 0;
+        color: $primary-colour;
+        margin-right: 1rem;
+        &--larger{
+            font-size: 1.9rem;
+            line-height: 1;
+            margin-right: 2rem;
+        }
+        &--fuel{
+            font-size: 1.6rem;
+            line-height: 1; 
+        }
+    }
+    &__price{
+        margin: 0;
+        font-size: 2.8rem;
+        color: $primary-colour;
+        font-weight: $bold;
+        line-height: 1;
+        &--sign{
+            font-size: 2.2rem;
+        }
+        &--day{
+            font-size: 1.7rem;
+            color: $light-blue;
+        }
     }
     &__select-btn{
+        color: $text-white;
         background: $secondary-colour;
         width: 100%;
-        font-size: 2.2rem;
+        font-size: 2rem;
         border: none;
         border-radius: 40px;
+        font-weight: $extra-bold;
+        letter-spacing: 0.08rem;
+        padding: 0.2em 0;
+        &:focus{
+            outline: none;
+        }
     }
 }
 
@@ -176,6 +186,7 @@
     background-image: url(../img/arrow-right.svg);
     height: 18px;
 }
+
 
 .l-feedback{
     display: flex;

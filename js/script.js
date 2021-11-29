@@ -10,11 +10,12 @@ const transport = [
     {   
         type: 'motorbike',
         id: 101,
+        carouselId: "carouselOne",
         name: "mb name a",
         partner: "Eurocar",
         price: "199",
         transmission: "Automatic",
-        efficiency: "excellent",
+        efficiency: "Excellent",
         tankCapacity: "2.4L",
         imageOne: './img/suzuki-dl650-v-strom.jpeg',
         imageTwo: './img/suzuki-dl650-v-strom.jpeg',
@@ -26,12 +27,13 @@ const transport = [
     },
     {   
         type: 'motorbike',
-        id: 101,
+        id: 105,
+        carouselId: "carouselFive",
         name: "mb name b",
         partner: "d",
         price: "120",
         transmission: "Automatic",
-        efficiency: "excellent",
+        efficiency: "Excellent",
         tankCapacity: "2.4L",
         imageOne: './img/suzuki-dl650-v-strom.jpeg',
         imageTwo: './img/suzuki-dl650-v-strom.jpeg',
@@ -44,11 +46,12 @@ const transport = [
     {   
         type: 'small car',
         id: 102,
+        carouselId: "carouselTwo",
         name: "Toyota Corolla Hatch",
         partner: "Eurocar",
         price: "129",
         transmission: "Automatic",
-        efficiency: "excellent",
+        efficiency: "Excellent",
         tankCapacity: "2.4L",
         imageOne: './img/toyota-corolla-hatch-gx-ng-2018-1.png',
         imageTwo: './img/toyota-corolla-hatch-gx-ng-2018-1.png',
@@ -61,11 +64,12 @@ const transport = [
     {   
         type: 'large car',
         id: 103,
+        carouselId: "carouselThree",
         name: "lc name",
         partner: "b",
         price: "144",
         transmission: "Automatic",
-        efficiency: "excellent",
+        efficiency: "Excellent",
         tankCapacity: "2.4L",
         imageOne: './img/suv.jpeg',
         imageTwo: './img/suv.jpeg',
@@ -78,11 +82,12 @@ const transport = [
     {   
         type: 'motor home',
         id: 104,
+        carouselId: "carouselFour",
         name: "mh name",
         partner: "a",
         price: "200",
         transmission: "Automatic",
-        efficiency: "excellent",
+        efficiency: "Excellent",
         tankCapacity: "2.4L",
         imageOne: './img/apollo-euro-camper-4-berth-white-background.jpeg',
         imageTwo: './img/apollo-euro-camper-4-berth-white-background.jpeg',
@@ -105,55 +110,59 @@ function generateCard(x){
     $('#cardContent').append(
         `
         <div class="card c-card">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div id="${transport[x].carouselId}" class="carousel slide" data-ride="carousel">
                 <div class="carousel-icons">
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <a class="carousel-control-prev" href="#${transport[x].carouselId}" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                     </a>
                     <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    <li data-target="#${transport[x].carouselId}" data-slide-to="0" class="active"></li>
+                    <li data-target="#${transport[x].carouselId}" data-slide-to="1"></li>
+                    <li data-target="#${transport[x].carouselId}" data-slide-to="2"></li>
                     </ol>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <a class="carousel-control-next" href="#${transport[x].carouselId}" role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                     </a>
                 </div>
                 <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src="${transport[x].imageOne}" alt="First slide">
+                    <img class="d-block w-100 c-card__img" src="${transport[x].imageOne}" alt="First slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="${transport[x].imageTwo}" alt="Second slide">
+                    <img class="d-block w-100 c-card__img" src="${transport[x].imageTwo}" alt="Second slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="${transport[x].imageThree}" alt="Third slide">
+                    <img class="d-block w-100 c-card__img" src="${transport[x].imageThree}" alt="Third slide">
                 </div>
                 </div>
             </div>
             <div class="c-card__card-body">
                 <h5 class="c-card__title">${transport[x].name}</h5>
-                <p class="card-text">${transport[x].partner}</p>
+                <p class="c-card__partner">${transport[x].partner}</p>
                 <div class="c-card__details">
                     <div class="c-card__left">
                         <div class="c-card__icons-left">
-                            <p class="card-text">${transport[x].transmission}</p>
-                            <p class="card-text">${transport[x].efficiency}</p>
+                            <img class="c-card__icon" src="./img/noun_Gear Stick_239618.svg" alt="transmission">
+                            <p class="c-card__text">${transport[x].transmission}</p>
+                            <img class="c-card__icon" src="./img/noun_fuel gauge_161088.svg" alt="fuel efficiency">
+                            <p class="c-card__text">${transport[x].efficiency}</p>
                         </div>
-                        <div class="c-card__icons-left">
-                            <p class="card-text">${transport[x].maxPeople}</p>
-                            <p class="card-text">${transport[x].tankCapacity}</p>
+                        <div class="c-card__icons-right">
+                            <img class="c-card__icon" src="./img/noun_passenger_188591.svg" alt="max passengers">
+                            <p class="c-card__text c-card__text--larger">${transport[x].maxPeople}</p>
+                            <img class="c-card__icon" src="./img/noun_Fuel_3347121.svg" alt="fuel capacity">
+                            <p class="c-card__text c-card__text--fuel">${transport[x].tankCapacity}</p>
                         </div>
                     </div>
                     <div class="c-card__right">
-                        <p class="card-text">$${transport[x].price}</p>
+                        <p class="c-card__price"><span class="c-card__price--sign">$</span>${transport[x].price}<span class="c-card__price--day">/day</span></p>
                     </div>
                 </div>
             </div>
             <div class="c-card__card-footer">
-                <button id="${transport[x].id}" type="button" class="btn btn-primary vehicleSelect c-card__select-btn" data-toggle="modal" data-target="#exampleModalCenter">
+                <button id="${transport[x].id}" type="button" class="vehicleSelect c-card__select-btn" data-toggle="modal" data-target="#exampleModalCenter">
                     Select
                 </button>
             </div>
