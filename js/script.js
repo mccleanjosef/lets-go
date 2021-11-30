@@ -3,6 +3,10 @@ console.log("script is linked");
 
 // Query Selectors
 
+
+// global variables
+let totalDays;
+
 // ===============================
 // start of transport object-array
 // ===============================
@@ -11,6 +15,7 @@ const transport = [
         type: 'motorbike',
         id: 101,
         carouselId: "carouselOne",
+        modalCarouselId: "modalCarouselOne",
         name: "mb name a",
         partner: "Eurocar",
         price: "199",
@@ -29,6 +34,7 @@ const transport = [
         type: 'motorbike',
         id: 105,
         carouselId: "carouselFive",
+        modalCarouselId: "modalCarouselFive",
         name: "mb name b",
         partner: "d",
         price: "120",
@@ -47,6 +53,7 @@ const transport = [
         type: 'small car',
         id: 102,
         carouselId: "carouselTwo",
+        modalCarouselId: "modalCarouselTwo",
         name: "Toyota Corolla Hatch",
         partner: "Eurocar",
         price: "129",
@@ -65,6 +72,7 @@ const transport = [
         type: 'large car',
         id: 103,
         carouselId: "carouselThree",
+        modalCarouselId: "modalCarouselThree",
         name: "lc name",
         partner: "b",
         price: "144",
@@ -83,6 +91,7 @@ const transport = [
         type: 'motor home',
         id: 104,
         carouselId: "carouselFour",
+        modalCarouselId: "modalCarouselFour",
         name: "mh name",
         partner: "a",
         price: "200",
@@ -110,7 +119,7 @@ function generateCard(x){
     $('#cardContent').append(
         `
         <div class="card c-card">
-            <div id="${transport[x].carouselId}" class="carousel slide" data-ride="carousel">
+            <div id="${transport[x].carouselId}" class="carousel slide">
                 <div class="carousel-icons">
                     <a class="carousel-control-prev" href="#${transport[x].carouselId}" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -203,20 +212,79 @@ function modal(){
                 $('#transportModalInfo').empty().append(
                     `
                     <div id="vehicleDetails" class="c-modal__content">
-
+                        <div class="c-modal__carousel-wrap">
+                            <div class="c-modal__side-carousel"></div>
+                            <div id="${transport[i].modalCarouselId}" class="carousel slide c-modal__carousel">
+                                <div class="carousel-inner c-modal__carousel-inner">
+                                    <div class="carousel-item c-modal__carousel-item active">
+                                        <img class="d-block w-100 c-modal__img" src="${transport[i].imageOne}" alt="First slide">
+                                    </div>
+                                    <div class="carousel-item c-modal__carousel-item">
+                                        <img class="d-block w-100 c-modal__img" src="${transport[i].imageTwo}" alt="Second slide">
+                                    </div>
+                                    <div class="carousel-item c-modal__carousel-item">
+                                        <img class="d-block w-100 c-modal__img" src="${transport[i].imageThree}" alt="Third slide">
+                                    </div>
+                                </div>
+                                <div class="carousel-icons">
+                                    <a class="carousel-control-prev" href="#${transport[i].modalCarouselId}" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                    </a>
+                                    <ol class="carousel-indicators">
+                                    <li data-target="#${transport[i].modalCarouselId}" data-slide-to="0" class="active"></li>
+                                    <li data-target="#${transport[i].modalCarouselId}" data-slide-to="1"></li>
+                                    <li data-target="#${transport[i].modalCarouselId}" data-slide-to="2"></li>
+                                    </ol>
+                                    <a class="carousel-control-next" href="#${transport[i].modalCarouselId}" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="c-modal__side-carousel"></div>
+                        </div>
+                        <h5 class="c-modal__title">${transport[i].name}</h5>
+                        <p class="c-modal__partner">${transport[i].partner}</p>
+                        <div class="c-modal__icons-ctn">
+                            <div class="c-modal__icons-left">
+                                <img class="c-modal__icon" src="./img/noun_Gear Stick_239618.svg" alt="transmission">
+                                <p class="c-modal__text">${transport[i].transmission}</p>
+                                <img class="c-modal__icon" src="./img/noun_fuel gauge_161088.svg" alt="fuel efficiency">
+                                <p class="c-modal__text">${transport[i].efficiency}</p>
+                            </div>
+                            <div class="c-modal__icons-right">
+                                <img class="c-modal__icon" src="./img/noun_passenger_188591.svg" alt="max passengers">
+                                <p class="c-modal__text c-modal__text--larger">${transport[i].maxPeople}</p>
+                                <img class="c-modal__icon" src="./img/noun_Fuel_3347121.svg" alt="fuel capacity">
+                                <p class="c-modal__text c-modal__text--fuel">${transport[i].tankCapacity}</p>
+                            </div>
+                        </div>
+                        <div class="c-modal__pricing-ctn">
+                            <p class="c-modal__price"><span class="c-modal__price--sign">$</span>${transport[i].price}<span class="c-modal__price--day">&nbsp /day</span></p>
+                            <div class="c-modal__line-wrap">
+                                <label for="travel-days">Number of days: &nbsp</label>
+                                <p id="travelDays"></p>
+                            </div>
+                            <div class="c-modal__line-wrap">
+                                <label for="total-cost">Total Cost = </label>
+                                <p>&nbsp $ &nbsp</p><p id="totalCost"></p>
+                            </div>
+                        </div>
                     </div>
                     <div id="review" class="c-modal__content"></div>
                     <div id="summary" class="c-modal__content"></div>
                     `
                 ); 
             }
+            
         }
-        modalContent();
+        modalContent(this.id);
     });
 }
 
 
-function modalContent(){
+function modalContent(vehicleSelectedId){
 
     $('#review').hide();
     $('#summary').hide();
@@ -258,6 +326,40 @@ function modalContent(){
         $('#vecDetTitle').addClass("c-modal__title-ctn--active");
     }
 
+    $('.carousel').carousel({
+        interval: false
+    });
+
+    // number of days in modal
+    $('#travelDays').text(totalDays);
+    
+    if (totalDays == undefined){
+        $('#travelDays').text("--");
+    }
+
+    // total cost in modal
+    let i = 0;
+    for(i = 0; i < transport.length; i++){
+        const totalPrice = totalDays * (transport[i].price)
+
+        if(parseInt(vehicleSelectedId) === transport[i].id){
+            // console.log(transport[i].price);
+            
+            $('#totalCost').text(totalPrice);
+
+            // console.log(typeof totalPrice, totalPrice);
+
+            if ( isNaN(totalPrice) ){
+                $('#totalCost').empty().append(
+                    "--"
+                ); 
+            }
+        } 
+        
+    }
+
+    
+
 
     hireBtn.addEventListener("click", hire);
     confirmBtn.addEventListener("click", confirm);
@@ -266,7 +368,6 @@ function modalContent(){
 // // ===============================
 // // end of modal
 // // ===============================
-
 
 
 // ====================================
@@ -286,7 +387,7 @@ $(document).ready(function(){
     $('.carousel').carousel({
         interval: false
         // pause: 'hover',
-    })
+    });
 
     $('#myModal').modal({
         keyboard: true
@@ -392,6 +493,7 @@ function initMap(){
     //     let days = (end - start)/1000/60/60/24
     //     $('#days').val(days);
     // }
+    // dateDiff();
 
     // auto complete form
     let start = new google.maps.places.Autocomplete(
@@ -594,8 +696,18 @@ function calculateDates(event){
 
     // calculating the difference
     let difference = dropOffDate.getTime() - pickUpDate.getTime();
-    let dayDifference = (difference/msDay) + 1;
-    // console.log(dayDifference);
+    let dayDifference = (difference/msDay);
+    console.log(dayDifference);
+    totalDays = dayDifference;
+
+    // start of final sorting days feedback
+    $('#days').text(dayDifference);
+    // end of final sorting days feedback
+
+    
+    // modalTravelDays(dayDifference);
+    
+    
 
 
     // start of pick up and drop off feedback

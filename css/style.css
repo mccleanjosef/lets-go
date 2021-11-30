@@ -171,9 +171,41 @@ html {
 @media (max-width: 600px) {
   .l-base-grid__footer {
     background: greenyellow; } }
+.modal-header .close {
+  padding: 1rem 1rem;
+  padding-top: 0;
+  margin: 0;
+  font-size: 2.8rem; }
+
+#vehicleDetails {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  padding: 0 6%;
+  display: flex;
+  flex-flow: row wrap; }
+
+#review {
+  width: 100%;
+  height: 100%;
+  background: orange; }
+
+#summary {
+  width: 100%;
+  height: 100%;
+  background: red; }
+
+#hireBtn {
+  width: 30%; }
+
 .modal-content {
   height: 900px;
-  position: relative; }
+  position: relative;
+  border-radius: 50px; }
+
+.modal-header {
+  padding: 0 2rem;
+  padding-top: 2rem; }
 
 .modal-body {
   display: flex;
@@ -194,46 +226,98 @@ html {
   justify-items: center; }
 .c-modal__title-ctn {
   width: 125%;
-  background: #00ABDD;
-  color: #FFFFFF;
+  background: #ffffff;
+  color: #00ABDD;
   border-radius: 30px;
-  padding: 1em 0;
-  text-align: center; }
+  padding: 0.5em 0;
+  text-align: center;
+  border: solid 3px #00ABDD; }
   .c-modal__title-ctn--active {
-    background: #DDCE22;
-    z-index: 3; }
+    background: #00ABDD;
+    z-index: 3;
+    color: #FFFFFF; }
+  .c-modal__title-ctn--stacked {
+    z-index: 2; }
 .c-modal__title-text {
   font-size: 1.6rem; }
+.c-modal__carousel-wrap {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem; }
+.c-modal__side-carousel {
+  background: #ffffff;
+  width: 14%;
+  z-index: 3; }
+.c-modal__carousel {
+  margin-bottom: 4rem; }
+.c-modal__carousel-inner {
+  height: 100%; }
+.c-modal__carousel-item {
+  width: auto;
+  height: 100%; }
+.c-modal__img {
+  height: 100%;
+  background-repeat: no-repeat; }
+.c-modal__title {
+  width: 100%;
+  font-size: 4rem;
+  color: #00ABDD;
+  line-height: 1;
+  font-weight: 800; }
+.c-modal__partner {
+  width: 100%;
+  font-size: 2rem;
+  color: #5CB8E2;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: 0.1rem; }
+.c-modal__icons-ctn {
+  width: 50%;
+  display: flex; }
+.c-modal__pricing-ctn {
+  width: 50%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: flex-end;
+  align-items: flex-end;
+  color: #00ABDD;
+  font-size: 2.2rem;
+  font-weight: 600; }
+.c-modal__icons-left {
+  width: 16rem;
+  display: flex;
+  flex-flow: row wrap; }
+.c-modal__icons-right {
+  width: 10rem;
+  display: flex;
+  flex-flow: row wrap; }
+.c-modal__icon {
+  height: 40px;
+  margin-right: 1.5rem; }
+.c-modal__text {
+  padding-top: 1rem;
+  color: #00ABDD;
+  line-height: 1; }
+.c-modal__line-wrap {
+  display: flex; }
 .c-modal__footer {
   justify-content: center;
   border: none;
-  padding-top: 0; }
-.c-modal__btn {
-  font-size: 2rem; }
-
-.modal-header .close {
-  padding: 1rem 1rem;
   padding-top: 0;
-  margin: 0;
-  font-size: 2.8rem; }
-
-#vehicleDetails {
-  width: 100%;
-  height: 100%;
-  background: green; }
-
-#review {
-  width: 100%;
-  height: 100%;
-  background: orange; }
-
-#summary {
-  width: 100%;
-  height: 100%;
-  background: red; }
-
-#hireBtn {
-  width: 30%; }
+  padding-bottom: 2rem; }
+.c-modal__btn {
+  width: 30%;
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: #DDCE22;
+  border-radius: 30px;
+  border: none;
+  color: #FFFFFF;
+  padding: 0.3em 0; }
+  .c-modal__btn:focus {
+    outline: none; }
 
 .l-sorting-ctn {
   width: 100%;
@@ -491,6 +575,7 @@ html {
 .l-fuelCalBtn-sec {
   width: 30%;
   height: 20vh;
+  background: darkorange;
   padding: 2rem;
   align-self: flex-end; }
 
@@ -556,6 +641,8 @@ html {
   .c-card__card-body {
     padding: 0 3%;
     padding-top: 3rem; }
+  .c-card__img {
+    background-repeat: no-repeat; }
   .c-card__details {
     width: 100%;
     height: 5.5rem;
@@ -591,7 +678,7 @@ html {
     margin: 0;
     line-height: 1;
     color: #5CB8E2;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 0.1rem;
@@ -622,7 +709,7 @@ html {
     .c-card__price--sign {
       font-size: 2.2rem; }
     .c-card__price--day {
-      font-size: 1.7rem;
+      font-size: 1.6rem;
       color: #5CB8E2; }
   .c-card__select-btn {
     color: #FFFFFF;
