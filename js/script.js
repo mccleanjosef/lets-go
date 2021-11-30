@@ -272,7 +272,27 @@ function modal(){
                             </div>
                         </div>
                     </div>
-                    <div id="review" class="c-modal__content"></div>
+                    <div id="contactInfo" class="c-modal__content">
+                        <div class="c-modal__col-left">
+                            <img class="c-modal__contact-img" src="./img/toyota-corolla-hatch-gx-ng-2018-1.png" alt="">
+                        </div>
+                        <div class="c-modal__col-right">
+                            <form class="c-modal__form" action="">
+                                <label class="c-modal__label" for="name">Your name</label>
+                                <br />
+                                <input class="c-modal__input" type="text">
+                                <br />
+                                <label class="c-modal__label" for="phone">Your phone number</label>
+                                <br />
+                                <input class="c-modal__label" type="text">
+                                <br />
+                                <label class="c-modal__label" for="email">Your email address</label>
+                                <br />
+                                <input class="c-modal__label" type="text">
+                            </form>
+                        </div>
+                    </div>
+                    <div id="payment" class="c-modal__content"></div>
                     <div id="summary" class="c-modal__content"></div>
                     `
                 ); 
@@ -286,32 +306,48 @@ function modal(){
 
 function modalContent(vehicleSelectedId){
 
-    $('#review').hide();
+    const hireBtn = document.querySelector('#hireBtn');
+    const infoConfirmBtn = document.querySelector('#infoConfirmBtn');
+    const paymentConfirmBtn = document.querySelector('#paymentConfirmBtn');
+    const closeBtn = document.querySelector('#closeBtn');
+
+    $('#contactInfo').hide();
+    $('#payment').hide();
     $('#summary').hide();
-    $('#confirmBtn').hide();
+    $('#infoConfirmBtn').hide();
+    $('#paymentConfirmBtn').hide();
     $('#closeBtn').hide();
 
-    const hireBtn = document.querySelector('#hireBtn');
-    const confirmBtn = document.querySelector('#confirmBtn');
-    const closeBtn = document.querySelector('#closeBtn');
+    $('#contactTitle').addClass("c-modal__title-ctn--stacked-one");
 
     function hire(){
         $('#vehicleDetails').hide();
-        $('#review').show();
+        $('#contactInfo').show();
         $('#hireBtn').hide();
-        $('#confirmBtn').show();
+        $('#infoConfirmBtn').show();
 
         $('#vecDetTitle').removeClass("c-modal__title-ctn--active");
-        $('#revTitle').addClass("c-modal__title-ctn--active");
+        $('#contactTitle').addClass("c-modal__title-ctn--active");
+        $('#contactTitle').removeClass("c-modal__title-ctn--stacked-one");
     }
 
-    function confirm(){
-        $('#review').hide();
+    function infoConfirm(){
+        $('#contactInfo').hide();
+        $('#payment').show();
+        $('#infoConfirmBtn').hide();
+        $('#paymentConfirmBtn').show();
+
+        $('#contactTitle').removeClass("c-modal__title-ctn--active");
+        $('#paymentTitle').addClass("c-modal__title-ctn--active");
+    }
+
+    function payConfirm(){
+        $('#payment').hide();
         $('#summary').show();
-        $('#confirmBtn').hide();
+        $('#paymentConfirmBtn').hide();
         $('#closeBtn').show();
 
-        $('#revTitle').removeClass("c-modal__title-ctn--active");
+        $('#paymentTitle').removeClass("c-modal__title-ctn--active");
         $('#sumTitle').addClass("c-modal__title-ctn--active");
     }
 
@@ -362,7 +398,8 @@ function modalContent(vehicleSelectedId){
 
 
     hireBtn.addEventListener("click", hire);
-    confirmBtn.addEventListener("click", confirm);
+    infoConfirmBtn.addEventListener("click", infoConfirm);
+    paymentConfirmBtn.addEventListener("click", payConfirm);
     closeBtn.addEventListener("click", close);
 }
 // // ===============================

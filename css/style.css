@@ -185,10 +185,17 @@ html {
   display: flex;
   flex-flow: row wrap; }
 
-#review {
+#contactInfo {
   width: 100%;
   height: 100%;
-  background: orange; }
+  background: orange;
+  display: flex;
+  flex-flow: row wrap; }
+
+#payment {
+  width: 100%;
+  height: 100%;
+  background: purple; }
 
 #summary {
   width: 100%;
@@ -220,9 +227,9 @@ html {
   padding: 1rem 1rem;
   color: #FFFFFF; }
 .c-modal__page-title {
-  width: 75%;
+  width: 80%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   justify-items: center; }
 .c-modal__title-ctn {
   width: 125%;
@@ -232,12 +239,16 @@ html {
   padding: 0.5em 0;
   text-align: center;
   border: solid 3px #00ABDD; }
+  .c-modal__title-ctn--stacked-two {
+    z-index: 2; }
+  .c-modal__title-ctn--stacked-three {
+    z-index: 3; }
+  .c-modal__title-ctn--stacked-one {
+    z-index: 4; }
   .c-modal__title-ctn--active {
     background: #00ABDD;
-    z-index: 3;
+    z-index: 5;
     color: #FFFFFF; }
-  .c-modal__title-ctn--stacked {
-    z-index: 2; }
 .c-modal__title-text {
   font-size: 1.6rem; }
 .c-modal__carousel-wrap {
@@ -318,6 +329,20 @@ html {
   padding: 0.3em 0; }
   .c-modal__btn:focus {
     outline: none; }
+.c-modal__col-left {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  background: salmon;
+  padding: 0 3%; }
+.c-modal__contact-img {
+  width: 100%; }
+.c-modal__col-right {
+  width: 70%;
+  height: 100%;
+  background: skyblue;
+  padding: 0 3%; }
 
 .l-sorting-ctn {
   width: 100%;
