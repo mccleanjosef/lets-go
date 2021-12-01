@@ -6,6 +6,12 @@ console.log("script is linked");
 
 // global variables
 let totalDays;
+let startDate;
+let endDate;
+let pickUpTime;
+let dropOffTime;
+let pickUpLocation;
+let dropOffLocation;
 
 // ===============================
 // start of transport object-array
@@ -35,15 +41,34 @@ const transport = [
         id: 105,
         carouselId: "carouselFive",
         modalCarouselId: "modalCarouselFive",
-        name: "mb name b",
-        partner: "d",
+        name: "Honda VT750S",
+        partner: "Te Waipounamu Motorcycle Tours",
         price: "120",
-        transmission: "Automatic",
-        efficiency: "Excellent",
+        transmission: "Manual",
+        efficiency: "Good",
         tankCapacity: "2.4L",
-        imageOne: './img/suzuki-dl650-v-strom.jpeg',
-        imageTwo: './img/suzuki-dl650-v-strom.jpeg',
-        imageThree: './img/suzuki-dl650-v-strom.jpeg',
+        imageOne: './img/105-honda-vt750s-e99a77097f9e9e2de2c6b9de30aaa065.jpeg',
+        imageTwo: './img/105-1280px-Honda_VT750S_2011.jpeg',
+        imageThree: './img/105-honda-vt750s-1.jpeg',
+        minPeople: 1,
+        maxPeople: 1,
+        minTravelDays: 1,
+        maxTravelDays: 5
+    },
+    {   
+        type: 'motorbike',
+        id: 106,
+        carouselId: "carouselFive",
+        modalCarouselId: "modalCarouselFive",
+        name: "FLHTK Ultra Limited",
+        partner: "Te Waipounamu Motorcycle Tours",
+        price: "120",
+        transmission: "Manual",
+        efficiency: "Good",
+        tankCapacity: "2.4L",
+        imageOne: './img/105-honda-vt750s-e99a77097f9e9e2de2c6b9de30aaa065.jpeg',
+        imageTwo: './img/105-1280px-Honda_VT750S_2011.jpeg',
+        imageThree: './img/105-honda-vt750s-1.jpeg',
         minPeople: 1,
         maxPeople: 1,
         minTravelDays: 1,
@@ -135,16 +160,16 @@ function generateCard(x){
                     <span class="sr-only">Next</span>
                     </a>
                 </div>
-                <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100 c-card__img" src="${transport[x].imageOne}" alt="First slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100 c-card__img" src="${transport[x].imageTwo}" alt="Second slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100 c-card__img" src="${transport[x].imageThree}" alt="Third slide">
-                </div>
+                <div class="carousel-inner c-card__img-ctn">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100 c-card__img" src="${transport[x].imageOne}" alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100 c-card__img" src="${transport[x].imageTwo}" alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100 c-card__img" src="${transport[x].imageThree}" alt="Third slide">
+                    </div>
                 </div>
             </div>
             <div class="c-card__card-body">
@@ -274,25 +299,73 @@ function modal(){
                     </div>
                     <div id="contactInfo" class="c-modal__content">
                         <div class="c-modal__col-left">
+                            <h3 class="c-modal__booking-title">Your booking</h3>
                             <img class="c-modal__contact-img" src="./img/toyota-corolla-hatch-gx-ng-2018-1.png" alt="">
+                            <h5 class="c-modal__booking-title">${transport[i].name}</h5>
+                            <p class="c-modal__booking-partner">${transport[i].partner}</p>
+                            <p class="c-modal__booking-text">From</p><p id="modalPickUpLocation" class="c-modal__booking-text"><p id="modalPickUpDate" class="c-modal__booking-text"></p>
+                            <p class="c-modal__booking-text">at</p><p id="modalPickUpTime" class="c-modal__booking-text"></p>
+                            <p class="c-modal__booking-text">To</p><p id="modalDropOffLocation" class="c-modal__booking-text"><p id="modalDropOffDate" class="c-modal__booking-text"></p>
+                            <p class="c-modal__booking-text">at</p><p id="modalDropOffTime" class="c-modal__booking-text"></p>
+                            <p class="c-modal__booking-text">Total Cost &nbsp $ &nbsp</p><p id="infoTotalCost" class="c-modal__booking-text"></p>
                         </div>
                         <div class="c-modal__col-right">
                             <form class="c-modal__form" action="">
-                                <label class="c-modal__label" for="name">Your name</label>
-                                <br />
+                                <label class="c-modal__label" for="name">Your first name</label>
                                 <input class="c-modal__input" type="text">
-                                <br />
+                                <label class="c-modal__label" for="name">Your last name</label>
+                                <input class="c-modal__input" type="text">
                                 <label class="c-modal__label" for="phone">Your phone number</label>
-                                <br />
-                                <input class="c-modal__label" type="text">
-                                <br />
+                                <input class="c-modal__input" type="text">
                                 <label class="c-modal__label" for="email">Your email address</label>
-                                <br />
-                                <input class="c-modal__label" type="text">
+                                <input class="c-modal__input" type="text">
+                                <label class="c-modal__label" for="email">Confirm email address</label>
+                                <input class="c-modal__input" type="text">
+                            </form>
+                            <p class="c-modal__licence-text">At check out you will asked to present relevant licence</p>
+                        </div>
+                    </div>
+                    <div id="payment" class="c-modal__content">
+                        <div class="c-modal__col-left">
+                            <h3 class="c-modal__col-title">Your booking</h3>
+                            <img class="c-modal__contact-img" src="./img/toyota-corolla-hatch-gx-ng-2018-1.png" alt="">
+                            <h5 class="c-modal__booking-title">${transport[i].name}</h5>
+                            <p class="c-modal__booking-partner">${transport[i].partner}</p>
+                            <p class="c-modal__booking-text">From</p><p id="modalPickUpLocationTwo" class="c-modal__booking-text"></p><p id="modalPickUpDateTwo" class="c-modal__booking-text"></p>
+                            <p class="c-modal__booking-text">at</p><p id="modalPickUpTimeTwo" class="c-modal__booking-text"></p>
+                            <p class="c-modal__booking-text">To</p><p id="modalDropOffLocationTwo" class="c-modal__booking-text"><p id="modalDropOffDateTwo" class="c-modal__booking-text"></p>
+                            <p class="c-modal__booking-text">at</p><p id="modalDropOffTimeTwo" class="c-modal__booking-text"></p>
+                            <p class="c-modal__booking-text">Total Cost &nbsp $ &nbsp</p><p id="payTotalCost" class="c-modal__booking-text"></p>
+                        </div>
+                        <div class="c-modal__col-right">
+                            <form class="c-modal__form" action="">
+                                <h3 class="c-modal__col-title">Payment details</h3>
+                                <label class="c-modal__label" for="name">Cardholder name</label>
+                                <input class="c-modal__input" type="text">
+                                <label class="c-modal__label" for="name">Card number</label>
+                                <input class="c-modal__input" type="text">
+                                <div class="c-modal__card-expiry">
+                                    <div class="c-modal__expiry-wrap">
+                                        <label class="c-modal__label" for="phone">Expiry month</label>
+                                        <br />
+                                        <input class="c-modal__input" type="text">
+                                    </div>
+                                    <div class="c-modal__expiry-wrap">
+                                        <label class="c-modal__label" for="email">Expiry year</label>
+                                        <br />
+                                        <input class="c-modal__input" type="text">
+                                    </div>
+                                    <div class="c-modal__expiry-wrap">
+                                        <label class="c-modal__label" for="email">CCV</label>
+                                        <br />
+                                        <input class="c-modal__input" type="text">
+                                    </div>
+                                </div>
+                                <div class="c-modal__card-expiry">
+                                </div>
                             </form>
                         </div>
                     </div>
-                    <div id="payment" class="c-modal__content"></div>
                     <div id="summary" class="c-modal__content"></div>
                     `
                 ); 
@@ -310,6 +383,7 @@ function modalContent(vehicleSelectedId){
     const infoConfirmBtn = document.querySelector('#infoConfirmBtn');
     const paymentConfirmBtn = document.querySelector('#paymentConfirmBtn');
     const closeBtn = document.querySelector('#closeBtn');
+    const exitBtn = document.querySelector('#exitBtn');
 
     $('#contactInfo').hide();
     $('#payment').hide();
@@ -354,11 +428,17 @@ function modalContent(vehicleSelectedId){
     // in case of multiple purchases
     function close(){
         $('#summary').hide();
+        $('#payment').hide();
+        $('#contactInfo').hide();
         $('#vehicleDetails').show();
+        $('#infoConfirmBtn').hide();
+        $('#paymentConfirmBtn').hide();
         $('#closeBtn').hide();
         $('#hireBtn').show();
 
         $('#sumTitle').removeClass("c-modal__title-ctn--active");
+        $('#contactTitle').removeClass("c-modal__title-ctn--active");
+        $('#paymentTitle').removeClass("c-modal__title-ctn--active");
         $('#vecDetTitle').addClass("c-modal__title-ctn--active");
     }
 
@@ -382,6 +462,8 @@ function modalContent(vehicleSelectedId){
             // console.log(transport[i].price);
             
             $('#totalCost').text(totalPrice);
+            $('#infoTotalCost').text(totalPrice);
+            $('#payTotalCost').text(totalPrice);
 
             // console.log(typeof totalPrice, totalPrice);
 
@@ -391,20 +473,43 @@ function modalContent(vehicleSelectedId){
                 ); 
             }
         } 
-        
     }
 
-    
+    // pick up date in modal
+    $('#modalPickUpDate').text(startDate);
+    $('#modalPickUpDateTwo').text(startDate);
 
+    // drop off date in modal
+    $('#modalDropOffDate').text(endDate);
+    $('#modalDropOffDateTwo').text(endDate);
+
+    // pick up time in modal
+    $('#modalPickUpTime').text(pickUpTime);
+    $('#modalPickUpTimeTwo').text(pickUpTime);
+
+    // drop off time in modal
+    $('#modalDropOffTime').text(dropOffTime);
+    $('#modalDropOffTimeTwo').text(dropOffTime);
+
+    // pick up location
+    $('#modalPickUpLocation').text(pickUpLocation);
+    $('#modalPickUpLocationTwo').text(pickUpLocation);
+
+    // drop off location
+    $('#modalDropOffLocation').text(dropOffLocation);
+    $('#modalDropOffLocationTwo').text(dropOffLocation);
+
+    
 
     hireBtn.addEventListener("click", hire);
     infoConfirmBtn.addEventListener("click", infoConfirm);
     paymentConfirmBtn.addEventListener("click", payConfirm);
     closeBtn.addEventListener("click", close);
+    exitBtn.addEventListener("click", close);
 }
-// // ===============================
-// // end of modal
-// // ===============================
+// ===============================
+// end of modal
+// ===============================
 
 
 // ====================================
@@ -483,10 +588,25 @@ $(document).ready(function(){
         $('#returnLocation').val('');
         $('#pickUpLocation').val('');
         $('#dropOffLocation').val('');
+        
     });
     // end of drop off location different to pick up checkbox
     
-    
+    // Pick up time
+    $('#pickUpTime').change(function(){
+        let timePickUp = $('#pickUpTime').val();
+        // console.log(timePickUp);
+        pickUpTime = timePickUp;
+    })
+
+    // Drop off time
+    $('#dropOffTime').change(function(){
+        let timeDropOff = $('#dropOffTime').val();
+        // console.log(timeDropOff);
+        dropOffTime = timeDropOff;
+    });
+
+
 });
 
 function initMap(){
@@ -561,7 +681,9 @@ function initMap(){
     const map = new google.maps.Map(document.getElementById('map'),{
         zoom: 7,
         center: {lat:-36.605778019891645, lng:175.7904390304845},
-    })
+    });
+
+    // custom map icons
 
 
     directionsRenderer.setMap(map);
@@ -728,8 +850,11 @@ function calculateDates(event){
     // joining the data - join function turns an array into a string
     let pickUpDetails = [pickUpDay,pickUpMonth,pickUpYear].join('/');
     let dropOffDetails = [dropOffDay,dropOffMonth,dropOffYear].join('/');
-    console.log(pickUpDetails);
-    console.log(dropOffDetails);
+    // console.log(pickUpDetails);
+    // console.log(dropOffDetails);
+
+    startDate = pickUpDetails;
+    endDate = dropOffDetails;
 
     // calculating the difference
     let difference = dropOffDate.getTime() - pickUpDate.getTime();
@@ -796,6 +921,27 @@ function calculateDates(event){
     }
     // end of no results feedback
 
+    // setting global variables for modal
+    locationReturn = $('#returnLocation').val();
+    locationPickUp = $('#pickUpLocation').val();
+    locationDropOff = $('#dropOffLocation').val();
+
+    // console.log(returnLocation);
+
+    if( locationPickUp == "" &&  locationDropOff == ""){
+        
+        pickUpLocation = locationReturn;
+        dropOffLocation = locationReturn;
+        console.log(pickUpLocation);
+        console.log(dropOffLocation);
+    } else {
+        pickUpLocation = locationPickUp;
+        // console.log(pickUpLocation);
+        dropOffLocation = locationDropOff;
+        // console.log(dropOffLocation);
+    }
+
+    
 
     // CbCallCondition();
 
