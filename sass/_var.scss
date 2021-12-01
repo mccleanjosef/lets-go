@@ -45,8 +45,13 @@ $desktop: "(min-width:1024px)";
     font-style: normal;
 }
 
+@font-face {
+    font-family: "PurePakati";
+    src: url("../fonts/PurePakati-Regular.otf") format("opentype");
+}
 
-$heading-font: 'Josefin Sans', sans-serif;
+
+$heading-font: 'PurePakati', sans-serif;
 $body-font: 'National', Fallback, sans-serif;
 
 $uppercase: uppercase;

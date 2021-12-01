@@ -28,6 +28,9 @@
   src: url("../fonts/test-national-black.woff2") format("woff2");
   font-weight: 900;
   font-style: normal; }
+@font-face {
+  font-family: "PurePakati";
+  src: url("../fonts/PurePakati-Regular.otf") format("opentype"); }
 * {
   margin: 0;
   padding: 0;
