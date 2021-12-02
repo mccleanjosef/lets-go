@@ -21,9 +21,10 @@
     border: none;
     &__card-body{
         padding: 0 3%;
-        padding-top: 3rem;
+        padding-top: 11%;
     }
     &__img{
+        height: 204px;
         background-repeat: no-repeat;
     }
     &__details{
@@ -113,10 +114,16 @@
             color: $light-blue;
         }
     }
+    &__card-footer{
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        padding-top: 1%;
+    }
     &__select-btn{
         color: $text-white;
         background: $secondary-colour;
-        width: 100%;
+        width: 97%;
         font-size: 2rem;
         border: none;
         border-radius: 40px;

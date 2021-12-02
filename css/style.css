@@ -681,8 +681,9 @@ html {
   border: none; }
   .c-card__card-body {
     padding: 0 3%;
-    padding-top: 3rem; }
+    padding-top: 11%; }
   .c-card__img {
+    height: 204px;
     background-repeat: no-repeat; }
   .c-card__details {
     width: 100%;
@@ -752,10 +753,15 @@ html {
     .c-card__price--day {
       font-size: 1.6rem;
       color: #5CB8E2; }
+  .c-card__card-footer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-top: 1%; }
   .c-card__select-btn {
     color: #FFFFFF;
     background: #DDCE22;
-    width: 100%;
+    width: 97%;
     font-size: 2rem;
     border: none;
     border-radius: 40px;
