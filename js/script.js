@@ -936,6 +936,10 @@ $(document).ready(function(){
 
 });
 
+
+// ============================
+// start of init map function
+// ============================
 function initMap(){
 
     // datepicker from jqueryui
@@ -1002,15 +1006,39 @@ function initMap(){
     // direction service render handels the display of lines and any associated markers
     const directionsRenderer = new google.maps.DirectionsRenderer();
 
+    // setting custom map markers
+    let nelson = { lat:-41.296991491466464, lng:173.22235323849344 };
 
+    const image = {
+        url: "./img/location-marker.svg",
+        scaledSize: new google.maps.Size(50, 50),
+        origin: new google.maps.Point(0,0) 
+    }
 
     // calling the map function
     const map = new google.maps.Map(document.getElementById('map'),{
-        zoom: 7,
-        center: {lat:-36.605778019891645, lng:175.7904390304845},
+        zoom: 6,
+        center: nelson,
     });
 
-    // custom map icons
+    // locations for custom map markers
+    let locations = [
+        ["aucklandAirport",-37.00583037363098,174.78537816193244, 1],
+        ["wellingtonAirport",-41.32995285285088,174.81191968956364,2],
+        ["queenstownAirport", -45.01820081582348, 168.74516306285938,3]
+    ]
+
+    for(let i =0; i <locations.length; i++){
+        const location = locations[i];
+        console.log(location);
+        new google.maps.Marker({
+            position: {lat:location[1],lng:location[2]},
+            map,
+            icon:image,
+            title: location[0],
+            zIndex:location[3]
+        });
+    }
 
 
     directionsRenderer.setMap(map);
@@ -1020,6 +1048,10 @@ function initMap(){
     });
 
 }
+// ============================
+// end of init map function
+// ============================
+
 
 function calculateAndDisplayRoute(directionService, directionsRenderer){
     console.log(directionService);
@@ -1079,12 +1111,10 @@ function calculateAndDisplayRoute(directionService, directionsRenderer){
                 const routeSegment = i + 1;
 
                 summaryPanel.innerHTML +=
-                "<b>Route Segment:" + routeSegment + "</><br>";
-                summaryPanel.innerHTML += route.legs[i].start_address + " to ";
-                summaryPanel.innerHTML += route.legs[i].end_address + "<br>";
-                summaryPanel.innerHTML +=
-                route.legs[i].distance.text + " and it take " + route.legs[i].duration.text + " to reach."
-                + "<br><br>";
+                "<p class='fuel-calculator__route-title'>Route Segment: " + routeSegment + "</p><br><br>";
+                summaryPanel.innerHTML += "<p class='fuel-calculator__route'>" + route.legs[i].start_address + " to " + "</p>";
+                summaryPanel.innerHTML += "<p class='fuel-calculator__route'>" + route.legs[i].end_address + "</p><br><br>";
+                summaryPanel.innerHTML += "<p class='fuel-calculator__route'>" + route.legs[i].distance.text + " and it take " + route.legs[i].duration.text + " to reach." + "</p>";
                 totalDistance += parseFloat(route.legs[i].distance.text)
             }
             fuelCalculation(totalDistance);

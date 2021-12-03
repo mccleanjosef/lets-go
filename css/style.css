@@ -366,7 +366,6 @@ html {
   margin-bottom: 15rem; }
 
 .c-inital-sorting {
-  background: mediumvioletred;
   width: 100%; }
   .c-inital-sorting__sorting {
     display: flex;
@@ -406,8 +405,11 @@ html {
     font-size: 1.4rem; }
 
 .c-final-sorting {
-  background: mediumspringgreen;
   width: 100%; }
+  .c-final-sorting__filterfeedback {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 2rem; }
   .c-final-sorting__sorting {
     display: flex;
     justify-content: space-between; }
@@ -422,8 +424,35 @@ html {
     letter-spacing: 0.1rem;
     line-height: 1;
     margin-right: 1.5rem; }
+  .c-final-sorting__feedback {
+    width: 12rem;
+    height: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #5CB8E2;
+    padding-top: 0.3em;
+    border-radius: 20px;
+    margin-right: 2rem; }
+  .c-final-sorting__icon-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 1rem; }
+  .c-final-sorting__img {
+    width: 35px; }
+    .c-final-sorting__img--taller {
+      width: 40px; }
+  .c-final-sorting__icon-label {
+    font-size: 1.4rem;
+    color: #FFFFFF;
+    margin-bottom: 0; }
   .c-final-sorting__label {
     margin: 0; }
+  .c-final-sorting__amount {
+    color: #FFFFFF;
+    font-size: 2rem;
+    font-weight: 800; }
   .c-final-sorting__select {
     width: 150px;
     appearance: none;
@@ -457,22 +486,11 @@ html {
   .select:not(.select--multiple)::after {
     content: "";
     justify-self: end;
-    width: 1.7em;
-    height: 1.2em;
+    width: 1.2em;
+    height: 0.8em;
     background-color: #ffffff;
     clip-path: polygon(100% 0%, 0 0%, 50% 100%);
     margin-right: 2.2rem; }
-
-.c-final-sorting {
-  width: 100%; }
-
-.feedback-ctn {
-  width: 100%;
-  height: 50px; }
-
-.filterfeedback {
-  display: flex;
-  justify-content: space-evenly; }
 
 /* Large Devices (Laptop/Desktop) */
 /* Medium Devices (Tablets) */
@@ -614,53 +632,171 @@ html {
   display: none; }
 
 .l-fuelCalBtn-sec {
-  width: 30%;
-  height: 20vh;
-  background: darkorange;
-  padding: 2rem;
-  align-self: flex-end; }
+  width: 25%;
+  min-height: 25vh;
+  background: #ffffff;
+  padding: 2.5%;
+  align-self: flex-end;
+  border-radius: 40px; }
+  .l-fuelCalBtn-sec__title {
+    font-size: 3.7rem;
+    font-family: "PurePakati", sans-serif;
+    color: #00ABDD; }
+  .l-fuelCalBtn-sec__text {
+    color: #00ABDD;
+    font-size: 1.9rem;
+    line-height: 1.2;
+    padding-bottom: 5%; }
+  .l-fuelCalBtn-sec__fuel-btn {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 0.05rem;
+    color: #DDCE22;
+    background: none;
+    border: solid 4px #DDCE22;
+    border-radius: 30px;
+    padding: 0.5em 1em; }
 
 .fuel-calculator {
-  display: none;
-  background: midnightblue;
-  width: 100%;
-  height: 100vh;
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto;
+  background-color: black;
   z-index: 20;
-  border-radius: 50px;
-  padding: 5rem; }
+  background-color: rgba(0, 0, 0, 0.4); }
   .fuel-calculator__ctn {
-    width: 100%;
-    height: 100%;
-    display: flex; }
+    position: fixed;
+    top: 5%;
+    bottom: 5%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 5%;
+    width: 90%;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 15px -3px, rgba(0, 0, 0, 0.08) 0px 4px 6px -2px;
+    display: flex;
+    background-color: #fefefe;
+    z-index: 21;
+    overflow: auto;
+    border-radius: 50px; }
   .fuel-calculator__close {
     position: absolute;
     right: 0;
     top: 0;
-    color: #ffffff;
+    color: #00ABDD;
     font-size: 4rem;
     padding: 4rem;
     cursor: pointer; }
   .fuel-calculator__map {
-    width: 60%;
+    width: 55%;
     height: 100%;
     background: #000000;
     border-radius: 30px; }
   .fuel-calculator__right-panel {
-    background: lightseagreen;
-    width: 40%;
+    width: 45%;
     height: 100%;
     display: flex;
     flex-direction: column;
-    padding: 5%; }
+    padding-top: 5%;
+    padding-left: 5%; }
+  .fuel-calculator__waypoints-ctn {
+    display: flex; }
   .fuel-calculator__input {
-    background: palevioletred; }
+    width: 100%;
+    color: #FFFFFF;
+    background: #00ABDD;
+    border-radius: 30px;
+    font-size: 1.8rem;
+    border: none;
+    padding: 0.5rem 1em; }
+    .fuel-calculator__input:focus {
+      outline: solid 2px #DDCE22; }
+  .fuel-calculator__waypoints {
+    background: #00ABDD;
+    color: #FFFFFF;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 10px; }
+    .fuel-calculator__waypoints:focus {
+      outline: solid 2px #DDCE22; }
+  .fuel-calculator__title {
+    color: #00ABDD;
+    font-family: "PurePakati", sans-serif;
+    font-size: 5rem; }
+  .fuel-calculator__vehicle-dets {
+    display: flex; }
+  .fuel-calculator__ve-dets-wrap--left {
+    padding-right: 5%; }
+  .fuel-calculator__label {
+    color: #00ABDD;
+    margin-bottom: 0;
+    font-size: 1.8rem;
+    margin-top: 0.5rem; }
+  .fuel-calculator__instr {
+    color: #00ABDD;
+    font-size: 1.6rem;
+    line-height: 1;
+    width: 20ch;
+    padding-left: 5%; }
+  .fuel-calculator__select {
+    width: 150px;
+    appearance: none;
+    background: #00ABDD;
+    border: none;
+    padding: 0.5em 1em;
+    margin: 0;
+    width: 100%;
+    outline: none;
+    letter-spacing: 0.1rem;
+    color: #FFFFFF;
+    font-size: 2.5rem;
+    border-radius: 50px;
+    font-size: 1.8rem;
+    padding: 0.5rem 1em; }
+    .fuel-calculator__select:focus {
+      outline: solid 2px #DDCE22; }
+  .fuel-calculator__submit {
+    background: #DDCE22;
+    color: #FFFFFF;
+    border: none;
+    font-size: 2rem;
+    padding: 0.5em 1em;
+    border-radius: 30px;
+    font-weight: 800;
+    letter-spacing: 0.05rem;
+    margin-top: 2rem; }
+  .fuel-calculator__directions {
+    display: flex;
+    flex-flow: row wrap; }
+  .fuel-calculator__results {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; }
+  .fuel-calculator__result-input {
+    width: 7ch;
+    cursor: inherit;
+    border: none;
+    outline: none; }
+  .fuel-calculator__route-title {
+    color: #00ABDD;
+    font-size: 1.8rem;
+    margin-bottom: 0;
+    font-weight: 800;
+    letter-spacing: 0.06rem; }
+  .fuel-calculator__route {
+    color: #00ABDD;
+    font-size: 1.6rem;
+    margin-bottom: 0; }
 
 .active {
   display: block; }
+
+select:-internal-list-box:focus option:checked {
+  background-color: #DDCE22;
+  color: #FFFFFF; }
 
 .cardContent {
   width: 100%;

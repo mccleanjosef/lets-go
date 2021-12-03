@@ -6,7 +6,7 @@
 }
 
 .c-inital-sorting{
-    background: mediumvioletred;
+    // background: mediumvioletred;
     width: 100%;
     &__sorting{
         display: flex;
@@ -37,8 +37,13 @@
 }
 
 .c-final-sorting{
-    background: mediumspringgreen;
+    // background: mediumspringgreen;
     width: 100%;
+    &__filterfeedback{
+        display: flex;
+        align-items: flex-end;
+        padding-bottom: 2rem;
+    }
     &__sorting{
         display: flex;
         justify-content: space-between;
@@ -56,8 +61,41 @@
         line-height: 1;
         margin-right: 1.5rem;
     }
+    &__feedback{
+        width: 12rem;
+        height: 7rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $light-blue;
+        padding-top: 0.3em;
+        border-radius: 20px;
+        margin-right: 2rem;
+    }
+    &__icon-wrap{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-right: 1rem;
+    }
+    &__img{
+        width: 35px;
+        &--taller{
+            width: 40px;
+        }
+    }
+    &__icon-label{
+        font-size: 1.4rem;
+        color: $text-white;
+        margin-bottom: 0;
+    }
     &__label{
         margin: 0;
+    }
+    &__amount{
+        color: $text-white;
+        font-size: 2rem;
+        font-weight: $extra-bold;
     }
     &__select{
         @include dropdown;
@@ -86,28 +124,12 @@
     &:not(.select--multiple)::after {
         content: "";
         justify-self: end;
-        width: 1.7em;
-        height: 1.2em;
+        width: 1.2em;
+        height: 0.8em;
         background-color: $select-arrow;
         clip-path: polygon(100% 0%, 0 0%, 50% 100%);
         margin-right: 2.2rem;
     }
-}
-
-.c-final-sorting{
-    // background: darkgreen;
-    width: 100%;
-}
-
-.feedback-ctn{
-    // background: palegoldenrod;
-    width: 100%;
-    height: 50px;
-}
-
-.filterfeedback{
-    display: flex;
-    justify-content: space-evenly;
 }
 
 

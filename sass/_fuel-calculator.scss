@@ -1,71 +1,188 @@
 .l-fuelCalBtn-sec{
-    width: 30%;
-    height: 20vh;
-    background: darkorange;
-    padding: 2rem;
+    width: 25%;
+    min-height: 25vh;
+    background: $white;
+    padding: 2.5%;
     align-self: flex-end;
+    border-radius: 40px;
+    &__title{
+        font-size: 3.7rem;
+        font-family: $heading-font;
+        color: $primary-colour;
+    }
+    &__text{
+        color: $primary-colour;
+        font-size: 1.9rem;
+        line-height: 1.2;
+        padding-bottom: 5%;
+    }
+    &__fuel-btn{
+        font-size: 2rem;
+        font-weight: $extra-bold;
+        letter-spacing: 0.05rem;
+        color: $secondary-colour;
+        background: none;
+        border: solid 4px $secondary-colour;
+        border-radius: 30px;
+        padding: 0.5em 1em;
+    }
 }
 
 .fuel-calculator{
-    display: none;
-    background: midnightblue;
-    width: 100%;
-    height: 100vh;
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    // display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: auto;
+    background-color: rgb(0,0,0);
     z-index: 20;
-    border-radius: 50px;
-    padding: 5rem;
+    background-color: rgba(0,0,0,0.4);
+
     &__ctn{
-        width: 100%;
-        height: 100%;
+        position: fixed;
+        top: 5%;
+        bottom: 5%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        padding: 5%;
+        width: 90%;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 15px -3px, rgba(0, 0, 0, 0.08) 0px 4px 6px -2px;
         display: flex;
+        background-color: #fefefe;
+        z-index: 21;
+        overflow: auto;
+        border-radius: 50px;
     }
     &__close{
         position: absolute;
         right: 0;
         top: 0;
-        color: $white;
+        color: $primary-colour;
         font-size: 4rem;
         padding: 4rem;
         cursor: pointer;
     }
     &__map{
-        width: 60%;
+        width: 55%;
         height: 100%;
         background: $black;
         border-radius: 30px;
     }
     &__right-panel{
-        background: lightseagreen;
-        width: 40%;
+        // background: lightseagreen;
+        width: 45%;
         height: 100%;
         display: flex;
         flex-direction: column;
-        padding: 5%;
+        padding-top: 5%;
+        padding-left: 5%;
+    }
+    &__waypoints-ctn{
+        display: flex;
     }
     &__input{
-        background: palevioletred;
+        width: 100%;
+        color: $text-white;
+        background: $primary-colour;
+        border-radius: 30px;
+        font-size: 1.8rem;
+        border: none;
+        padding: 0.5rem 1em;
+        &:focus{
+            outline: solid 2px $secondary-colour;
+        }
     }
-    // &__title{
-    //     color: $white;
-    // }
-    // &__label{
-    //     color: $white;
-    // }
-    // &__text{
-    //     color: $white;
-    // }
-    // &__select{
-    //     @include dropdown;
-    // }
-    // &__option{
-    //     @include dropdown-options;
-    // }
+    &__waypoints{
+        background: $primary-colour;
+        color: $text-white;
+        padding: 0.5em 1em;
+        border: none;
+        border-radius: 10px;
+        &:focus{
+            outline: solid 2px $secondary-colour;
+        }
+    }
+    &__title{
+        color: $primary-colour;
+        font-family: $heading-font;
+        font-size: 5rem;
+    }
+    &__vehicle-dets{
+        display: flex;
+    }
+    &__ve-dets-wrap--left{
+        padding-right: 5%;
+    }
+    &__label{
+        color: $primary-colour;
+        margin-bottom: 0;
+        font-size: 1.8rem;
+        margin-top: 0.5rem;
+    }
+    &__instr{
+        color: $primary-colour;
+        font-size: 1.6rem;
+        line-height: 1;
+        width: 20ch;
+        padding-left: 5%;
+    }
+    &__select{
+        @include dropdown;
+        font-size: 1.8rem;
+        padding: 0.5rem 1em;
+        &:focus{
+            outline: solid 2px $secondary-colour;
+        }
+    }
+    &__submit{
+        background: $secondary-colour;
+        color: $text-white;
+        border: none;
+        font-size: 2rem;
+        padding: 0.5em 1em;
+        border-radius: 30px;
+        font-weight: $extra-bold;
+        letter-spacing: 0.05rem;
+        margin-top: 2rem;
+    }
+    &__directions{
+        display: flex;
+        flex-flow: row wrap;
+    }
+    &__results{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    &__result-input{
+        width: 7ch;
+        cursor: inherit;
+        border: none;
+        outline: none;
+    }
+    &__route-title{
+        color: $primary-colour;
+        font-size: 1.8rem;
+        margin-bottom: 0;
+        font-weight: $extra-bold;
+        letter-spacing: 0.06rem;
+    }
+    &__route{
+        color: $primary-colour;
+        font-size: 1.6rem;
+        margin-bottom: 0;
+    }
 }
 
 .active{
     display: block;
 }
+
+select:-internal-list-box:focus option:checked{
+    background-color: $secondary-colour;
+    color: $text-white;
+}
+

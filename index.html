@@ -74,6 +74,7 @@
       </div>
       <!-- end of background grid -->
 
+      <!-- start of fuel cost calculator -->
       <div class="l-content">
         <div class="l-content__top">
           <div id="fuelCalContent" class="fuel-calculator">
@@ -81,83 +82,77 @@
               <div id="map" class="fuel-calculator__map"></div>
               <i id="fuelCalClose" class="fas fa-times fuel-calculator__close"></i>
               <div id="right-panel" class="fuel-calculator__right-panel">
-                <!-- date calculation using jqeryui calendar -->
-                <h2>Fuel Costs Calculator</h2>
-
+                <h2 class="fuel-calculator__title">Your journey</h2>
                 <div>
-  
-                  <b>Start</b>
-                  <div id="locationField1">
-                      <input id="start" class="fuel-calculator__input" placeholder="Enter a city" type="text">
+
+                  <label class="fuel-calculator__label" for="start-city">Start</label>
+                  <input id="start" class="fuel-calculator__input" placeholder="Enter a city" type="text">
+                  
+                  <label class="fuel-calculator__label" for="start-city">Waypoints</label>
+                  <div class="fuel-calculator__waypoints-ctn">
+                    <select class="fuel-calculator__waypoints" multiple id="waypoints">
+                      <option class="fuel-calculator__option" value="Hamilton, NZ">Hamilton, NZ</option>
+                      <option value="Taupo, NZ">Taupo, NZ</option>
+                      <option value="Nelson, NZ">Nelson, NZ</option>
+                      <option value="Dunedin, NZ">Dunedin, NZ</option>
+                      <option value="Bulls NZ">Bulls, NZ</option>
+                    </select>
+                    <i class="fuel-calculator__instr">hold down Ctrl+Click or Cmd+Click for multiple selection</i>
                   </div>
-                  <br />
   
-                  <b>waypoints</b>
-                  <br />
-                  <i>hold down Ctrl+Click or Cmd+Click for multiple selection</i>
-                  <br />
-                  <select multiple id="waypoints">
-                    <option value="Hamilton, NZ">Hamilton, NZ</option>
-                    <option value="Taupo, NZ">Taupo, NZ</option>
-                    <option value="Nelson, NZ">Nelson, NZ</option>
-                    <option value="Dunedin, NZ">Dunedin, NZ</option>
-                    <option value="Bulls NZ">Bulls, NZ</option>
-                  </select>
-                  <br />
-  
-                  <b>End</b>
-                  <div id="locationField1">
-                    <input id="end" class="fuel-calculator__input" placeholder="Enter a city" type="text">
+                  <label class="fuel-calculator__label" for="start-city">End</label>
+                  <input id="end" class="fuel-calculator__input" placeholder="Enter a city" type="text">
+                  
+                  <div class="fuel-calculator__vehicle-dets">
+                    <div class="fuel-calculator__ve-dets-wrap fuel-calculator__ve-dets-wrap--left">
+                      <label class="fuel-calculator__label" for="vehicleSel">Vehicle Type</label>
+                      <select class="fuel-calculator__select" name="vehicleSel" id="vehicleSel">
+                        <option class="fuel-calculator__option" value="">select vehicle</option>
+                        <option class="fuel-calculator__option" value="3.7">Motorbike</option>
+                        <option class="fuel-calculator__option" value="8.5">Small Car</option>
+                        <option class="fuel-calculator__option" value="9.7">large car</option>
+                        <option class="fuel-calculator__option" value="17">Motorhome</option>
+                      </select>
+                    </div>
+                    <div class="fuel-calculator__ve-dets-wrap">
+                      <label class="fuel-calculator__label" for="fuelSel">Fuel Type</label>
+                      <select class="fuel-calculator__select" name="fuelSel" id="fuelSel">
+                        <option class="fuel-calculator__option" value="">select fuel</option>
+                        <option class="fuel-calculator__option" value="2.49">Unleaded 91 (Green)</option>
+                        <option class="fuel-calculator__option" value="2.66">Unleaded 95 (Yellow)</option>
+                        <option class="fuel-calculator__option" value="2.78">Unleaded 98 (Blue)</option>
+                        <option class="fuel-calculator__option" value="1.73">Diesel (Black)</option>
+                      </select>
+                    </div>
                   </div>
-                  <br />
   
-                  <label class="fuel-calculator__label" for="vehicleSel">Vehicle Type</label>
-                  <br />
-                  <select class="fuel-calculator__select" name="vehicleSel" id="vehicleSel">
-                    <option class="fuel-calculator__option" value="">select vehicle</option>
-                    <option class="fuel-calculator__option" value="3.7">Motorbike</option>
-                    <option class="fuel-calculator__option" value="8.5">Small Car</option>
-                    <option class="fuel-calculator__option" value="9.7">large car</option>
-                    <option class="fuel-calculator__option" value="17">Motorhome</option>
-                  </select>
-                  <br />
-  
-                  <label class="fuel-calculator__label" for="fuelSel">Fuel Type</label>
-                  <br />
-                  <select class="fuel-calculator__select" name="fuelSel" id="fuelSel">
-                    <option class="fuel-calculator__option" value="">select fuel</option>
-                    <option class="fuel-calculator__option" value="2.49">Unleaded 91 (Green)</option>
-                    <option class="fuel-calculator__option" value="2.66">Unleaded 95 (Yellow)</option>
-                    <option class="fuel-calculator__option" value="2.78">Unleaded 98 (Blue)</option>
-                    <option class="fuel-calculator__option" value="1.73">Diesel (Black)</option>
-                  </select>
-                  <br />
-  
-                  <input type="submit" id="submit">
-                  <br />
-                  <br />
-                  <div id="directions-panel"></div>
-  
-                  <label class="fuel-calculator__label" for="totalDist">Total Distance</label>
-                  <input class="fuel-calculator__input" type="text" id="totalDist">
-                  <br />
-                  <br />
-                  <label class="fuel-calculator__label" for="fuelEfficiency">Vehicle Fuel Efficiency</label>
-                  <input class="fuel-calculator__input" type="text" id="fuelEfficiency">
-                  <br />
-                  <br />
-                  <label class="fuel-calculator__label" for="fuelPrice">Average fuel price</label>
-                  <input class="fuel-calculator__input" type="text" id="fuelPrice">
-                  <br />
-                  <br />
-                  <label class="fuel-calculator__label" for="fuelCost">Estimated Fuel Cost</label>
-                  <input class="fuel-calculator__input" type="text" id="fuelCost">
-  
+                  <input class="fuel-calculator__submit" type="submit" id="submit">
+                  <div class="fuel-calculator__directions" id="directions-panel"></div>
+                  
+                  <div class="fuel-calculator__results">
+                    <div class="fuel-calculator__results-wrap">
+                      <label class="fuel-calculator__label" for="totalDist">Total Distance</label>
+                      <input class="fuel-calculator__result-input" type="text" id="totalDist" readonly>
+                    </div>
+                    <div class="fuel-calculator__results-wrap">
+                      <label class="fuel-calculator__label" for="fuelEfficiency">Vehicle Fuel Efficiency</label>
+                      <input class="fuel-calculator__result-input" type="text" id="fuelEfficiency" readonly>
+                    </div>
+                    <div class="fuel-calculator__results-wrap">
+                      <label class="fuel-calculator__label" for="fuelPrice">Average fuel price</label>
+                      <input class="fuel-calculator__result-input" type="text" id="fuelPrice" readonly>
+                    </div>
+                    <div class="fuel-calculator__results-wrap">
+                      <label class="fuel-calculator__label" for="fuelCost">Estimated Fuel Cost</label>
+                      <input class="fuel-calculator__result-input" type="text" id="fuelCost" readonly>
+                    </div>
+                  </div>
                 </div>
   
               </div>
             </div>
           </div>
+          <!-- end of fuel cost calculator -->
   
           <!-- start of travel details-->
           <div id="travelDetails" class="c-travel-details">
@@ -283,7 +278,9 @@
   
           <!-- start of fuel cost btn container -->
           <div class="l-fuelCalBtn-sec">
-            <button class="l-fuelCalBtn-sec__fuel-btn" type="button" id="FuelCalBtn">Fuel Costs Calculator</button>
+            <h2 class="l-fuelCalBtn-sec__title">Add fuel costs</h2>
+            <p class="l-fuelCalBtn-sec__text">Map out your route and find your fuel cost</p>
+            <button class="l-fuelCalBtn-sec__fuel-btn" type="button" id="FuelCalBtn">Begin</button>
           </div>
           <!-- end of fuel cost btn container -->
         </div>
@@ -328,13 +325,20 @@
           <!-- start of final sorting container -->
           <div class="c-final-sorting">
             <!-- Start of filter feedback -->
-            <div class="feedback-ctn">
-              <div class="filterfeedback">
-                <label for="days">Number of days</label>
-                <p id="days"></p>
-                <label for="numberOfPeople">People</label>
-                <p id="numberOfPeople"></p>
-                <div id="completeTD"></div>
+            <div class="c-final-sorting__filterfeedback">
+              <div class="c-final-sorting__feedback">
+                <div class="c-final-sorting__icon-wrap">
+                  <img class="c-final-sorting__img" src="img/noun-day-1222774.svg" alt="number of days icon">
+                  <label class="c-final-sorting__icon-label" for="days">days</label>
+                </div>
+                <p class="c-final-sorting__amount" id="days"></p>
+              </div>
+              <div class="c-final-sorting__feedback">
+                <div class="c-final-sorting__icon-wrap">
+                  <img class="c-final-sorting__img c-final-sorting__img--taller" src="img/noun_people_3457284.svg" alt="number of people icon">
+                  <label class="c-final-sorting__icon-label" for="numberOfPeople">passengers</label>
+                </div>
+                <p class="c-final-sorting__amount" id="numberOfPeople"></p>
               </div>
             </div>
             <!-- end of filter feedback -->
