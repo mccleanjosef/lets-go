@@ -26,16 +26,25 @@
       <!-- start of background grid -->
       <div class="l-image-grid">
         <img class="l-image-grid__logo" src="./img/Lets-go-logo.svg" alt="Let's GO! logo">
+        <div class="l-image-grid__tagline-ctn">
+          <h3 class="l-image-grid__tagline l-image-grid__tagline--welcome">Nau Mai.</h3>
+          <div class="l-image-grid__hire-wrap">
+            <h1 class="l-image-grid__tagline">Hire</h1>
+            <div class="l-image-grid__ride-ctn"><h1 class="l-image-grid__tagline l-image-grid__tagline--vehicle">your ride</h1>
+            </div>
+          </div>
+          <h3 class="l-image-grid__tagline l-image-grid__tagline--small">For a jounery like no other</h3>
+        </div>
+        
         <div class="l-image-grid__ctn-one">
-          <div class="l-image-grid__blob-one"></div>
-
-          <svg viewBox="0 0 1 0.99">
-            <defs>
-                <clipPath id="blob-one">
-                  <path class="cls-1" d="M568.94,440.71c-22.08,62.86,48.4,158.77-6,197.33-53.9,38.24-120.31-66.7-186.18-61-59.23,5.11-92.78,101.22-151.19,90.12-55.5-10.54-68.54-87.7-96-137.07-21.54-38.8-27.69-82.93-48.1-122.34C58.7,363.61,9.94,332.85,2.11,283.8c-8-50,7.29-104.1,36.44-145.48C67.26,97.57,116.43,77.57,161.86,57c40.7-18.42,83.61-32.8,128.3-32.53,41.91.25,77.58,36.24,119.43,34,69.56-3.7,137.89-82.75,199.92-51,53.69,27.49,29.06,114.75,40.33,174,9.5,49.94,36.29,100.58,21.15,149.09S585.73,392.89,568.94,440.71Z"/>
-                </clipPath>
-            </defs>
-          </svg>
+            <div class="l-image-grid__blob-one"></div>
+            <svg viewBox="0 0 1 0.99">
+              <defs>
+                  <clipPath id="blob-one">
+                    <path class="cls-1" d="M568.94,440.71c-22.08,62.86,48.4,158.77-6,197.33-53.9,38.24-120.31-66.7-186.18-61-59.23,5.11-92.78,101.22-151.19,90.12-55.5-10.54-68.54-87.7-96-137.07-21.54-38.8-27.69-82.93-48.1-122.34C58.7,363.61,9.94,332.85,2.11,283.8c-8-50,7.29-104.1,36.44-145.48C67.26,97.57,116.43,77.57,161.86,57c40.7-18.42,83.61-32.8,128.3-32.53,41.91.25,77.58,36.24,119.43,34,69.56-3.7,137.89-82.75,199.92-51,53.69,27.49,29.06,114.75,40.33,174,9.5,49.94,36.29,100.58,21.15,149.09S585.73,392.89,568.94,440.71Z"/>
+                  </clipPath>
+              </defs>
+            </svg>
         </div>
         <div class="l-image-grid__ctn-two">
           <div class="l-image-grid__blob-two"></div>
@@ -91,11 +100,11 @@
                   <label class="fuel-calculator__label" for="start-city">Waypoints</label>
                   <div class="fuel-calculator__waypoints-ctn">
                     <select class="fuel-calculator__waypoints" multiple id="waypoints">
-                      <option class="fuel-calculator__option" value="Hamilton, NZ">Hamilton, NZ</option>
+                      <option value="Hamilton, NZ">Hamilton, NZ</option>
                       <option value="Taupo, NZ">Taupo, NZ</option>
                       <option value="Nelson, NZ">Nelson, NZ</option>
                       <option value="Dunedin, NZ">Dunedin, NZ</option>
-                      <option value="Bulls NZ">Bulls, NZ</option>
+                      <option value="Bulls, NZ">Bulls, NZ</option>
                     </select>
                     <i class="fuel-calculator__instr">hold down Ctrl+Click or Cmd+Click for multiple selection</i>
                   </div>
@@ -142,7 +151,7 @@
                       <label class="fuel-calculator__label" for="fuelPrice">Average fuel price</label>
                       <input class="fuel-calculator__result-input" type="text" id="fuelPrice" readonly>
                     </div>
-                    <div class="fuel-calculator__results-wrap">
+                    <div class="fuel-calculator__results-wrap--line">
                       <label class="fuel-calculator__label" for="fuelCost">Estimated Fuel Cost</label>
                       <input class="fuel-calculator__result-input" type="text" id="fuelCost" readonly>
                     </div>
@@ -167,37 +176,46 @@
                 </div>
               </div>
 
-              <select id="returnLocation" class="c-travel-details__select" name="returnLocation">
-                <option value="">Select location</option>
-                <option value="Auckland Airport">Auckland Airport</option>
-                <option value="Hamilton Airport">Hamilton Airport</option>
-                <option value="Wellington Airport">Wellington Airport</option>
-                <option value="Nelson Airport">Nelson Airport</option>
-                <option value="Christchurch Airport">Christchurch Airport</option>
-                <option value="Dunedin Airport">Dunedin Airport</option>
-              </select>
+              <div class="c-travel-details__select-ctn select">
+                <select id="returnLocation" class="c-travel-details__select" name="returnLocation">
+                  <option class="c-travel-details__option" value="">Select location</option>
+                  <option class="c-travel-details__option" value="Auckland Airport">Auckland Airport</option>
+                  <option class="c-travel-details__option" value="Hamilton Airport">Hamilton Airport</option>
+                  <option class="c-travel-details__option" value="Wellington Airport">Wellington Airport</option>
+                  <option class="c-travel-details__option" value="Nelson Airport">Nelson Airport</option>
+                  <option class="c-travel-details__option" value="Christchurch Airport">Christchurch Airport</option>
+                  <option class="c-travel-details__option" value="Dunedin Airport">Dunedin Airport</option>
+                </select>
+                <span class="focus"></span>
+              </div>
               
               <div id="displayTwoLocations" 
               class="c-travel-details__twoLocations-ctn">
-                <select id="pickUpLocation" class="c-travel-details__select" name="pickUpLocation">
-                  <option value="">Select location</option>
-                  <option value="auckland">Auckland Airport</option>
-                  <option value="hamilton">Hamilton Airport</option>
-                  <option value="wellington">Wellington Airport</option>
-                  <option value="nelson">Nelson Airport</option>
-                  <option value="christchurch">Christchurch Airport</option>
-                  <option value="dunedin">Dunedin Airport</option>
-                </select>
+                <div class="c-travel-details__select-ctn select">
+                  <select id="pickUpLocation" class="c-travel-details__select" name="pickUpLocation">
+                    <option class="c-travel-details__option" value="">Select location</option>
+                    <option class="c-travel-details__option" value="auckland">Auckland Airport</option>
+                    <option class="c-travel-details__option" value="hamilton">Hamilton Airport</option>
+                    <option class="c-travel-details__option" value="wellington">Wellington Airport</option>
+                    <option class="c-travel-details__option" value="nelson">Nelson Airport</option>
+                    <option class="c-travel-details__option" value="christchurch">Christchurch Airport</option>
+                    <option class="c-travel-details__option" value="dunedin">Dunedin Airport</option>
+                  </select>
+                  <span class="focus"></span>
+                </div>
                 <label class="c-travel-details__label" for="dropOffLocation">Drop off location</label>
-                <select id="dropOffLocation" class="c-travel-details__select" name="dropOffLocation">
-                  <option value="">Select location</option>
-                  <option value="auckland">Auckland Airport</option>
-                  <option value="hamilton">Hamilton Airport</option>
-                  <option value="wellington">Wellington Airport</option>
-                  <option value="nelson">Nelson Airport</option>
-                  <option value="christchurch">Christchurch Airport</option>
-                  <option value="dunedin">Dunedin Airport</option>
-                </select>
+                <div class="c-travel-details__select-ctn select">
+                  <select id="dropOffLocation" class="c-travel-details__select" name="dropOffLocation">
+                    <option class="c-travel-details__option" value="">Select location</option>
+                    <option class="c-travel-details__option" value="auckland">Auckland Airport</option>
+                    <option class="c-travel-details__option" value="hamilton">Hamilton Airport</option>
+                    <option class="c-travel-details__option" value="wellington">Wellington Airport</option>
+                    <option class="c-travel-details__option" value="nelson">Nelson Airport</option>
+                    <option class="c-travel-details__option" value="christchurch">Christchurch Airport</option>
+                    <option class="c-travel-details__option" value="dunedin">Dunedin Airport</option>
+                  </select>
+                  <span class="focus"></span>
+                </div>
               </div>
               <input id="locationFeedback" class="c-travel-details__feedback" type="text" value="" readonly>
               
@@ -208,42 +226,47 @@
                   <label class="c-travel-details__label" for="dropOffDate">Drop off date</label>
                   <input class="c-travel-details__input" id="dropOffDate" type="text" autocomplete="off" placeholder="year--month--day">
                 </div>
-  
                 <div class="c-travel-details__time">
                   <label class="c-travel-details__label" for="pickUpTime">Pick up time</label>
-                  <select id="pickUpTime" class="c-travel-details__select c-travel-details__select--time" name="pickUpTime">
-                    <option value="">Select time</option>
-                    <option value="9:00am">9:00am</option>
-                    <option value="10:00am">10:00am</option>
-                    <option value="11:00am">11:00am</option>
-                    <option value="12:00pm">12:00pm</option>
-                    <option value="1:00pm">1:00pm</option>
-                    <option value="2:00pm">2:00pm</option>
-                    <option value="3:00pm">3:00pm</option>
-                    <option value="4:00pm">4:00pm</option>
-                    <option value="5:00pm">5:00pm</option>
-                    <option value="6:00pm">6:00pm</option>
-                    <option value="7:00pm">7:00pm</option>
-                    <option value="8:00pm">8:00pm</option>
-                    <option value="9:00pm">9:00pm</option>
-                  </select>
+                  <div class="c-travel-details__select-ctn select">
+                    <select id="pickUpTime" class="c-travel-details__select c-travel-details__select--time" name="pickUpTime">
+                      <option class="c-travel-details__option" value="">Select time</option>
+                      <option class="c-travel-details__option" value="9:00am">9:00am</option>
+                      <option class="c-travel-details__option" value="10:00am">10:00am</option>
+                      <option class="c-travel-details__option" value="11:00am">11:00am</option>
+                      <option class="c-travel-details__option" value="12:00pm">12:00pm</option>
+                      <option class="c-travel-details__option" value="1:00pm">1:00pm</option>
+                      <option class="c-travel-details__option" value="2:00pm">2:00pm</option>
+                      <option class="c-travel-details__option" value="3:00pm">3:00pm</option>
+                      <option class="c-travel-details__option" value="4:00pm">4:00pm</option>
+                      <option class="c-travel-details__option" value="5:00pm">5:00pm</option>
+                      <option class="c-travel-details__option" value="6:00pm">6:00pm</option>
+                      <option class="c-travel-details__option" value="7:00pm">7:00pm</option>
+                      <option class="c-travel-details__option" value="8:00pm">8:00pm</option>
+                      <option class="c-travel-details__option" value="9:00pm">9:00pm</option>
+                    </select>
+                    <span class="focus"></span>
+                  </div>
                   <label class="c-travel-details__label" for="dropOffTime">Drop off time</label>
-                  <select id="dropOffTime" class="c-travel-details__select c-travel-details__select--time" name="dropOffTime">
-                    <option value="">Select time</option>
-                    <option value="9:00am">9:00am</option>
-                    <option value="10:00am">10:00am</option>
-                    <option value="11:00am">11:00am</option>
-                    <option value="12:00pm">12:00pm</option>
-                    <option value="1:00pm">1:00pm</option>
-                    <option value="2:00pm">2:00pm</option>
-                    <option value="3:00pm">3:00pm</option>
-                    <option value="4:00pm">4:00pm</option>
-                    <option value="5:00pm">5:00pm</option>
-                    <option value="6:00pm">6:00pm</option>
-                    <option value="7:00pm">7:00pm</option>
-                    <option value="8:00pm">8:00pm</option>
-                    <option value="9:00pm">9:00pm</option>
-                  </select>
+                  <div class="c-travel-details__select-ctn select">
+                    <select id="dropOffTime" class="c-travel-details__select c-travel-details__select--time" name="dropOffTime">
+                      <option class="c-travel-details__option" value="">Select time</option>
+                      <option class="c-travel-details__option" value="9:00am">9:00am</option>
+                      <option class="c-travel-details__option" value="10:00am">10:00am</option>
+                      <option class="c-travel-details__option" value="11:00am">11:00am</option>
+                      <option class="c-travel-details__option" value="12:00pm">12:00pm</option>
+                      <option class="c-travel-details__option" value="1:00pm">1:00pm</option>
+                      <option class="c-travel-details__option" value="2:00pm">2:00pm</option>
+                      <option class="c-travel-details__option" value="3:00pm">3:00pm</option>
+                      <option class="c-travel-details__option" value="4:00pm">4:00pm</option>
+                      <option class="c-travel-details__option" value="5:00pm">5:00pm</option>
+                      <option class="c-travel-details__option" value="6:00pm">6:00pm</option>
+                      <option class="c-travel-details__option" value="7:00pm">7:00pm</option>
+                      <option class="c-travel-details__option" value="8:00pm">8:00pm</option>
+                      <option class="c-travel-details__option" value="9:00pm">9:00pm</option>
+                    </select>
+                    <span class="focus"></span>
+                  </div>
                 </div>
               </div>
 
@@ -380,6 +403,7 @@
           <!-- end of final sorting container -->
         </div>
 
+        <!-- error feedback container -->
         <div id="feedbackMessage" class="l-feedback"></div>
 
         <!-- start of card container -->

@@ -1,10 +1,13 @@
 .l-fuelCalBtn-sec{
+    display: none;
     width: 25%;
     min-height: 25vh;
     background: $white;
     padding: 2.5%;
     align-self: flex-end;
     border-radius: 40px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+
     &__title{
         font-size: 3.7rem;
         font-family: $heading-font;
@@ -17,19 +20,12 @@
         padding-bottom: 5%;
     }
     &__fuel-btn{
-        font-size: 2rem;
-        font-weight: $extra-bold;
-        letter-spacing: 0.05rem;
-        color: $secondary-colour;
-        background: none;
-        border: solid 4px $secondary-colour;
-        border-radius: 30px;
-        padding: 0.5em 1em;
+        @include sumbit-btn;
     }
 }
 
 .fuel-calculator{
-    // display: none;
+    display: none;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -72,7 +68,6 @@
         border-radius: 30px;
     }
     &__right-panel{
-        // background: lightseagreen;
         width: 45%;
         height: 100%;
         display: flex;
@@ -101,6 +96,7 @@
         padding: 0.5em 1em;
         border: none;
         border-radius: 10px;
+        cursor: pointer;
         &:focus{
             outline: solid 2px $secondary-colour;
         }
@@ -133,6 +129,7 @@
         @include dropdown;
         font-size: 1.8rem;
         padding: 0.5rem 1em;
+        cursor: pointer;
         &:focus{
             outline: solid 2px $secondary-colour;
         }
@@ -156,24 +153,40 @@
         display: flex;
         flex-direction: column;
         align-items: flex-end;
+        font-weight: $bold;
+        font-size: 2rem;
+        padding-top: 2rem;
+    }
+    &__results-wrap--line{
+        border-top: solid 5px $secondary-colour;
+        margin-top: 0.5em;
     }
     &__result-input{
-        width: 7ch;
+        width: 10ch;
         cursor: inherit;
         border: none;
         outline: none;
+        color: $primary-colour;
+        font-weight: $bold;
+        letter-spacing: 0.05rem;
+        text-align: right;
     }
     &__route-title{
         color: $primary-colour;
-        font-size: 1.8rem;
+        font-size: 1.9rem;
         margin-bottom: 0;
         font-weight: $extra-bold;
         letter-spacing: 0.06rem;
+        line-height: 1;
+        margin-right: 60%;
+        padding-top: 2rem;
+        padding-bottom: 0.3em;
     }
     &__route{
         color: $primary-colour;
-        font-size: 1.6rem;
+        font-size: 1.7rem;
         margin-bottom: 0;
+        line-height: 1;
     }
 }
 
@@ -181,8 +194,36 @@
     display: block;
 }
 
-select:-internal-list-box:focus option:checked{
-    background-color: $secondary-colour;
-    color: $text-white;
+/* Medium Devices (Tablets) */
+@media #{$tablet} {
+    .l-fuelCalBtn-sec{
+        align-self: inherit;
+        width: 81%;
+        margin-top: 4rem;
+        padding: 4%;
+        &__text{
+            margin: 0;
+            padding-bottom: 3%;
+        }
+        &__fuel-btn{
+            margin-bottom: 1.5rem;
+        }
+    }
 }
 
+/* Small Devices (Mobile) */
+@media #{$mobile}{
+    .l-fuelCalBtn-sec{
+        align-self: inherit;
+        width: 81%;
+        margin-top: 4rem;
+        padding: 4%;
+        &__text{
+            margin: 0;
+            padding-bottom: 3%;
+        }
+        &__fuel-btn{
+            margin-bottom: 1.5rem;
+        }
+    }
+}

@@ -14,9 +14,12 @@
     display: flex;
     justify-content: center;
     &__text{
-        color: $primary-colour;
-        font-size: 2rem;
+        background: $white;
+        color: $tertiary-colour;
+        font-size: 2.5rem;
         margin: 0;
+        padding: 0.5em 1em;
+        border-radius: 30px;
     }
 }
 
@@ -28,16 +31,13 @@
 
 /* Medium Devices (Tablets) */
 @media #{$tablet} {
-    .c-travel-details{
-        width: 400px;
-        height: 600px;
-    }
+
 }
 
 /* Small Devices (Mobile) */
 @media #{$mobile}{
-    .c-travel-details{
-        width: 300px;
-        height: 600px;
-    }
+    // .c-travel-details{
+    //     width: 300px;
+    //     height: 600px;
+    // }
 }

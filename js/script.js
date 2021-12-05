@@ -1030,7 +1030,7 @@ function initMap(){
 
     for(let i =0; i <locations.length; i++){
         const location = locations[i];
-        console.log(location);
+        // console.log(location);
         new google.maps.Marker({
             position: {lat:location[1],lng:location[2]},
             map,
@@ -1111,10 +1111,10 @@ function calculateAndDisplayRoute(directionService, directionsRenderer){
                 const routeSegment = i + 1;
 
                 summaryPanel.innerHTML +=
-                "<p class='fuel-calculator__route-title'>Route Segment: " + routeSegment + "</p><br><br>";
-                summaryPanel.innerHTML += "<p class='fuel-calculator__route'>" + route.legs[i].start_address + " to " + "</p>";
-                summaryPanel.innerHTML += "<p class='fuel-calculator__route'>" + route.legs[i].end_address + "</p><br><br>";
-                summaryPanel.innerHTML += "<p class='fuel-calculator__route'>" + route.legs[i].distance.text + " and it take " + route.legs[i].duration.text + " to reach." + "</p>";
+                "<p class='fuel-calculator__route-title'>Route Segment: " + routeSegment + "</p>";
+                summaryPanel.innerHTML += "<p class='fuel-calculator__route'>" + route.legs[i].start_address + " to&nbsp" + "</p>";
+                summaryPanel.innerHTML += "<p class='fuel-calculator__route'>" + route.legs[i].end_address + "</p>";
+                summaryPanel.innerHTML += "<p class='fuel-calculator__route'>" + route.legs[i].distance.text + " taking approximately " + route.legs[i].duration.text + " to complete." + "</p>";
                 totalDistance += parseFloat(route.legs[i].distance.text)
             }
             fuelCalculation(totalDistance);
@@ -1221,6 +1221,11 @@ function calculateDates(event){
 
     // start of final sorting days feedback
     $('#days').text(dayDifference);
+    if ( isNaN(dayDifference) ){
+        $('#days').empty().append(
+            "--"
+        ); 
+    }
     // end of final sorting days feedback
 
     
@@ -1230,10 +1235,12 @@ function calculateDates(event){
 
 
     // start of pick up and drop off feedback
+    $('#dayTimeFeedback').val("");
     if( pickUpDate == "Invalid Date" ){
         $('#dayTimeFeedback').val("Please select your pick up day and time");
     };
 
+    $('#dayTimeFeedback').val("");
     if( dropOffDate == "Invalid Date" ){
         $('#dayTimeFeedback').val("Please select your drop off day and time");
     };
@@ -1248,6 +1255,7 @@ function calculateDates(event){
     // start of number of people feedback
     $('#numberOfPeople').html(numberOfPeople);
 
+    $('#peopleFeedback').val("");
     if( adults === 0 ){
         $('#peopleFeedback').val("Sorry, adults are required to drive the vehicle");
     };
@@ -1262,6 +1270,7 @@ function calculateDates(event){
     let locationPickUp = $('#pickUpLocation').val();
     let locationDropOff = $('#dropOffLocation').val();
 
+    $('#locationFeedback').val("");
     if( locationReturnTrip == "" && locationPickUp == "" && locationDropOff == ""){
         $('#locationFeedback').val("Please select your pick up and drop off location");
     } else if( locationReturnTrip == "" && locationDropOff == ""){

@@ -185,3 +185,19 @@
     background-image: url(../img/arrow-right.svg);
     height: 18px;
 }
+
+/* Medium Devices (Tablets) */
+@media #{$tablet} {
+    .c-card{
+        margin: 0;
+        margin-bottom: 3rem;
+    }
+}
+
+/* Small Devices (Mobile) */
+@media #{$mobile}{
+    .c-card{
+        padding: 2%;
+        border-radius: 35px;
+    }
+}

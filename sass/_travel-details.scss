@@ -1,7 +1,7 @@
 .c-travel-details{
     background: $white;
     width: 603px;
-    height: 726px;
+    min-height: 726px;
     padding: 3rem;
     border-radius: 40px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
@@ -34,13 +34,38 @@
     }
     &__return-ctn{
         display: flex;
+        align-items: center;
     }
     &__checkbox{
-        border: solid 1px $primary-colour;
-        // does nothing
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: $primary-colour;
+        margin: 0;
+        color: $white;
+        width: 1.15em;
+        height: 1.15em;
+        border-radius: 50%;
+        display: grid;
+        place-content: center;
+        margin-right: 1rem;
+        &::before{
+            content: "";
+            width: 0.65em;
+            height: 0.65em;
+            clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+            transform: scale(0);
+            transform-origin: bottom left;
+            transition: 120ms transform ease-in-out;
+            background-color: $white;
+        }
+        &:checked::before {
+            transform: scale(1);
+        }
     }
     &__return-text{
         color: $primary-colour;
+        margin: 0;
+        line-height: 1;
     }
     &__twoLocations-ctn{
         display: none;
@@ -54,20 +79,22 @@
             display: none;
         }
     }
+    &__select-ctn{
+        width: 100%;
+    }
     &__select{
-        background: $primary-colour;
-        color: $text-white;
-        border: none;
+        @include dropdown;
         font-size: 2rem;
         width: 100%;
-        padding: 0.5em 1em;
         border-radius: 40px;
         outline: $secondary-colour;
         &--time{
             font-size: 2rem;
-            width: 80%;
-            padding: 0.53em 1em;
+            padding: 0.65em 1em;
         }
+    }
+    &__option{
+        @include dropdown-options;
     }
     &__input{
         width: 100%;
@@ -116,10 +143,12 @@
         line-height: 0;
         &:focus{
             outline-color: $secondary-colour;
+            color: $secondary-colour;
         }
     }
     &__feedback{
         // background: lightgreen;
+        width: 100%;
         color: $tertiary-colour;
         border: none;
         font-size: 2rem;
@@ -129,21 +158,11 @@
         outline: none;
     }
     &__submit-btn{
+        @include sumbit-btn;
         width: 50%;
-        background: $secondary-colour;
-        color: $text-white;
-        font-weight: $extra-bold;
-        font-size: 2.3rem;
-        border: none;
-        padding: 0.5em 1em;
-        border-radius: 30px;
-        letter-spacing: 0.05rem;
         position: absolute;
         bottom: 0;
         right: 0;
-        &:focus{
-            outline: none;
-        }
     }
 }
 
@@ -166,4 +185,43 @@
 
 .hide-location{
     display: none;
+}
+
+
+/* Medium Devices (Tablets) */
+@media #{$tablet} {
+    // .c-travel-details{
+    //     width: 400px;
+    //     height: 600px;
+    // }
+}
+
+/* Small Devices (Mobile) */
+@media #{$mobile}{
+    .c-travel-details{
+        width: 300px;
+        height: 800px;
+        &__label-ctn{
+            flex-direction: column;
+        }
+        &__when{
+            flex-direction: column;
+        }
+        &__people{
+            flex-direction: column;
+        }
+        &__label{
+            font-size: 1.5rem;
+        }
+        &__select{
+            font-size: 1.5rem;
+            &--time{
+                font-size: 1.5rem;
+                padding: 0.65em 1em;
+            }
+        }
+        &__input{
+           font-size: 1.5rem;
+        }
+    }
 }

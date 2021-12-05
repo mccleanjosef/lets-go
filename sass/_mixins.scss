@@ -5,7 +5,7 @@
 }
 
 @mixin dropdown {
-    width: 150px;
+    // width: 150px;
     appearance: none;
     background: $primary-colour;
     border: none;
@@ -17,14 +17,36 @@
     color: $text-white;
     font-size: 2.5rem;
     border-radius: 50px;
+    &:focus{
+        outline: solid 3px $secondary-colour;
+    }
 }
 
 @mixin dropdown-options {
-    width: 150px;
-    text-transform: lowercase;
-    font-size: 1rem;
-    background: $black;
-    // padding-left: 1rem;
+    background: $primary-colour;
     letter-spacing: 1rem;
-    font-size: 1.4rem;
+    font-size: 2rem;
+    color: $text-white;
+}
+
+@mixin sumbit-btn {
+    background: $secondary-colour;
+    color: $text-white;
+    font-weight: $extra-bold;
+    font-size: 2.3rem;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 30px;
+    letter-spacing: 0.05rem;
+    &:focus{
+        outline: none;
+    }
+    &:hover{
+        background: none;
+        border: solid 5px $secondary-colour;
+        color: $secondary-colour;
+        font-size: 2.3rem;
+        border-radius: 40px;
+        padding: 0.3em 1em;
+    }
 }
