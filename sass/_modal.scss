@@ -18,7 +18,7 @@
 #contactInfo{
     width: 100%;
     height: 100%;
-    background: orange;
+    // background: orange;
     display: flex;
     flex-flow: row wrap;
 }
@@ -44,7 +44,7 @@
 }
 
 .modal-content{
-    height: 900px;
+    min-height: 900px;
     position: relative;
     border-radius: 50px;
 }
@@ -106,20 +106,17 @@
         font-size: 1.6rem;
     }
     &__carousel-wrap{
+        // width: 100%;
+        // height: 50%;
+        height: 500px;
         width: 100%;
-        height: 50%;
         display: flex;
         justify-content: center;
         padding-top: 2rem;
-    }
-    &__side-carousel{
-        background: $white;
-        // height: 50%;
-        width: 14%;
-        z-index: 3;
+        padding-bottom: 5rem;
     }
     &__carousel{
-        // height: 50%;
+        height: 100%;
         margin-bottom: 4rem;
     }
     &__carousel-inner{
@@ -163,7 +160,7 @@
         font-weight: $semi-bold;
     }
     &__icons-left{
-        width: 16rem;
+        width: 15rem;
         display: flex;
         flex-flow: row wrap;
     }
@@ -203,17 +200,17 @@
         &:focus{
             outline: none;
         }
+        
     }
-
-
 
     &__col-left{
         width: 30%;
         height: 100%;
         display: flex;
         flex-flow: column wrap;
-        background: salmon;
+        // background: salmon;
         padding: 0 3%;
+        border-right: solid 1px #5CB8E2;
     }
     &__contact-img{
         width: 100%;
@@ -221,14 +218,14 @@
     &__col-right{
         width: 70%;
         height: 100%;
-        background: skyblue;
+        // background: skyblue;
         padding: 0 3%;
+        padding-top: 2%;
     }
     &__form{
         display: flex;
         flex-flow: column wrap;
     }
-
 
 
     &__card-expiry{
@@ -240,11 +237,46 @@
         width: 100%;
     }
 
-}
+    &__vehicleDetsError{
+        color: $tertiary-colour;
+        font-size: 2rem;
+        margin: 0 auto;
+    }
 
-// .pac-container {
-//     z-index: 2000 !important;
-// }
+    &__booking-title{
+        font-size: 2.5rem;
+        color: $primary-colour;
+        font-weight: $extra-bold;
+        text-transform: $uppercase;
+    }
+    &__booking-partner{
+        font-size: 2rem;
+        color: $primary-colour;
+        font-weight: $semi-bold;
+        letter-spacing: 0.05em;
+        text-transform: $uppercase;
+    }
+    &__label{
+        color: $primary-colour;
+        font-size: 2rem;
+    }
+    &__input{
+        color: $text-white;
+        background: $primary-colour;
+        padding: 0.5em 1em;
+        border: none;
+        border-radius: 30px;
+        &:focus{
+            outline: solid 3px $secondary-colour;
+        }
+    }
+    &__licence-text{
+        color: $primary-colour;
+        font-size: 1.8rem;
+        padding-top: 2rem;
+    }
+
+}
 
 
 

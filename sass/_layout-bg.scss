@@ -52,7 +52,7 @@
     grid-template-columns: repeat(16, 1fr);
     grid-template-rows: repeat(16, 1fr);
     width: 100%;
-    height: 250vh;
+    height: 259vh;
     // background: mediumaquamarine;
     position: absolute;
     left: 0;
@@ -64,51 +64,6 @@
         grid-row: 1/2;
         z-index: 1;
         margin-top: 60px;
-    }
-    &__tagline-ctn{
-        // grid-column: 12/17;
-        // grid-row: 2/3;
-        // width: 50rem;
-        background: $primary-colour;
-        z-index: 1;
-        display: flex;
-        flex-flow: column wrap;
-        align-items: flex-end;
-        padding: 2% 9% 2% 0%;
-        border-radius: 30px 0 0 30px;
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-        position: absolute;
-        top: 20%;
-        right: 0;
-    }
-    &__hire-wrap{
-        display: flex;
-    }
-    &__ride-ctn{
-        display: flex;
-        width: 14ch;
-        padding-top: 1rem;
-    }
-    &__tagline{
-        width: 8ch;
-        font-size: 15rem;
-        z-index: 1;
-        font-family: $heading-font;
-        text-align: right;
-        color: $text-white;
-        line-height: 1;
-        &--welcome{
-            font-size: 9rem;
-        }
-        &--vehicle{
-            font-size:6.5rem;
-        }
-        &--small{
-            width: 20ch;
-            font-family: $body-font;
-            font-size: 3.5rem;
-            text-align: right;
-        }
     }
     &__ctn-one{
         // background: indianred;
@@ -220,13 +175,13 @@
         &__blob-two{
             top: -220px;
             left: 50px;
-            transform: scale(70%);
+            transform: scale(0.7);
             background-position: 100% 100%;
         }
         &__blob-three{
             // top: 0;
             // left: -300px;
-            transform: scale(70%);
+            transform: scale(0.7);
         }
         &__ctn-four{
             grid-column: 2/17;
@@ -272,9 +227,6 @@
             grid-column: 7/16;
             grid-row: 2/3;
         }
-        &__tagline{
-
-        }
         &__ctn-one{
             grid-column: 1/8;
             position: relative;
@@ -287,7 +239,7 @@
         &__blob-two{
             top: -220px;
             left: -100px;
-            transform: scale(70%);
+            transform: scale(0.7);
             background-size: auto 120%;
             background-position: 1000% 100%;
         }
@@ -299,7 +251,7 @@
         &__blob-three{
             top: 0;
             left: -450px;
-            transform: scale(70%);
+            transform: scale(0.7);
         }
         &__ctn-four{
             grid-column: 1/17;

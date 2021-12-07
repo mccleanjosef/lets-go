@@ -1,4 +1,4 @@
-console.log("script is linked");
+console.log('script is linked');
 
 
 // Query Selectors
@@ -12,22 +12,23 @@ let pickUpTime;
 let dropOffTime;
 let pickUpLocation;
 let dropOffLocation;
+let modalTotalPrice;
 
 // ===============================
 // start of transport object-array
 // ===============================
 const transport = [
-    {   
+    {
         type: 'motorbike',
         id: 101,
-        carouselId: "carouselOne",
-        modalCarouselId: "modalCarouselOne",
-        name: "Suzuki DL650 V-Strom",
-        partner: "NZBike.com",
-        price: "199",
-        transmission: "Manual",
-        efficiency: "Excellent",
-        tankCapacity: "2.4L",
+        carouselId: 'carouselOne',
+        modalCarouselId: 'modalCarouselOne',
+        name: 'Suzuki V-Strom DL650',
+        partner: 'NZBike.com',
+        price: '199',
+        transmission: 'Manual',
+        efficiency: 'Excellent',
+        tankCapacity: '2.4L',
         imageOneSmall: './img/101-s-suzuki-dl650-3.jpg',
         imageTwoSmall: './img/101-s-suzuki-dl650-2.jpg',
         imageThreeSmall: './img/101-s-suzuki-dl650-4.jpg',
@@ -42,13 +43,13 @@ const transport = [
     {   
         type: 'motorbike',
         id: 105,
-        carouselId: "carouselFive",
-        modalCarouselId: "modalCarouselFive",
-        name: "Honda VT750S",
-        partner: "Te Waipounamu Motorcycle Tours",
-        price: "120",
-        transmission: "Manual",
-        efficiency: "Good",
+        carouselId: 'carouselFive',
+        modalCarouselId: 'modalCarouselFive',
+        name: 'Honda VT750S',
+        partner: 'Te Waipounamu Motorcycle Tours',
+        price: '120',
+        transmission: 'Manual',
+        efficiency: 'Good',
         tankCapacity: "2.4L",
         imageOneSmall: './img/105-s-honda-vt750s-e99a77097f9e9e2de2c6b9de30aaa065.jpg',
         imageTwoSmall: './img/105-s-1280px-Honda_VT750S_2011.jpg',
@@ -64,14 +65,14 @@ const transport = [
     {   
         type: 'motorbike',
         id: 106,
-        carouselId: "carouselSix",
-        modalCarouselId: "modalCarouselSix",
-        name: "FLHTK Ultra Limited",
-        partner: "Bularangi Motorbikes",
-        price: "120",
-        transmission: "Manual",
-        efficiency: "Good",
-        tankCapacity: "2.4L",
+        carouselId: 'carouselSix',
+        modalCarouselId: 'modalCarouselSix',
+        name: 'FLHTK Ultra Limited',
+        partner: 'Bularangi Motorbikes',
+        price: '120',
+        transmission: 'Manual',
+        efficiency: 'Good',
+        tankCapacity: '2.4L',
         imageOneSmall: './img/106-s-2021-ultra-limited-motorcycle-g2.jpg',
         imageTwoSmall: './img/106-s-5efdef3f07d0c724015511bd324391ed.jpg',
         imageThreeSmall: './img/106-s-flhtk-ultra-limited-harley.jpg',
@@ -542,9 +543,9 @@ function objectsLoop(){
     let i = 0;
     for(i = 0; i < transport.length; i++){
         generateCard(i);
-    };
+    }
     modal();
-};
+}
 objectsLoop();
 // ===============================
 // end of generating first cards
@@ -627,7 +628,7 @@ function modal(){
                     <div id="contactInfo" class="c-modal__content">
                         <div class="c-modal__col-left">
                             <h3 class="c-modal__booking-title">Your booking</h3>
-                            <img class="c-modal__contact-img" src="./img/toyota-corolla-hatch-gx-ng-2018-1.png" alt="">
+                            <img class="c-modal__contact-img" src="${transport[i].imageOne}" alt="selected vechicle photo">
                             <h5 class="c-modal__booking-title">${transport[i].name}</h5>
                             <p class="c-modal__booking-partner">${transport[i].partner}</p>
                             <p class="c-modal__booking-text">From</p><p id="modalPickUpLocation" class="c-modal__booking-text"><p id="modalPickUpDate" class="c-modal__booking-text"></p>
@@ -646,8 +647,6 @@ function modal(){
                                 <input class="c-modal__input" type="text">
                                 <label class="c-modal__label" for="email">Your email address</label>
                                 <input class="c-modal__input" type="text">
-                                <label class="c-modal__label" for="email">Confirm email address</label>
-                                <input class="c-modal__input" type="text">
                             </form>
                             <p class="c-modal__licence-text">At check out you will asked to present relevant licence</p>
                         </div>
@@ -655,7 +654,7 @@ function modal(){
                     <div id="payment" class="c-modal__content">
                         <div class="c-modal__col-left">
                             <h3 class="c-modal__col-title">Your booking</h3>
-                            <img class="c-modal__contact-img" src="./img/toyota-corolla-hatch-gx-ng-2018-1.png" alt="">
+                            <img class="c-modal__contact-img" src="${transport[i].imageOne}" alt="selected vechicle photo">
                             <h5 class="c-modal__booking-title">${transport[i].name}</h5>
                             <p class="c-modal__booking-partner">${transport[i].partner}</p>
                             <p class="c-modal__booking-text">From</p><p id="modalPickUpLocationTwo" class="c-modal__booking-text"></p><p id="modalPickUpDateTwo" class="c-modal__booking-text"></p>
@@ -721,17 +720,6 @@ function modalContent(vehicleSelectedId){
 
     $('#contactTitle').addClass("c-modal__title-ctn--stacked-one");
 
-    function hire(){
-        $('#vehicleDetails').hide();
-        $('#contactInfo').show();
-        $('#hireBtn').hide();
-        $('#infoConfirmBtn').show();
-
-        $('#vecDetTitle').removeClass("c-modal__title-ctn--active");
-        $('#contactTitle').addClass("c-modal__title-ctn--active");
-        $('#contactTitle').removeClass("c-modal__title-ctn--stacked-one");
-    }
-
     function infoConfirm(){
         $('#contactInfo').hide();
         $('#payment').show();
@@ -783,7 +771,9 @@ function modalContent(vehicleSelectedId){
     // total cost in modal
     let i = 0;
     for(i = 0; i < transport.length; i++){
-        const totalPrice = totalDays * (transport[i].price)
+        const totalPrice = totalDays * (transport[i].price);
+
+        let modalTotalPrice = totalPrice;
 
         if(parseInt(vehicleSelectedId) === transport[i].id){
             // console.log(transport[i].price);
@@ -792,12 +782,29 @@ function modalContent(vehicleSelectedId){
             $('#infoTotalCost').text(totalPrice);
             $('#payTotalCost').text(totalPrice);
 
-            // console.log(typeof totalPrice, totalPrice);
+            console.log(typeof totalPrice, totalPrice);
 
             if ( isNaN(totalPrice) ){
                 $('#totalCost').empty().append(
                     "--"
-                ); 
+                );
+                function hire(){
+                    $('.c-modal__vehicleDetsError').empty()
+                    $('#vehicleDetails').append(
+                        '<p class="c-modal__vehicleDetsError">Please search for vehicles using your travel information to hire vehicle</p>'
+                    );
+                }
+            } else {
+                function hire(){
+                    $('#vehicleDetails').hide();
+                    $('#contactInfo').show();
+                    $('#hireBtn').hide();
+                    $('#infoConfirmBtn').show();
+
+                    $('#vecDetTitle').removeClass("c-modal__title-ctn--active");
+                    $('#contactTitle').addClass("c-modal__title-ctn--active");
+                    $('#contactTitle').removeClass("c-modal__title-ctn--stacked-one");
+                }
             }
         } 
     }
@@ -821,6 +828,7 @@ function modalContent(vehicleSelectedId){
     // pick up location
     $('#modalPickUpLocation').text(pickUpLocation);
     $('#modalPickUpLocationTwo').text(pickUpLocation);
+    console.log(pickUpLocation);
 
     // drop off location
     $('#modalDropOffLocation').text(dropOffLocation);
@@ -842,10 +850,10 @@ function modalContent(vehicleSelectedId){
 // ====================================
 // start of jqueryUi Datepicker
 // ====================================
-let script = '<script src="https://maps.googleapis.com/maps/api/js?key=' + key +'&callback=initMap&libraries=places&v=weekly" async defer >'
+let script = '<script src="https://maps.googleapis.com/maps/api/js?key=' + key +'&callback=initMap&libraries=places&v=weekly" async defer >';
 // console.log(script);
 
-let checkboxes = $("input[type=checkbox][name=type]")
+let checkboxes = $("input[type=checkbox][name=type]");
 let selectedType = [];
 
 $(document).ready(function(){
@@ -860,7 +868,7 @@ $(document).ready(function(){
 
     $('#myModal').modal({
         keyboard: true
-    })
+    });
 
     // start of fuel calculator display
     $("#FuelCalBtn").click(function(){
@@ -899,7 +907,7 @@ $(document).ready(function(){
     // end of number of people input
 
     // start of drop off location different to pick up checkbox
-    let locationcheckBox = $("input[type=checkbox][name=return-trip]")
+    let locationcheckBox = $("input[type=checkbox][name=return-trip]");
     
     locationcheckBox.prop('checked', true);
 
@@ -924,7 +932,7 @@ $(document).ready(function(){
         let timePickUp = $('#pickUpTime').val();
         // console.log(timePickUp);
         pickUpTime = timePickUp;
-    })
+    });
 
     // Drop off time
     $('#dropOffTime').change(function(){
@@ -932,6 +940,179 @@ $(document).ready(function(){
         // console.log(timeDropOff);
         dropOffTime = timeDropOff;
     });
+
+
+
+
+    // ============================================
+    // start of checkbox filter for inital sorting
+    // ============================================
+
+    let checkboxesI = $("input[type=checkbox][name=typeI]");
+    let selectedTypeI = [];
+
+    selectedTypeI = checkboxesI.filter(":checked").map(function() { 
+        return this.value;
+    }).get();
+    
+    function CheckboxNoTravelDetails(){
+        
+        // Attach a change event handler to the checkboxes.
+        checkboxesI.change(function() {
+            // console.log("CheckboxNoTravelDetails");
+            $('#cardContent').empty();
+
+            selectedTypeI = checkboxesI.filter(":checked").map(function() { 
+                return this.value;
+            }).get();
+            
+            // console.log(selectedTypeI);
+            // console.log(selectedType.length);
+            let i = 0;
+            for(i = 0; i < selectedTypeI.length; i++){
+                if(selectedTypeI[i] === 'motorbike'){
+                    let i = 0;
+                    for(i = 0; i < transport.length; i++){
+            
+                        if(transport[i].type === 'motorbike'){
+                            generateCard(i);
+                        }
+                    }
+                }
+                if(selectedTypeI[i] === 'small car'){
+                    let i = 0;
+                    for(i = 0; i < transport.length; i++){
+            
+                        if(transport[i].type === 'small car'){
+                            generateCard(i);
+                        }
+                    }
+                }
+                if(selectedTypeI[i] === 'large car'){
+                    let i = 0;
+                    for(i = 0; i < transport.length; i++){
+            
+                        if(transport[i].type === 'large car'){
+                            generateCard(i);
+                        }
+                    }
+                }
+                if(selectedTypeI[i] === 'motor home'){
+                    let i = 0;
+                    for(i = 0; i < transport.length; i++){
+            
+                        if(transport[i].type === 'motor home'){
+                            generateCard(i);
+                        }
+                    }
+                }
+            }
+            modal();
+        }); 
+    }
+    CheckboxNoTravelDetails();
+    // ============================================
+    // end of checkbox filter for inital sorting
+    // ============================================
+
+    // =========================================
+    // start of price filter for inital sorting
+    // =========================================
+    $('#sortBtn').change(function(){
+        let sortValue = ($('#sortBtn').val()).toLowerCase();
+        // console.log(sortValue);
+        if (sortValue === 'low'){
+
+            const sortLow = (transport = []) => {
+                const sorter = (a, b) => {
+                return +a.price - +b.price;
+                };
+                transport.sort(sorter);
+            };
+            
+            sortLow(transport);
+            console.log(transport);
+            displayPriceFilter();
+
+        } else if (sortValue === 'high'){
+
+            const sortHigh = (transport = []) => {
+                const sorter = (a, b) => {
+                return +b.price - +a.price;
+                };
+                transport.sort(sorter);
+            };
+
+            sortHigh(transport);
+            console.log(transport);
+            displayPriceFilter();
+        }
+    });
+
+
+    function displayPriceFilter(){
+        $('#cardContent').empty();
+        // console.log(selectedTypeI);
+
+        // let i = 0;
+        // for(i = 0; i < selectedTypeI.length; i++){
+        //     if(selectedTypeI[i] === 'motorbike'){
+        //         let i = 0;
+        //         for(i = 0; i < transport.length; i++){
+        //             if(transport[i].type === 'motorbike'){
+        //                 generateCard(i);
+        //             };
+        //         }
+        //     }
+        //     if(selectedTypeI[i] === 'small car'){
+        //         let i = 0;
+        //         for(i = 0; i < transport.length; i++){
+        
+        //             if(transport[i].type === 'small car'){
+        //                 generateCard(i);
+        //             };
+        //         }
+        //     }
+        //     if(selectedTypeI[i] === 'large car'){
+        //         let i = 0;
+        //         for(i = 0; i < transport.length; i++){
+        
+        //             if(transport[i].type === 'large car'){
+        //                 generateCard(i);
+        //             };
+        //         }
+        //     }
+        //     if(selectedTypeI[i] === 'motor home'){
+        //         let i = 0;
+        //         for(i = 0; i < transport.length; i++){
+        
+        //             if(transport[i].type === 'motor home'){
+        //                 generateCard(i);
+        //             };
+        //         }
+        //     }
+        // }
+
+        // Instead of looping through transport array loop through new array of filtered vehicles
+        let i = 0;
+        for(i = 0; i < transport.length; i++){
+            // console.log(selectedTypeI[i]);
+            // if(selectedTypeI[i] === 'motorbike'){
+            //     // let i = 0;
+            //     // for(i = 0; i < transport.length; i++){
+            //     //     if(transport[i].type === 'motorbike'){
+            //     //         generateCard(i);
+            //     //     };
+            //     // }
+            //     generateCard(i);
+            // }
+            generateCard(i);
+        }
+        modal();
+    }
+    // =========================================
+    // end of price filter for inital sorting
+    // =========================================
 
 
 });
@@ -958,9 +1139,9 @@ function initMap(){
             let stDate = new Date(selectDate.getTime() + msecInADay);
 
             $('#dropOffDate').datepicker('option','minDate', stDate);
-            let enDate = new Date(selectDate.getTime() + 8 * msecInADay)
+            let enDate = new Date(selectDate.getTime() + 8 * msecInADay);
             // +8 (or what ever number you enter) will restrict the selection to the specified number eg.. in this case it will be 8 days
-            $('#dropOffDate').datepicker('option','maxDate', enDate)
+            $('#dropOffDate').datepicker('option','maxDate', enDate);
         }
     });
 
@@ -995,7 +1176,7 @@ function initMap(){
         document.getElementById('end'),
         {
             types: ['(cities)'],
-        },
+        }
     );
 
     // directions distance and duration
@@ -1013,7 +1194,7 @@ function initMap(){
         url: "./img/location-marker.svg",
         scaledSize: new google.maps.Size(50, 50),
         origin: new google.maps.Point(0,0) 
-    }
+    };
 
     // calling the map function
     const map = new google.maps.Map(document.getElementById('map'),{
@@ -1026,9 +1207,10 @@ function initMap(){
         ["aucklandAirport",-37.00583037363098,174.78537816193244, 1],
         ["wellingtonAirport",-41.32995285285088,174.81191968956364,2],
         ["queenstownAirport", -45.01820081582348, 168.74516306285938,3]
-    ]
+    ];
 
-    for(let i =0; i <locations.length; i++){
+    let i = 0;
+    for(i = 0; i <locations.length; i++){
         const location = locations[i];
         // console.log(location);
         new google.maps.Marker({
@@ -1100,7 +1282,7 @@ function calculateAndDisplayRoute(directionService, directionsRenderer){
             // https://developers.google.com/maps/documentation/javascript/geocoding
             // creates the render of the given directions
             // https://developers.google.com/maps/documentation/javascript/reference/directions
-            directionsRenderer.setDirections(response)
+            directionsRenderer.setDirections(response);
             const route = response.routes[0];
             const summaryPanel = document.getElementById('directions-panel');
 
@@ -1115,7 +1297,7 @@ function calculateAndDisplayRoute(directionService, directionsRenderer){
                 summaryPanel.innerHTML += "<p class='fuel-calculator__route'>" + route.legs[i].start_address + " to&nbsp" + "</p>";
                 summaryPanel.innerHTML += "<p class='fuel-calculator__route'>" + route.legs[i].end_address + "</p>";
                 summaryPanel.innerHTML += "<p class='fuel-calculator__route'>" + route.legs[i].distance.text + " taking approximately " + route.legs[i].duration.text + " to complete." + "</p>";
-                totalDistance += parseFloat(route.legs[i].distance.text)
+                totalDistance += parseFloat(route.legs[i].distance.text);
             }
             fuelCalculation(totalDistance);
             estFuelCost(totalDistance, vehicleFuelEff, fuelPrice);
@@ -1238,12 +1420,12 @@ function calculateDates(event){
     $('#dayTimeFeedback').val("");
     if( pickUpDate == "Invalid Date" ){
         $('#dayTimeFeedback').val("Please select your pick up day and time");
-    };
+    }
 
     $('#dayTimeFeedback').val("");
     if( dropOffDate == "Invalid Date" ){
         $('#dayTimeFeedback').val("Please select your drop off day and time");
-    };
+    }
     // end of pick up and drop off feedback
 
 
@@ -1258,11 +1440,11 @@ function calculateDates(event){
     $('#peopleFeedback').val("");
     if( adults === 0 ){
         $('#peopleFeedback').val("Sorry, adults are required to drive the vehicle");
-    };
+    }
 
     if( numberOfPeople === 0 ){
         $('#peopleFeedback').val("Please select number of people in the vehicle");
-    };
+    }
     // end of number of people feedback
 
     // start of location feedback
@@ -1277,27 +1459,29 @@ function calculateDates(event){
         $('#locationFeedback').val("Please select your drop off location");
     } else if( locationReturnTrip == "" && locationPickUp == ""){
         $('#locationFeedback').val("Please select your pick up location");
-    };
+    }
     // end of location feedback
 
     // start of no results feedback
     if( numberOfPeople === 0 || adults === 0 || pickUpDate == "Invalid Date" ||dropOffDate == "Invalid Date" || (locationReturnTrip == "" && (locationPickUp == "" || locationDropOff == ""))){
-        console.log("not valid details")
+        console.log("not valid details");
         $('#feedbackMessage').html('<p class="l-feedback__text">Invalid search. Please check your travel details</p>');
+    } else {
+        $('#feedbackMessage').empty();
     }
     // end of no results feedback
 
     // setting global variables for modal
-    locationReturn = $('#returnLocation').val();
+    let locationReturn = $('#returnLocation').val();
     locationPickUp = $('#pickUpLocation').val();
     locationDropOff = $('#dropOffLocation').val();
 
-    // console.log(returnLocation);
+    console.log(locationReturn);
 
     if( locationPickUp == "" &&  locationDropOff == ""){
         
-        pickUpLocation = locationReturn;
-        dropOffLocation = locationReturn;
+        let pickUpLocation = locationReturn;
+        let dropOffLocation = locationReturn;
         console.log(pickUpLocation);
         console.log(dropOffLocation);
     } else {
@@ -1318,41 +1502,45 @@ function calculateDates(event){
     //     travelDetailsNoVehicle(dayDifference, numberOfPeople);
     // };
 
-    travelDetailsNoVehicle(dayDifference, numberOfPeople);
+    travelDetailsNoVehicle(dayDifference, numberOfPeople, adults, locationReturnTrip, locationPickUp, locationDropOff);
 
     AfterTravelDetailsCheckbox(dayDifference, numberOfPeople);
 
     $('.c-inital-sorting').hide();
     $('.c-final-sorting').show();
     
-};
+}
 
 submitInfo.addEventListener("click", calculateDates);
 
 
-function travelDetailsNoVehicle(daysOfTravel, peopleBooked){
+function travelDetailsNoVehicle(daysOfTravel, peopleBooked, peopleAdult, bothWaysLocation, firstLocation, secondLocation){
     console.log(typeof daysOfTravel, daysOfTravel);
     console.log(typeof peopleBooked, peopleBooked);
 
     //filtering by people booked and days of travel if no vehicle checkboxes are clicked
     console.log("no vehicles clicked");
     $('#cardContent').empty();
-    let i = 0;
-    for(i = 0; i < transport.length; i++){
-        if ((peopleBooked === 1) && (daysOfTravel >= 1 && daysOfTravel <= 5) && (transport[i].type === 'motorbike')){
-            generateCard(i);
+
+    if( numberOfPeople === 0 || peopleAdult === 0 || pickUpDate == "Invalid Date" ||dropOffDate == "Invalid Date" || (bothWaysLocation == "" && (firstLocation == "" || secondLocation == "")) ){
+    } else {
+        let i = 0;
+        for(i = 0; i < transport.length; i++){
+            if ((peopleBooked === 1) && (daysOfTravel >= 1 && daysOfTravel <= 5) && (transport[i].type === 'motorbike')){
+                generateCard(i);
+            }
+            if ((peopleBooked >= 1 && peopleBooked <= 2) && (daysOfTravel >= 1 && daysOfTravel <= 10) && (transport[i].type === 'small car')){
+                generateCard(i);
+            }
+            if ((peopleBooked >= 1 && peopleBooked <= 5) && (daysOfTravel >= 3 && daysOfTravel <= 10) && (transport[i].type === 'large car')){
+                generateCard(i);
+            }
+            if ((peopleBooked >= 2 && peopleBooked <= 6) && (daysOfTravel >= 2 && daysOfTravel <= 15) && (transport[i].type === 'motor home')){
+                generateCard(i);
+            }
         }
-        if ((peopleBooked >= 1 && peopleBooked <= 2) && (daysOfTravel >= 1 && daysOfTravel <= 10) && (transport[i].type === 'small car')){
-            generateCard(i);
-        }
-        if ((peopleBooked >= 1 && peopleBooked <= 5) && (daysOfTravel >= 3 && daysOfTravel <= 10) && (transport[i].type === 'large car')){
-            generateCard(i);
-        }
-        if ((peopleBooked >= 2 && peopleBooked <= 6) && (daysOfTravel >= 2 && daysOfTravel <= 15) && (transport[i].type === 'motor home')){
-            generateCard(i);
-        }
-    };
-    modal();
+        modal();
+    }
 }
 
 submitInfo.addEventListener("click", calculateDates);
@@ -1381,7 +1569,7 @@ function AfterTravelDetailsCheckbox(daysOfTravel, peopleBooked){
         return this.value;
         }) 
         // Get array.
-        .get() 
+        .get();
         
         console.log(daysOfTravel);
         console.log(peopleBooked);

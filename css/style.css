@@ -80,7 +80,7 @@ html {
   grid-template-columns: repeat(16, 1fr);
   grid-template-rows: repeat(16, 1fr);
   width: 100%;
-  height: 250vh;
+  height: 259vh;
   position: absolute;
   left: 0;
   top: 0;
@@ -90,41 +90,6 @@ html {
     grid-row: 1/2;
     z-index: 1;
     margin-top: 60px; }
-  .l-image-grid__tagline-ctn {
-    background: #00ABDD;
-    z-index: 1;
-    display: flex;
-    flex-flow: column wrap;
-    align-items: flex-end;
-    padding: 2% 9% 2% 0%;
-    border-radius: 30px 0 0 30px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-    position: absolute;
-    top: 20%;
-    right: 0; }
-  .l-image-grid__hire-wrap {
-    display: flex; }
-  .l-image-grid__ride-ctn {
-    display: flex;
-    width: 14ch;
-    padding-top: 1rem; }
-  .l-image-grid__tagline {
-    width: 8ch;
-    font-size: 15rem;
-    z-index: 1;
-    font-family: "PurePakati", sans-serif;
-    text-align: right;
-    color: #FFFFFF;
-    line-height: 1; }
-    .l-image-grid__tagline--welcome {
-      font-size: 9rem; }
-    .l-image-grid__tagline--vehicle {
-      font-size: 6.5rem; }
-    .l-image-grid__tagline--small {
-      width: 20ch;
-      font-family: "National", Fallback, sans-serif;
-      font-size: 3.5rem;
-      text-align: right; }
   .l-image-grid__ctn-one {
     grid-column: 1/6;
     grid-row: 1/4;
@@ -208,10 +173,10 @@ html {
     .l-image-grid__blob-two {
       top: -220px;
       left: 50px;
-      transform: scale(70%);
+      transform: scale(0.7);
       background-position: 100% 100%; }
     .l-image-grid__blob-three {
-      transform: scale(70%); }
+      transform: scale(0.7); }
     .l-image-grid__ctn-four {
       grid-column: 2/17; }
 
@@ -253,7 +218,7 @@ html {
     .l-image-grid__blob-two {
       top: -220px;
       left: -100px;
-      transform: scale(70%);
+      transform: scale(0.7);
       background-size: auto 120%;
       background-position: 1000% 100%; }
     .l-image-grid__ctn-three {
@@ -263,7 +228,7 @@ html {
     .l-image-grid__blob-three {
       top: 0;
       left: -450px;
-      transform: scale(70%); }
+      transform: scale(0.7); }
     .l-image-grid__ctn-four {
       grid-column: 1/17;
       grid-row: 10/17; }
@@ -303,7 +268,6 @@ html {
 #contactInfo {
   width: 100%;
   height: 100%;
-  background: orange;
   display: flex;
   flex-flow: row wrap; }
 
@@ -325,7 +289,7 @@ html {
   width: 30%; }
 
 .modal-content {
-  height: 900px;
+  min-height: 900px;
   position: relative;
   border-radius: 50px; }
 
@@ -371,16 +335,14 @@ html {
 .c-modal__title-text {
   font-size: 1.6rem; }
 .c-modal__carousel-wrap {
+  height: 500px;
   width: 100%;
-  height: 50%;
   display: flex;
   justify-content: center;
-  padding-top: 2rem; }
-.c-modal__side-carousel {
-  background: #ffffff;
-  width: 14%;
-  z-index: 3; }
+  padding-top: 2rem;
+  padding-bottom: 5rem; }
 .c-modal__carousel {
+  height: 100%;
   margin-bottom: 4rem; }
 .c-modal__carousel-inner {
   height: 100%; }
@@ -416,7 +378,7 @@ html {
   font-size: 2.2rem;
   font-weight: 600; }
 .c-modal__icons-left {
-  width: 16rem;
+  width: 15rem;
   display: flex;
   flex-flow: row wrap; }
 .c-modal__icons-right {
@@ -453,15 +415,15 @@ html {
   height: 100%;
   display: flex;
   flex-flow: column wrap;
-  background: salmon;
-  padding: 0 3%; }
+  padding: 0 3%;
+  border-right: solid 1px #5CB8E2; }
 .c-modal__contact-img {
   width: 100%; }
 .c-modal__col-right {
   width: 70%;
   height: 100%;
-  background: skyblue;
-  padding: 0 3%; }
+  padding: 0 3%;
+  padding-top: 2%; }
 .c-modal__form {
   display: flex;
   flex-flow: column wrap; }
@@ -471,6 +433,36 @@ html {
   background: khaki; }
 .c-modal__input {
   width: 100%; }
+.c-modal__vehicleDetsError {
+  color: #DD1B51;
+  font-size: 2rem;
+  margin: 0 auto; }
+.c-modal__booking-title {
+  font-size: 2.5rem;
+  color: #00ABDD;
+  font-weight: 800;
+  text-transform: uppercase; }
+.c-modal__booking-partner {
+  font-size: 2rem;
+  color: #00ABDD;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase; }
+.c-modal__label {
+  color: #00ABDD;
+  font-size: 2rem; }
+.c-modal__input {
+  color: #FFFFFF;
+  background: #00ABDD;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 30px; }
+  .c-modal__input:focus {
+    outline: solid 3px #DDCE22; }
+.c-modal__licence-text {
+  color: #00ABDD;
+  font-size: 1.8rem;
+  padding-top: 2rem; }
 
 .l-sorting-ctn {
   width: 100%;
@@ -496,7 +488,6 @@ html {
     display: flex;
     align-items: center; }
   .c-inital-sorting__checkbox {
-    -webkit-appearance: none;
     appearance: none;
     background-color: #ffffff;
     margin: 0;
@@ -563,7 +554,6 @@ html {
     margin-right: 1.5rem;
     display: flex; }
   .c-final-sorting__checkbox {
-    -webkit-appearance: none;
     appearance: none;
     background-color: #ffffff;
     margin: 0;
@@ -804,7 +794,6 @@ html {
     display: flex;
     align-items: center; }
   .c-travel-details__checkbox {
-    -webkit-appearance: none;
     appearance: none;
     background-color: #00ABDD;
     margin: 0;
@@ -978,7 +967,6 @@ html {
     .c-travel-details__input {
       font-size: 1.5rem; } }
 .l-fuelCalBtn-sec {
-  display: none;
   width: 25%;
   min-height: 25vh;
   background: #ffffff;

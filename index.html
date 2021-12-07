@@ -26,16 +26,6 @@
       <!-- start of background grid -->
       <div class="l-image-grid">
         <img class="l-image-grid__logo" src="./img/Lets-go-logo.svg" alt="Let's GO! logo">
-        <div class="l-image-grid__tagline-ctn">
-          <h3 class="l-image-grid__tagline l-image-grid__tagline--welcome">Nau Mai.</h3>
-          <div class="l-image-grid__hire-wrap">
-            <h1 class="l-image-grid__tagline">Hire</h1>
-            <div class="l-image-grid__ride-ctn"><h1 class="l-image-grid__tagline l-image-grid__tagline--vehicle">your ride</h1>
-            </div>
-          </div>
-          <h3 class="l-image-grid__tagline l-image-grid__tagline--small">For a jounery like no other</h3>
-        </div>
-        
         <div class="l-image-grid__ctn-one">
             <div class="l-image-grid__blob-one"></div>
             <svg viewBox="0 0 1 0.99">
@@ -94,10 +84,10 @@
                 <h2 class="fuel-calculator__title">Your journey</h2>
                 <div>
 
-                  <label class="fuel-calculator__label" for="start-city">Start</label>
+                  <label class="fuel-calculator__label" for="start">Start</label>
                   <input id="start" class="fuel-calculator__input" placeholder="Enter a city" type="text">
                   
-                  <label class="fuel-calculator__label" for="start-city">Waypoints</label>
+                  <label class="fuel-calculator__label" for="waypoints">Waypoints</label>
                   <div class="fuel-calculator__waypoints-ctn">
                     <select class="fuel-calculator__waypoints" multiple id="waypoints">
                       <option value="Hamilton, NZ">Hamilton, NZ</option>
@@ -109,7 +99,7 @@
                     <i class="fuel-calculator__instr">hold down Ctrl+Click or Cmd+Click for multiple selection</i>
                   </div>
   
-                  <label class="fuel-calculator__label" for="start-city">End</label>
+                  <label class="fuel-calculator__label" for="end">End</label>
                   <input id="end" class="fuel-calculator__input" placeholder="Enter a city" type="text">
                   
                   <div class="fuel-calculator__vehicle-dets">
@@ -166,7 +156,7 @@
           <!-- start of travel details-->
           <div id="travelDetails" class="c-travel-details">
           
-            <form class="c-travel-details__ctn" action="">
+            <form class="c-travel-details__ctn">
               <div class="c-travel-details__label-ctn">
                 <label id="returnLocLabel" class="c-travel-details__label" for="pickUpLocation">Pick up and drop off location</label>
                 <label id="pickUpLocLabel" class="c-travel-details__label c-travel-details__label--pickup" for="pickUpLocation">Pick up location</label>
@@ -312,29 +302,29 @@
           <!-- start of inital sorting container -->
           <div class="c-inital-sorting">
             <div class="feedback-ctn"></div>
-            <form id="sortBy" class="c-inital-sorting__sorting" action="">
+            <form id="sortBy" class="c-inital-sorting__sorting">
               <div class="c-inital-sorting__checkboxes">
                 <div class="c-inital-sorting__ctn">
                   <input class="c-inital-sorting__checkbox" type="checkbox" name="typeI" value="motorbike">
-                  <label class="c-inital-sorting__label" for="typeI">Motorbike</label>
+                  <label class="c-inital-sorting__label">Motorbike</label>
                 </div>
                 <div class="c-inital-sorting__ctn">
                   <input class="c-inital-sorting__checkbox" type="checkbox" name="typeI" value="small car">
-                  <label class="c-inital-sorting__label" for="typeI">Small Car</label>
+                  <label class="c-inital-sorting__label">Small Car</label>
                 </div>
                 <div class="c-inital-sorting__ctn">
                   <input class="c-inital-sorting__checkbox" type="checkbox" name="typeI" value="large car">
-                  <label class="c-inital-sorting__label" for="typeI">Large Car</label>
+                  <label class="c-inital-sorting__label">Large Car</label>
                 </div>
                 <div class="c-inital-sorting__ctn">
                   <input class="c-inital-sorting__checkbox" type="checkbox" name="typeI" value="motor home">
-                  <label class="c-inital-sorting__label" for="typeI">Motorhome</label>
+                  <label class="c-inital-sorting__label">Motorhome</label>
                 </div>
               </div>
 
               <!-- sort by dropdown -->
               <div class="c-inital-sorting__select-ctn select">
-                <select id="sortBtn" name="" class="c-inital-sorting__select">
+                <select id="sortBtn" name="initial-sort-btn" class="c-inital-sorting__select">
                   <option class="c-inital-sorting__option" value="">Sort By</option>
                   <option class="c-inital-sorting__option" value="low">Low to high</option>
                   <option class="c-inital-sorting__option" value="high">High to low</option>
@@ -352,14 +342,14 @@
               <div class="c-final-sorting__feedback">
                 <div class="c-final-sorting__icon-wrap">
                   <img class="c-final-sorting__img" src="img/noun-day-1222774.svg" alt="number of days icon">
-                  <label class="c-final-sorting__icon-label" for="days">days</label>
+                  <label class="c-final-sorting__icon-label">days</label>
                 </div>
                 <p class="c-final-sorting__amount" id="days"></p>
               </div>
               <div class="c-final-sorting__feedback">
                 <div class="c-final-sorting__icon-wrap">
                   <img class="c-final-sorting__img c-final-sorting__img--taller" src="img/noun_people_3457284.svg" alt="number of people icon">
-                  <label class="c-final-sorting__icon-label" for="numberOfPeople">passengers</label>
+                  <label class="c-final-sorting__icon-label">passengers</label>
                 </div>
                 <p class="c-final-sorting__amount" id="numberOfPeople"></p>
               </div>
@@ -368,29 +358,29 @@
 
             <!-- start of Sort By container -->
             <!-- vehicle type checkboxes -->
-            <form id="sortBy" class="c-final-sorting__sorting" action="">
+            <form id="sortByFinal" class="c-final-sorting__sorting">
               <div class="c-final-sorting__checkboxes">
                 <div class="c-final-sorting__ctn">
                   <input class="c-final-sorting__checkbox" type="checkbox" name="type" value="motorbike">
-                  <label class="c-final-sorting__label" for="type">Motorbike</label>
+                  <label class="c-final-sorting__label">Motorbike</label>
                 </div>
                 <div class="c-final-sorting__ctn">
                   <input class="c-final-sorting__checkbox" type="checkbox" name="type" value="small car">
-                  <label class="c-final-sorting__label" for="type">Small Car</label>
+                  <label class="c-final-sorting__label">Small Car</label>
                 </div>
                 <div class="c-final-sorting__ctn">
                   <input class="c-final-sorting__checkbox" type="checkbox" name="type" value="large car">
-                  <label class="c-final-sorting__label" for="type">Large Car</label>
+                  <label class="c-final-sorting__label">Large Car</label>
                 </div>
                 <div class="c-final-sorting__ctn">
                   <input class="c-final-sorting__checkbox" type="checkbox" name="type" value="motor home">
-                  <label class="c-final-sorting__label" for="type">Motorhome</label>
+                  <label class="c-final-sorting__label">Motorhome</label>
                 </div>
               </div>
 
               <!-- sort by dropdown -->
               <div class="c-final-sorting__select-ctn select">
-                <select id="sortBtnFin" name="" class="c-final-sorting__select">
+                <select id="sortBtnFin" name="final-sort-btn" class="c-final-sorting__select">
                   <option class="c-final-sorting__option" value="">Sort By</option>
                   <option class="c-final-sorting__option" value="low">Low to high</option>
                   <option class="c-final-sorting__option" value="high">High to low</option>
@@ -413,7 +403,7 @@
         <!-- end of card container -->
         
         <!-- start of modal -->
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="vehicleHireModal" aria-hidden="true">
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
             <div class="modal-content">
               <div class="modal-header c-modal__header">
@@ -477,7 +467,6 @@
   <script src="./js/mapKey.js"></script>
   
   <!-- local script -->
-  <script src="./js/initialSorting.js"></script>
   <script src="./js/script.js"></script>
   
 </body>

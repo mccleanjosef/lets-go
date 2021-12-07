@@ -28,7 +28,6 @@
         align-items: center;
     }
     &__checkbox{
-        -webkit-appearance: none;
         appearance: none;
         background-color: $white;
         margin: 0;
@@ -92,7 +91,6 @@
         display: flex;
     }
     &__checkbox{
-        -webkit-appearance: none;
         appearance: none;
         background-color: $white;
         margin: 0;
