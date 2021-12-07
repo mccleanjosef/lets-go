@@ -692,7 +692,18 @@ function modal(){
                             </form>
                         </div>
                     </div>
-                    <div id="summary" class="c-modal__content"></div>
+                    <div id="summary" class="c-modal__content">
+                        <div class="c-modal__summary-ctn">
+                            <h3 class="c-modal__col-title">Summary</h3>
+                            <h5 class="c-modal__booking-title">${transport[i].name}</h5>
+                            <p class="c-modal__booking-partner">${transport[i].partner}</p>
+                            <p class="c-modal__booking-text">From</p><p id="modalPickUpLocationThree" class="c-modal__booking-text"></p><p id="modalPickUpDateTwo" class="c-modal__booking-text"></p>
+                            <p class="c-modal__booking-text">at</p><p id="modalPickUpTimeThree" class="c-modal__booking-text"></p>
+                            <p class="c-modal__booking-text">To</p><p id="modalDropOffLocationThree" class="c-modal__booking-text"><p id="modalDropOffDateTwo" class="c-modal__booking-text"></p>
+                            <p class="c-modal__booking-text">at</p><p id="modalDropOffTimeThree" class="c-modal__booking-text"></p>
+                            <p class="c-modal__booking-text">Total Cost &nbsp $ &nbsp</p><p id="sumTotalCost" class="c-modal__booking-text"></p>
+                        </div>
+                    </div>
                     `
                 ); 
             }
@@ -781,6 +792,7 @@ function modalContent(vehicleSelectedId){
             $('#totalCost').text(totalPrice);
             $('#infoTotalCost').text(totalPrice);
             $('#payTotalCost').text(totalPrice);
+            $('#sumTotalCost').text(totalPrice);
 
             console.log(typeof totalPrice, totalPrice);
 
@@ -812,27 +824,34 @@ function modalContent(vehicleSelectedId){
     // pick up date in modal
     $('#modalPickUpDate').text(startDate);
     $('#modalPickUpDateTwo').text(startDate);
+    $('#modalPickUpDateThree').text(startDate);
 
     // drop off date in modal
     $('#modalDropOffDate').text(endDate);
     $('#modalDropOffDateTwo').text(endDate);
+    $('#modalDropOffDateThree').text(endDate);
 
     // pick up time in modal
     $('#modalPickUpTime').text(pickUpTime);
     $('#modalPickUpTimeTwo').text(pickUpTime);
+    $('#modalPickUpTimeThree').text(pickUpTime);
+
 
     // drop off time in modal
     $('#modalDropOffTime').text(dropOffTime);
     $('#modalDropOffTimeTwo').text(dropOffTime);
+    $('#modalDropOffTimeThree').text(dropOffTime);
 
     // pick up location
     $('#modalPickUpLocation').text(pickUpLocation);
     $('#modalPickUpLocationTwo').text(pickUpLocation);
-    console.log(pickUpLocation);
+    $('#modalPickUpLocationThree').text(pickUpLocation);
+    // console.log(pickUpLocation);
 
     // drop off location
     $('#modalDropOffLocation').text(dropOffLocation);
     $('#modalDropOffLocationTwo').text(dropOffLocation);
+    $('#modalDropOffLocationThree').text(dropOffLocation);
 
     
 
@@ -1202,25 +1221,25 @@ function initMap(){
         center: nelson,
     });
 
-    // locations for custom map markers
-    let locations = [
-        ["aucklandAirport",-37.00583037363098,174.78537816193244, 1],
-        ["wellingtonAirport",-41.32995285285088,174.81191968956364,2],
-        ["queenstownAirport", -45.01820081582348, 168.74516306285938,3]
-    ];
+    // // locations for custom map markers
+    // let locations = [
+    //     ["aucklandAirport",-37.00583037363098,174.78537816193244, 1],
+    //     ["wellingtonAirport",-41.32995285285088,174.81191968956364,2],
+    //     ["queenstownAirport", -45.01820081582348, 168.74516306285938,3]
+    // ];
 
-    let i = 0;
-    for(i = 0; i <locations.length; i++){
-        const location = locations[i];
-        // console.log(location);
-        new google.maps.Marker({
-            position: {lat:location[1],lng:location[2]},
-            map,
-            icon:image,
-            title: location[0],
-            zIndex:location[3]
-        });
-    }
+    // let i = 0;
+    // for(i = 0; i <locations.length; i++){
+    //     const location = locations[i];
+    //     // console.log(location);
+    //     new google.maps.Marker({
+    //         position: {lat:location[1],lng:location[2]},
+    //         map,
+    //         icon:image,
+    //         title: location[0],
+    //         zIndex:location[3]
+    //     });
+    // }
 
 
     directionsRenderer.setMap(map);

@@ -26,7 +26,7 @@
 #payment{
     width: 100%;
     height: 100%;
-    background: purple;
+    // background: purple;
     display: flex;
     flex-flow: row wrap;
 }
@@ -34,7 +34,7 @@
 #summary{
     width: 100%;
     height: 100%;
-    background: red;
+    // background: red;
     display: flex;
     flex-flow: row wrap;
 }
@@ -231,7 +231,7 @@
     &__card-expiry{
         width: 100%;
         display: flex;
-        background: khaki;
+        // background: khaki;
     }
     &__input{
         width: 100%;

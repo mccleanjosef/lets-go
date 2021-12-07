@@ -274,14 +274,12 @@ html {
 #payment {
   width: 100%;
   height: 100%;
-  background: purple;
   display: flex;
   flex-flow: row wrap; }
 
 #summary {
   width: 100%;
   height: 100%;
-  background: red;
   display: flex;
   flex-flow: row wrap; }
 
@@ -429,8 +427,7 @@ html {
   flex-flow: column wrap; }
 .c-modal__card-expiry {
   width: 100%;
-  display: flex;
-  background: khaki; }
+  display: flex; }
 .c-modal__input {
   width: 100%; }
 .c-modal__vehicleDetsError {
