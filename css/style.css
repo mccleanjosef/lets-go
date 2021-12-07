@@ -456,7 +456,8 @@ html {
   background: #00ABDD;
   padding: 0.5em 1em;
   border: none;
-  border-radius: 30px; }
+  border-radius: 30px;
+  letter-spacing: 0.05em; }
   .c-modal__input:focus {
     outline: solid 3px #DDCE22; }
 .c-modal__licence-text {
