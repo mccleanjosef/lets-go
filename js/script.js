@@ -796,29 +796,68 @@ function modalContent(vehicleSelectedId){
 
             console.log(typeof totalPrice, totalPrice);
 
-            if ( isNaN(totalPrice) ){
+            if( isNaN(totalPrice) ){
                 $('#totalCost').empty().append(
                     "--"
                 );
-                function hire(){
-                    $('.c-modal__vehicleDetsError').empty()
-                    $('#vehicleDetails').append(
-                        '<p class="c-modal__vehicleDetsError">Please search for vehicles using your travel information to hire vehicle</p>'
-                    );
-                }
-            } else {
-                function hire(){
-                    $('#vehicleDetails').hide();
-                    $('#contactInfo').show();
-                    $('#hireBtn').hide();
-                    $('#infoConfirmBtn').show();
-
-                    $('#vecDetTitle').removeClass("c-modal__title-ctn--active");
-                    $('#contactTitle').addClass("c-modal__title-ctn--active");
-                    $('#contactTitle').removeClass("c-modal__title-ctn--stacked-one");
-                }
             }
-        } 
+
+            
+
+            // if ( isNaN(totalPrice) ){
+            //     $('#totalCost').empty().append(
+            //         "--"
+            //     );
+            //     function hireErrorMessage(){
+            //         $('.c-modal__vehicleDetsError').empty();
+            //         $('#vehicleDetails').append(
+            //             '<p class="c-modal__vehicleDetsError">To hire please input your travel information and search first</p>'
+            //         );
+            //     }
+            // } else {
+            //     function hire(){
+            //         $('#vehicleDetails').hide();
+            //         $('#contactInfo').show();
+            //         $('#hireBtn').hide();
+            //         $('#infoConfirmBtn').show();
+
+            //         $('#vecDetTitle').removeClass("c-modal__title-ctn--active");
+            //         $('#contactTitle').addClass("c-modal__title-ctn--active");
+            //         $('#contactTitle').removeClass("c-modal__title-ctn--stacked-one");
+            //     }
+            // }
+
+            // function hire(){
+            //     $('#vehicleDetails').hide();
+            //     $('#contactInfo').show();
+            //     $('#hireBtn').hide();
+            //     $('#infoConfirmBtn').show();
+
+            //     $('#vecDetTitle').removeClass("c-modal__title-ctn--active");
+            //     $('#contactTitle').addClass("c-modal__title-ctn--active");
+            //     $('#contactTitle').removeClass("c-modal__title-ctn--stacked-one");
+            // }
+        }
+
+        
+    }
+
+    function selectHire(){
+        if ( isNaN(modalTotalPrice) ){
+            $('.c-modal__vehicleDetsError').empty();
+            $('#vehicleDetails').append(
+                '<p class="c-modal__vehicleDetsError">To hire please input your travel information and search first</p>'
+            );
+        } else {
+            $('#vehicleDetails').hide();
+            $('#contactInfo').show();
+            $('#hireBtn').hide();
+            $('#infoConfirmBtn').show();
+
+            $('#vecDetTitle').removeClass("c-modal__title-ctn--active");
+            $('#contactTitle').addClass("c-modal__title-ctn--active");
+            $('#contactTitle').removeClass("c-modal__title-ctn--stacked-one");
+        }
     }
 
     // pick up date in modal
@@ -855,7 +894,7 @@ function modalContent(vehicleSelectedId){
 
     
 
-    hireBtn.addEventListener("click", hire);
+    hireBtn.addEventListener("click", selectHire);
     infoConfirmBtn.addEventListener("click", infoConfirm);
     paymentConfirmBtn.addEventListener("click", payConfirm);
     closeBtn.addEventListener("click", close);
