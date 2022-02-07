@@ -631,11 +631,24 @@ function modal(){
                             <img class="c-modal__contact-img" src="${transport[i].imageOne}" alt="selected vechicle photo">
                             <h5 class="c-modal__booking-title">${transport[i].name}</h5>
                             <p class="c-modal__booking-partner">${transport[i].partner}</p>
-                            <p class="c-modal__booking-text">From</p><p id="modalPickUpLocation" class="c-modal__booking-text"><p id="modalPickUpDate" class="c-modal__booking-text"></p>
-                            <p class="c-modal__booking-text">at</p><p id="modalPickUpTime" class="c-modal__booking-text"></p>
-                            <p class="c-modal__booking-text">To</p><p id="modalDropOffLocation" class="c-modal__booking-text"><p id="modalDropOffDate" class="c-modal__booking-text"></p>
-                            <p class="c-modal__booking-text">at</p><p id="modalDropOffTime" class="c-modal__booking-text"></p>
-                            <p class="c-modal__booking-text">Total Cost &nbsp $ &nbsp</p><p id="infoTotalCost" class="c-modal__booking-text"></p>
+                            <div class="c-modal__break"></div>
+                            <p class="c-modal__booking-text">From&nbsp</p>
+                            <p id="modalPickUpLocation" class="c-modal__booking-text"></p>
+                            <div class="c-modal__break"></div>
+                            <p class="c-modal__booking-text">On&nbsp</p>
+                            <p id="modalPickUpDate" class="c-modal__booking-text"></p>
+                            <p class="c-modal__booking-text">&nbspat&nbsp</p>
+                            <p id="modalPickUpTime" class="c-modal__booking-text"></p>
+                            <div class="c-modal__break"></div>
+                            <p class="c-modal__booking-text">To&nbsp</p>
+                            <p id="modalDropOffLocation" class="c-modal__booking-text">
+                            <div class="c-modal__break"></div>
+                            <p class="c-modal__booking-text">On&nbsp</p>
+                            <p id="modalDropOffDate" class="c-modal__booking-text"></p>
+                            <p class="c-modal__booking-text">&nbspat&nbsp</p>
+                            <p id="modalDropOffTime" class="c-modal__booking-text"></p>
+                            <div class="c-modal__break"></div>
+                            <p class="c-modal__booking-text">Total Cost = $</p><p id="infoTotalCost" class="c-modal__booking-text"></p>
                         </div>
                         <div class="c-modal__col-right">
                             <form class="c-modal__form" action="">
@@ -653,15 +666,28 @@ function modal(){
                     </div>
                     <div id="payment" class="c-modal__content">
                         <div class="c-modal__col-left">
-                            <h3 class="c-modal__col-title">Your booking</h3>
+                            <h3 class="c-modal__booking-title">Your booking</h3>
                             <img class="c-modal__contact-img" src="${transport[i].imageOne}" alt="selected vechicle photo">
                             <h5 class="c-modal__booking-title">${transport[i].name}</h5>
                             <p class="c-modal__booking-partner">${transport[i].partner}</p>
-                            <p class="c-modal__booking-text">From</p><p id="modalPickUpLocationTwo" class="c-modal__booking-text"></p><p id="modalPickUpDateTwo" class="c-modal__booking-text"></p>
-                            <p class="c-modal__booking-text">at</p><p id="modalPickUpTimeTwo" class="c-modal__booking-text"></p>
-                            <p class="c-modal__booking-text">To</p><p id="modalDropOffLocationTwo" class="c-modal__booking-text"><p id="modalDropOffDateTwo" class="c-modal__booking-text"></p>
-                            <p class="c-modal__booking-text">at</p><p id="modalDropOffTimeTwo" class="c-modal__booking-text"></p>
-                            <p class="c-modal__booking-text">Total Cost &nbsp $ &nbsp</p><p id="payTotalCost" class="c-modal__booking-text"></p>
+                            <div class="c-modal__break"></div>
+                            <p class="c-modal__booking-text">From&nbsp</p>
+                            <p id="modalPickUpLocationTwo" class="c-modal__booking-text"></p>
+                            <div class="c-modal__break"></div>
+                            <p class="c-modal__booking-text">On&nbsp</p>
+                            <p id="modalPickUpDateTwo" class="c-modal__booking-text"></p>
+                            <p class="c-modal__booking-text">&nbspat&nbsp</p>
+                            <p id="modalPickUpTimeTwo" class="c-modal__booking-text"></p>
+                            <div class="c-modal__break"></div>
+                            <p class="c-modal__booking-text">To&nbsp</p>
+                            <p id="modalDropOffLocationTwo" class="c-modal__booking-text">
+                            <div class="c-modal__break"></div>
+                            <p class="c-modal__booking-text">On&nbsp</p>
+                            <p id="modalDropOffDateTwo" class="c-modal__booking-text"></p>
+                            <p class="c-modal__booking-text">&nbspat&nbsp</p>
+                            <p id="modalDropOffTimeTwo" class="c-modal__booking-text"></p>
+                            <div class="c-modal__break"></div>
+                            <p class="c-modal__booking-text">Total Cost = $</p><p id="payTotalCost" class="c-modal__booking-text"></p>
                         </div>
                         <div class="c-modal__col-right">
                             <form class="c-modal__form" action="">
@@ -694,14 +720,29 @@ function modal(){
                     </div>
                     <div id="summary" class="c-modal__content">
                         <div class="c-modal__summary-ctn">
-                            <h3 class="c-modal__col-title">Summary</h3>
+                            <h3 class="c-modal__booking-title">Your booking</h3>
+                            <img class="c-modal__contact-img" src="${transport[i].imageOne}" alt="selected vechicle photo">
                             <h5 class="c-modal__booking-title">${transport[i].name}</h5>
+                            <div class="c-modal__break"></div>
                             <p class="c-modal__booking-partner">${transport[i].partner}</p>
-                            <p class="c-modal__booking-text">From</p><p id="modalPickUpLocationThree" class="c-modal__booking-text"></p><p id="modalPickUpDateTwo" class="c-modal__booking-text"></p>
-                            <p class="c-modal__booking-text">at</p><p id="modalPickUpTimeThree" class="c-modal__booking-text"></p>
-                            <p class="c-modal__booking-text">To</p><p id="modalDropOffLocationThree" class="c-modal__booking-text"><p id="modalDropOffDateTwo" class="c-modal__booking-text"></p>
-                            <p class="c-modal__booking-text">at</p><p id="modalDropOffTimeThree" class="c-modal__booking-text"></p>
-                            <p class="c-modal__booking-text">Total Cost &nbsp $ &nbsp</p><p id="sumTotalCost" class="c-modal__booking-text"></p>
+                            <div class="c-modal__break"></div>
+                            <p class="c-modal__booking-text">From&nbsp</p>
+                            <p id="modalPickUpLocationThree" class="c-modal__booking-text"></p>
+                            <div class="c-modal__break"></div>
+                            <p class="c-modal__booking-text">On&nbsp</p>
+                            <p id="modalPickUpDateThree" class="c-modal__booking-text"></p>
+                            <p class="c-modal__booking-text">&nbspat&nbsp</p>
+                            <p id="modalPickUpTimeThree" class="c-modal__booking-text"></p>
+                            <div class="c-modal__break"></div>
+                            <p class="c-modal__booking-text">To&nbsp</p>
+                            <p id="modalDropOffLocationThree" class="c-modal__booking-text">
+                            <div class="c-modal__break"></div>
+                            <p class="c-modal__booking-text">On&nbsp</p>
+                            <p id="modalDropOffDateThree" class="c-modal__booking-text"></p>
+                            <p class="c-modal__booking-text">&nbspat&nbsp</p>
+                            <p id="modalDropOffTimeThree" class="c-modal__booking-text"></p>
+                            <div class="c-modal__break"></div>
+                            <p class="c-modal__booking-text">Total Cost = $</p><p id="sumTotalCost" class="c-modal__booking-text"></p>
                         </div>
                     </div>
                     `
@@ -801,63 +842,33 @@ function modalContent(vehicleSelectedId){
                     "--"
                 );
             }
-
-            
-
-            // if ( isNaN(totalPrice) ){
-            //     $('#totalCost').empty().append(
-            //         "--"
-            //     );
-            //     function hireErrorMessage(){
-            //         $('.c-modal__vehicleDetsError').empty();
-            //         $('#vehicleDetails').append(
-            //             '<p class="c-modal__vehicleDetsError">To hire please input your travel information and search first</p>'
-            //         );
-            //     }
-            // } else {
-            //     function hire(){
-            //         $('#vehicleDetails').hide();
-            //         $('#contactInfo').show();
-            //         $('#hireBtn').hide();
-            //         $('#infoConfirmBtn').show();
-
-            //         $('#vecDetTitle').removeClass("c-modal__title-ctn--active");
-            //         $('#contactTitle').addClass("c-modal__title-ctn--active");
-            //         $('#contactTitle').removeClass("c-modal__title-ctn--stacked-one");
-            //     }
-            // }
-
-            // function hire(){
-            //     $('#vehicleDetails').hide();
-            //     $('#contactInfo').show();
-            //     $('#hireBtn').hide();
-            //     $('#infoConfirmBtn').show();
-
-            //     $('#vecDetTitle').removeClass("c-modal__title-ctn--active");
-            //     $('#contactTitle').addClass("c-modal__title-ctn--active");
-            //     $('#contactTitle').removeClass("c-modal__title-ctn--stacked-one");
-            // }
         }
-
-        
     }
 
     function selectHire(){
-        if ( isNaN(modalTotalPrice) ){
-            $('.c-modal__vehicleDetsError').empty();
-            $('#vehicleDetails').append(
-                '<p class="c-modal__vehicleDetsError">To hire please input your travel information and search first</p>'
-            );
-        } else {
-            $('#vehicleDetails').hide();
-            $('#contactInfo').show();
-            $('#hireBtn').hide();
-            $('#infoConfirmBtn').show();
+        // if ( isNaN(modalTotalPrice) ){
+        //     $('.c-modal__vehicleDetsError').empty();
+        //     $('#vehicleDetails').append(
+        //         '<p class="c-modal__vehicleDetsError">To hire please input your travel information and search first</p>'
+        //     );
+        // } else {
+        //     $('#vehicleDetails').hide();
+        //     $('#contactInfo').show();
+        //     $('#hireBtn').hide();
+        //     $('#infoConfirmBtn').show();
 
-            $('#vecDetTitle').removeClass("c-modal__title-ctn--active");
-            $('#contactTitle').addClass("c-modal__title-ctn--active");
-            $('#contactTitle').removeClass("c-modal__title-ctn--stacked-one");
-        }
+        //     $('#vecDetTitle').removeClass("c-modal__title-ctn--active");
+        //     $('#contactTitle').addClass("c-modal__title-ctn--active");
+        //     $('#contactTitle').removeClass("c-modal__title-ctn--stacked-one");
+        // }
+        $('#vehicleDetails').hide();
+        $('#contactInfo').show();
+        $('#hireBtn').hide();
+        $('#infoConfirmBtn').show();
+
+        $('#vecDetTitle').removeClass("c-modal__title-ctn--active");
+        $('#contactTitle').addClass("c-modal__title-ctn--active");
+        $('#contactTitle').removeClass("c-modal__title-ctn--stacked-one");
     }
 
     // pick up date in modal
@@ -885,7 +896,7 @@ function modalContent(vehicleSelectedId){
     $('#modalPickUpLocation').text(pickUpLocation);
     $('#modalPickUpLocationTwo').text(pickUpLocation);
     $('#modalPickUpLocationThree').text(pickUpLocation);
-    // console.log(pickUpLocation);
+    console.log(pickUpLocation);
 
     // drop off location
     $('#modalDropOffLocation').text(dropOffLocation);
@@ -987,16 +998,14 @@ $(document).ready(function(){
     
     // Pick up time
     $('#pickUpTime').change(function(){
-        let timePickUp = $('#pickUpTime').val();
-        // console.log(timePickUp);
-        pickUpTime = timePickUp;
+        pickUpTime = $('#pickUpTime').val();
+        console.log(pickUpTime);
     });
 
     // Drop off time
     $('#dropOffTime').change(function(){
-        let timeDropOff = $('#dropOffTime').val();
-        // console.log(timeDropOff);
-        dropOffTime = timeDropOff;
+        dropOffTime = $('#dropOffTime').val();
+        console.log(dropOffTime);
     });
 
 
@@ -1529,17 +1538,11 @@ function calculateDates(event){
     }
     // end of no results feedback
 
-    // setting global variables for modal
-    let locationReturn = $('#returnLocation').val();
-    locationPickUp = $('#pickUpLocation').val();
-    locationDropOff = $('#dropOffLocation').val();
-
-    console.log(locationReturn);
-
+    // Assigning location values to global variables
     if( locationPickUp == "" &&  locationDropOff == ""){
         
-        let pickUpLocation = locationReturn;
-        let dropOffLocation = locationReturn;
+        pickUpLocation = locationReturnTrip;
+        dropOffLocation = locationReturnTrip;
         console.log(pickUpLocation);
         console.log(dropOffLocation);
     } else {
